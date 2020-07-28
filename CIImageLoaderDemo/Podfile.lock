@@ -1,0 +1,39 @@
+PODS:
+  - CloudInfinite (1.0.0):
+    - CloudInfinite/CloudInfinite (= 1.0.0)
+  - CloudInfinite/CloudInfinite (1.0.0)
+  - CloudInfinite/Loader (1.0.0):
+    - QCloudCore
+  - CloudInfinite/SDWebImage-TPG (1.0.0):
+    - SDWebImage
+  - CloudInfinite/TPG (1.0.0)
+  - QCloudCore (5.7.3):
+    - QCloudCore/Default (= 5.7.3)
+  - QCloudCore/Default (5.7.3)
+  - SDWebImage (5.8.1):
+    - SDWebImage/Core (= 5.8.1)
+  - SDWebImage/Core (5.8.1)
+
+DEPENDENCIES:
+  - CloudInfinite (from `../CloudInfinite`)
+  - CloudInfinite/Loader (from `../CloudInfinite`)
+  - CloudInfinite/SDWebImage-TPG (from `../CloudInfinite`)
+  - CloudInfinite/TPG (from `../CloudInfinite`)
+
+SPEC REPOS:
+  trunk:
+    - QCloudCore
+    - SDWebImage
+
+EXTERNAL SOURCES:
+  CloudInfinite:
+    :path: "../CloudInfinite"
+
+SPEC CHECKSUMS:
+  CloudInfinite: 8ef298ffa88f6ca5adf734441830c3c051db8148
+  QCloudCore: 62e4857fc8d435de9be71002021c0d97f1f1b43a
+  SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
+
+PODFILE CHECKSUM: 7c57dc93b7485fe0a14c2a1353eef7e5e5b0e4e1
+
+COCOAPODS: 1.9.1

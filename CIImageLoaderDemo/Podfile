@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'CIImageLoaderDemo' do
+
+#  pod 'CloudInfinite/CloudInfinite',      path:'../CloudInfinite'
+  pod 'CloudInfinite',                    path:'../CloudInfinite'
+  pod 'CloudInfinite/TPG',                path:'../CloudInfinite'
+  pod 'CloudInfinite/SDWebImage-TPG',     path:'../CloudInfinite'
+  pod 'CloudInfinite/Loader',             path:'../CloudInfinite'
+
+end

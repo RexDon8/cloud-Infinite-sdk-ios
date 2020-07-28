@@ -1,0 +1,678 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A240D2FF4115E9D401670B31 /* Pods_CIImageLoaderDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA62713179EB2ACFC90192A9 /* Pods_CIImageLoaderDemo.framework */; };
+		D23E530924C9A02600052190 /* TPGCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D23E530724C9A02600052190 /* TPGCollectionViewCell.m */; };
+		D23E530A24C9A02600052190 /* TPGCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D23E530824C9A02600052190 /* TPGCollectionViewCell.xib */; };
+		D24C6C8924C1C69A00DD4F25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C6C8824C1C69A00DD4F25 /* AppDelegate.m */; };
+		D24C6C8C24C1C69A00DD4F25 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C6C8B24C1C69A00DD4F25 /* SceneDelegate.m */; };
+		D24C6C8F24C1C69A00DD4F25 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C6C8E24C1C69A00DD4F25 /* ViewController.m */; };
+		D24C6C9224C1C69A00DD4F25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24C6C9024C1C69A00DD4F25 /* Main.storyboard */; };
+		D24C6C9424C1C69C00DD4F25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D24C6C9324C1C69C00DD4F25 /* Assets.xcassets */; };
+		D24C6C9724C1C69C00DD4F25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24C6C9524C1C69C00DD4F25 /* LaunchScreen.storyboard */; };
+		D24C6C9A24C1C69C00DD4F25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C6C9924C1C69C00DD4F25 /* main.m */; };
+		D24C6CA424C1C69C00DD4F25 /* CIImageLoaderDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C6CA324C1C69C00DD4F25 /* CIImageLoaderDemoTests.m */; };
+		D24C6CAF24C1C69C00DD4F25 /* CIImageLoaderDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C6CAE24C1C69C00DD4F25 /* CIImageLoaderDemoUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D24C6CA024C1C69C00DD4F25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D24C6C7C24C1C69A00DD4F25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D24C6C8324C1C69A00DD4F25;
+			remoteInfo = CIImageLoaderDemo;
+		};
+		D24C6CAB24C1C69C00DD4F25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D24C6C7C24C1C69A00DD4F25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D24C6C8324C1C69A00DD4F25;
+			remoteInfo = CIImageLoaderDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D23E530624C9A02600052190 /* TPGCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPGCollectionViewCell.h; sourceTree = "<group>"; };
+		D23E530724C9A02600052190 /* TPGCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPGCollectionViewCell.m; sourceTree = "<group>"; };
+		D23E530824C9A02600052190 /* TPGCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPGCollectionViewCell.xib; sourceTree = "<group>"; };
+		D24C6C8424C1C69A00DD4F25 /* CIImageLoaderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CIImageLoaderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D24C6C8724C1C69A00DD4F25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D24C6C8824C1C69A00DD4F25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D24C6C8A24C1C69A00DD4F25 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		D24C6C8B24C1C69A00DD4F25 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		D24C6C8D24C1C69A00DD4F25 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D24C6C8E24C1C69A00DD4F25 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D24C6C9124C1C69A00DD4F25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D24C6C9324C1C69C00DD4F25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D24C6C9624C1C69C00DD4F25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D24C6C9824C1C69C00DD4F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D24C6C9924C1C69C00DD4F25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D24C6C9F24C1C69C00DD4F25 /* CIImageLoaderDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CIImageLoaderDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D24C6CA324C1C69C00DD4F25 /* CIImageLoaderDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CIImageLoaderDemoTests.m; sourceTree = "<group>"; };
+		D24C6CA524C1C69C00DD4F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D24C6CAA24C1C69C00DD4F25 /* CIImageLoaderDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CIImageLoaderDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D24C6CAE24C1C69C00DD4F25 /* CIImageLoaderDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CIImageLoaderDemoUITests.m; sourceTree = "<group>"; };
+		D24C6CB024C1C69C00DD4F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D24C6CBF24C1CCE200DD4F25 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		D24C6CC124C1CCEE00DD4F25 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		E568E41250663B583E9CB859 /* Pods-CIImageLoaderDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CIImageLoaderDemo.debug.xcconfig"; path = "Target Support Files/Pods-CIImageLoaderDemo/Pods-CIImageLoaderDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		EEB4B47DDBFED6C36B6E394D /* Pods-CIImageLoaderDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CIImageLoaderDemo.release.xcconfig"; path = "Target Support Files/Pods-CIImageLoaderDemo/Pods-CIImageLoaderDemo.release.xcconfig"; sourceTree = "<group>"; };
+		FA62713179EB2ACFC90192A9 /* Pods_CIImageLoaderDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CIImageLoaderDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D24C6C8124C1C69A00DD4F25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A240D2FF4115E9D401670B31 /* Pods_CIImageLoaderDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D24C6C9C24C1C69C00DD4F25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D24C6CA724C1C69C00DD4F25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		879FA2F9F65A55CDA29C5885 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D24C6CC124C1CCEE00DD4F25 /* libc++.tbd */,
+				D24C6CBF24C1CCE200DD4F25 /* libz.tbd */,
+				FA62713179EB2ACFC90192A9 /* Pods_CIImageLoaderDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D24C6C7B24C1C69A00DD4F25 = {
+			isa = PBXGroup;
+			children = (
+				D24C6C8624C1C69A00DD4F25 /* CIImageLoaderDemo */,
+				D24C6CA224C1C69C00DD4F25 /* CIImageLoaderDemoTests */,
+				D24C6CAD24C1C69C00DD4F25 /* CIImageLoaderDemoUITests */,
+				D24C6C8524C1C69A00DD4F25 /* Products */,
+				FCA611E91E65A0048A1F10DA /* Pods */,
+				879FA2F9F65A55CDA29C5885 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D24C6C8524C1C69A00DD4F25 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D24C6C8424C1C69A00DD4F25 /* CIImageLoaderDemo.app */,
+				D24C6C9F24C1C69C00DD4F25 /* CIImageLoaderDemoTests.xctest */,
+				D24C6CAA24C1C69C00DD4F25 /* CIImageLoaderDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D24C6C8624C1C69A00DD4F25 /* CIImageLoaderDemo */ = {
+			isa = PBXGroup;
+			children = (
+				D24C6C8724C1C69A00DD4F25 /* AppDelegate.h */,
+				D24C6C8824C1C69A00DD4F25 /* AppDelegate.m */,
+				D24C6C8A24C1C69A00DD4F25 /* SceneDelegate.h */,
+				D24C6C8B24C1C69A00DD4F25 /* SceneDelegate.m */,
+				D24C6C8D24C1C69A00DD4F25 /* ViewController.h */,
+				D24C6C8E24C1C69A00DD4F25 /* ViewController.m */,
+				D24C6C9024C1C69A00DD4F25 /* Main.storyboard */,
+				D24C6C9324C1C69C00DD4F25 /* Assets.xcassets */,
+				D24C6C9524C1C69C00DD4F25 /* LaunchScreen.storyboard */,
+				D24C6C9824C1C69C00DD4F25 /* Info.plist */,
+				D24C6C9924C1C69C00DD4F25 /* main.m */,
+				D23E530624C9A02600052190 /* TPGCollectionViewCell.h */,
+				D23E530724C9A02600052190 /* TPGCollectionViewCell.m */,
+				D23E530824C9A02600052190 /* TPGCollectionViewCell.xib */,
+			);
+			path = CIImageLoaderDemo;
+			sourceTree = "<group>";
+		};
+		D24C6CA224C1C69C00DD4F25 /* CIImageLoaderDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				D24C6CA324C1C69C00DD4F25 /* CIImageLoaderDemoTests.m */,
+				D24C6CA524C1C69C00DD4F25 /* Info.plist */,
+			);
+			path = CIImageLoaderDemoTests;
+			sourceTree = "<group>";
+		};
+		D24C6CAD24C1C69C00DD4F25 /* CIImageLoaderDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D24C6CAE24C1C69C00DD4F25 /* CIImageLoaderDemoUITests.m */,
+				D24C6CB024C1C69C00DD4F25 /* Info.plist */,
+			);
+			path = CIImageLoaderDemoUITests;
+			sourceTree = "<group>";
+		};
+		FCA611E91E65A0048A1F10DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E568E41250663B583E9CB859 /* Pods-CIImageLoaderDemo.debug.xcconfig */,
+				EEB4B47DDBFED6C36B6E394D /* Pods-CIImageLoaderDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D24C6C8324C1C69A00DD4F25 /* CIImageLoaderDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D24C6CB324C1C69C00DD4F25 /* Build configuration list for PBXNativeTarget "CIImageLoaderDemo" */;
+			buildPhases = (
+				9EA23B1DFB84C05F54D6CF49 /* [CP] Check Pods Manifest.lock */,
+				D24C6C8024C1C69A00DD4F25 /* Sources */,
+				D24C6C8124C1C69A00DD4F25 /* Frameworks */,
+				D24C6C8224C1C69A00DD4F25 /* Resources */,
+				77BFF137C335B5C34D3453EB /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CIImageLoaderDemo;
+			productName = CIImageLoaderDemo;
+			productReference = D24C6C8424C1C69A00DD4F25 /* CIImageLoaderDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D24C6C9E24C1C69C00DD4F25 /* CIImageLoaderDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D24C6CB624C1C69C00DD4F25 /* Build configuration list for PBXNativeTarget "CIImageLoaderDemoTests" */;
+			buildPhases = (
+				D24C6C9B24C1C69C00DD4F25 /* Sources */,
+				D24C6C9C24C1C69C00DD4F25 /* Frameworks */,
+				D24C6C9D24C1C69C00DD4F25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D24C6CA124C1C69C00DD4F25 /* PBXTargetDependency */,
+			);
+			name = CIImageLoaderDemoTests;
+			productName = CIImageLoaderDemoTests;
+			productReference = D24C6C9F24C1C69C00DD4F25 /* CIImageLoaderDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D24C6CA924C1C69C00DD4F25 /* CIImageLoaderDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D24C6CB924C1C69C00DD4F25 /* Build configuration list for PBXNativeTarget "CIImageLoaderDemoUITests" */;
+			buildPhases = (
+				D24C6CA624C1C69C00DD4F25 /* Sources */,
+				D24C6CA724C1C69C00DD4F25 /* Frameworks */,
+				D24C6CA824C1C69C00DD4F25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D24C6CAC24C1C69C00DD4F25 /* PBXTargetDependency */,
+			);
+			name = CIImageLoaderDemoUITests;
+			productName = CIImageLoaderDemoUITests;
+			productReference = D24C6CAA24C1C69C00DD4F25 /* CIImageLoaderDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D24C6C7C24C1C69A00DD4F25 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = garenwang;
+				TargetAttributes = {
+					D24C6C8324C1C69A00DD4F25 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					D24C6C9E24C1C69C00DD4F25 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = D24C6C8324C1C69A00DD4F25;
+					};
+					D24C6CA924C1C69C00DD4F25 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = D24C6C8324C1C69A00DD4F25;
+					};
+				};
+			};
+			buildConfigurationList = D24C6C7F24C1C69A00DD4F25 /* Build configuration list for PBXProject "CIImageLoaderDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D24C6C7B24C1C69A00DD4F25;
+			productRefGroup = D24C6C8524C1C69A00DD4F25 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D24C6C8324C1C69A00DD4F25 /* CIImageLoaderDemo */,
+				D24C6C9E24C1C69C00DD4F25 /* CIImageLoaderDemoTests */,
+				D24C6CA924C1C69C00DD4F25 /* CIImageLoaderDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D24C6C8224C1C69A00DD4F25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D23E530A24C9A02600052190 /* TPGCollectionViewCell.xib in Resources */,
+				D24C6C9724C1C69C00DD4F25 /* LaunchScreen.storyboard in Resources */,
+				D24C6C9424C1C69C00DD4F25 /* Assets.xcassets in Resources */,
+				D24C6C9224C1C69A00DD4F25 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D24C6C9D24C1C69C00DD4F25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D24C6CA824C1C69C00DD4F25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		77BFF137C335B5C34D3453EB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CIImageLoaderDemo/Pods-CIImageLoaderDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CIImageLoaderDemo/Pods-CIImageLoaderDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CIImageLoaderDemo/Pods-CIImageLoaderDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9EA23B1DFB84C05F54D6CF49 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CIImageLoaderDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D24C6C8024C1C69A00DD4F25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D24C6C8F24C1C69A00DD4F25 /* ViewController.m in Sources */,
+				D24C6C8924C1C69A00DD4F25 /* AppDelegate.m in Sources */,
+				D24C6C9A24C1C69C00DD4F25 /* main.m in Sources */,
+				D24C6C8C24C1C69A00DD4F25 /* SceneDelegate.m in Sources */,
+				D23E530924C9A02600052190 /* TPGCollectionViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D24C6C9B24C1C69C00DD4F25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D24C6CA424C1C69C00DD4F25 /* CIImageLoaderDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D24C6CA624C1C69C00DD4F25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D24C6CAF24C1C69C00DD4F25 /* CIImageLoaderDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D24C6CA124C1C69C00DD4F25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D24C6C8324C1C69A00DD4F25 /* CIImageLoaderDemo */;
+			targetProxy = D24C6CA024C1C69C00DD4F25 /* PBXContainerItemProxy */;
+		};
+		D24C6CAC24C1C69C00DD4F25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D24C6C8324C1C69A00DD4F25 /* CIImageLoaderDemo */;
+			targetProxy = D24C6CAB24C1C69C00DD4F25 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D24C6C9024C1C69A00DD4F25 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D24C6C9124C1C69A00DD4F25 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D24C6C9524C1C69C00DD4F25 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D24C6C9624C1C69C00DD4F25 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D24C6CB124C1C69C00DD4F25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D24C6CB224C1C69C00DD4F25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D24C6CB424C1C69C00DD4F25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E568E41250663B583E9CB859 /* Pods-CIImageLoaderDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RL39LH4U4;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = CIImageLoaderDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tx.test.CIImageLoaderDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D24C6CB524C1C69C00DD4F25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEB4B47DDBFED6C36B6E394D /* Pods-CIImageLoaderDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RL39LH4U4;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = CIImageLoaderDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tx.test.CIImageLoaderDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D24C6CB724C1C69C00DD4F25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RL39LH4U4;
+				INFOPLIST_FILE = CIImageLoaderDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tx.test.CIImageLoaderDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CIImageLoaderDemo.app/CIImageLoaderDemo";
+			};
+			name = Debug;
+		};
+		D24C6CB824C1C69C00DD4F25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RL39LH4U4;
+				INFOPLIST_FILE = CIImageLoaderDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tx.test.CIImageLoaderDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CIImageLoaderDemo.app/CIImageLoaderDemo";
+			};
+			name = Release;
+		};
+		D24C6CBA24C1C69C00DD4F25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RL39LH4U4;
+				INFOPLIST_FILE = CIImageLoaderDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tx.test.CIImageLoaderDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CIImageLoaderDemo;
+			};
+			name = Debug;
+		};
+		D24C6CBB24C1C69C00DD4F25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RL39LH4U4;
+				INFOPLIST_FILE = CIImageLoaderDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tx.test.CIImageLoaderDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CIImageLoaderDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D24C6C7F24C1C69A00DD4F25 /* Build configuration list for PBXProject "CIImageLoaderDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D24C6CB124C1C69C00DD4F25 /* Debug */,
+				D24C6CB224C1C69C00DD4F25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D24C6CB324C1C69C00DD4F25 /* Build configuration list for PBXNativeTarget "CIImageLoaderDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D24C6CB424C1C69C00DD4F25 /* Debug */,
+				D24C6CB524C1C69C00DD4F25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D24C6CB624C1C69C00DD4F25 /* Build configuration list for PBXNativeTarget "CIImageLoaderDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D24C6CB724C1C69C00DD4F25 /* Debug */,
+				D24C6CB824C1C69C00DD4F25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D24C6CB924C1C69C00DD4F25 /* Build configuration list for PBXNativeTarget "CIImageLoaderDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D24C6CBA24C1C69C00DD4F25 /* Debug */,
+				D24C6CBB24C1C69C00DD4F25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D24C6C7C24C1C69A00DD4F25 /* Project object */;
+}
