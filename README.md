@@ -1,7 +1,7 @@
 # cloud-Infinite-sdk-ios
 ## 开发准备
 
-### SDK 获取
+### SDK源码以及demo 获取
 
 数据万象CloudInfinite iOS SDK以及demo 的下载地址：[iOS SDK](https://github.com/tencentyun/cloud-Infinite-sdk-ios.git)
 
@@ -10,14 +10,12 @@ CloudInfinite 共包含4个子模块，分别是：
 * CloudInfinite 主要功能：构建 CIImageLoadRequest 实例，CIImageLoadRequest主要包含url和header；CIImageLoadRequest 实例，可用于CImageLoader；也可以用于SDWebImage-TPG；
 
 * Loader 主要功能:使用CIImageLoadRequest实例，请求网络图并返回Data形式数据；
-* TPG 主要功能：解码TPG格式图片并显示，即可用于显示普通图片，也可用于TPG图；
+* TPG 主要功能：解码TPG格式图片并显示；即可用于显示普通图片，也可用于TPG图；
 * SDWebImage-TPG 主要功能：支持SDWebImage显示TPG格式图片；
 
 
-#### SDK 导入
-您可以通过cocoapods或者下载打包好的动态库的方式来集成SDK。在这里我们推荐您使用cocoapods的方式来进行导入。
-##### 使用Cocoapods导入(推荐)
-
+### SDK 导入
+使用cocoapods的方式来进行导入。
 根据实际项目需求在Podfile文件中集成所需要的模块：
 
 ~~~
@@ -26,7 +24,6 @@ CloudInfinite 共包含4个子模块，分别是：
  pod 'CloudInfinite/SDWebImage-TPG',  #仅集成SDWebImage-TPG模块
  pod 'CloudInfinite/Loader', #仅集成Loader模块  
 ~~~
-
 
 
 ## 使用
