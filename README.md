@@ -3,11 +3,13 @@
 
 ### SDK源码以及demo 获取
 
-数据万象CloudInfinite iOS SDK以及demo 的下载地址：[iOS SDK](https://github.com/tencentyun/cloud-Infinite-sdk-ios.git)
+SDK以及demo 的下载地址：[iOS SDK](https://github.com/tencentyun/cloud-Infinite-sdk-ios.git)
 
 ### SDK 介绍
-CloudInfinite 共包含4个子模块，分别是：
-* CloudInfinite 主要功能：构建 CIImageLoadRequest 实例，CIImageLoadRequest主要包含url和header；CIImageLoadRequest 实例，可用于CImageLoader；也可以用于SDWebImage-TPG；
+数据万象（Cloud Infinite，CI）是腾讯云为客户提供的专业一体化的图片解决方案，涵盖图片上传、下载、存储、处理、识别等功能，目前数据万象提供图片缩放、裁剪、水印、转码、内容审核等多种功能，提供高效准确的图像识别及处理服务，减少人力投入，真正地实现人工智能。
+CloudInfinite SDK 是封装了数据万象基础功能的开发包，为企业项目中图片常用的操作，比如缩放，裁剪，水印等提供解决方案；
+目前CloudInfinite SDK共包含4个子模块，分别是：
+* CloudInfinite 主要功能：根据用户对图片所需要的处理功能构建 CIImageLoadRequest 实例，CIImageLoadRequest主要包含url和header；CIImageLoadRequest 实例，可用于CImageLoader；也可以用于SDWebImage-TPG；
 
 * Loader 主要功能:使用CIImageLoadRequest实例，请求网络图并返回Data形式数据；
 * TPG 主要功能：解码TPG格式图片并显示；即可用于显示普通图片，也可用于TPG图；
