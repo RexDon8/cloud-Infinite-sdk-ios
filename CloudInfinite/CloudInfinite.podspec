@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://cloud.tencent.com/"
   s.license          = 'MIT'
   s.author           = { 'garenwang' => 'garenwang@tencent.com' }
-  s.source           = { :git => 'https://github.com/tencentyun/cloud-Infinite-sdk-ios/tree/master/CloudInfinite',:branch => 'master'}
+  s.source           = { :git => 'https://github.com/tencentyun/cloud-Infinite-sdk-ios.git',:branch => 'master'}
   s.ios.deployment_target = '10.0'
   s.osx.deployment_target = '10.14'
   s.static_framework = true
