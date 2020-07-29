@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
   s.osx.deployment_target = '10.14'
   s.static_framework = true
+  s.frameworks = 'UIKit','Foundation'
   
 #  图片链接组装模块
   s.default_subspec  = 'CloudInfinite'
