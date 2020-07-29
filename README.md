@@ -24,10 +24,10 @@ SDK以及demo 的下载地址：[下载](https://github.com/tencentyun/cloud-Inf
 根据实际项目需求在Podfile文件中添加所需要的模块：
 
 ~~~
- pod 'CloudInfinite',				#集成CloudInfinite模块
- pod 'CloudInfinite/TPG',			#集成TPG模块       
- pod 'CloudInfinite/Loader', 			#集成Loader模块（内部已经设置依赖QCloudCore）
- pod 'CloudInfinite/SDWebImage-TPG', 		#集成SDWebImage-TPG模块（内部已经设置依赖SDWebimage）
+ pod 'CloudInfinite'				#集成CloudInfinite模块
+ pod 'CloudInfinite/TPG'			#集成TPG模块       
+ pod 'CloudInfinite/Loader' 			#集成Loader模块（内部已经设置依赖QCloudCore）
+ pod 'CloudInfinite/SDWebImage-TPG' 		#集成SDWebImage-TPG模块（内部已经设置依赖SDWebImage）
 ~~~
 然后在终端执行命令
 ~~~
@@ -38,7 +38,7 @@ SDK以及demo 的下载地址：[下载](https://github.com/tencentyun/cloud-Inf
 CloudInfinite iOS SDK提供两种加载TPG图片的方式,下面将逐个介绍每一种加载方式的用法以及所需要集成的模块；
 
 ### 方式一 使用SDWebimage-TPG加载TPG格式图片（推荐）
-* 依赖的三方库：SDWebimage 内部已经设置依赖，无需在podfile中重复添加；
+* 依赖的三方库：SDWebImage；CloudInfinite SDK 内部已经设置依赖，无需在podfile中重复添加；
 * 集成 CloudInfinite，SDWebImage-TPG，TPG；
 
 * 在CloudInfinite模块中构建出请求TPG格式图片的链接，并且自定义下载器，使用SDWebImage自带的加载方法加载图片，示例代码：
@@ -62,7 +62,7 @@ CloudInfinite iOS SDK提供两种加载TPG图片的方式,下面将逐个介绍�
 
 
 ### 方式二 使用自定义Loader模块TPG格式图片（无缓存机制，推荐使用方式二）
-* 依赖的三方库：QCloudCore（腾讯云基础类库）内部已经设置依赖，无需在podfile中重复添加；
+* 依赖的三方库：QCloudCore（腾讯云基础类库）；CloudInfinite SDK内部已经设置依赖，无需在podfile中重复添加；
 * 集成 CloudInfinite，Loader，TPG；
 * 在CloudInfinite模块中构建出请求TPG格式图片的链接，使用Loader模块中CIImageLoader进行请求TPG二进制数据，请求成功后使用TPG模块TPGImageView尽心解码以及显示TPG图片，示例代码：
 
