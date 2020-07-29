@@ -3,20 +3,28 @@
   "version": "1.0.0",
   "summary": "CloudInfinite 腾讯云iOS-SDK组件",
   "description": "数据万象sdk",
+  "platforms": {
+    "ios": "10.0"
+  },
   "homepage": "https://cloud.tencent.com/",
   "license": "MIT",
   "authors": {
     "garenwang": "garenwang@tencent.com"
   },
   "source": {
-    "git": "http://git.code.oa.com/qcloud-terminal/QCloudiOSCodes/tree/develop/Libs/CloudInfinite",
-    "branch": "develop"
-  },
-  "platforms": {
-    "ios": "10.0",
-    "osx": "10.14"
+    "git": "https://github.com/tencentyun/cloud-Infinite-sdk-ios.git",
+    "branch": "master"
   },
   "static_framework": true,
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "libraries": [
+    "z",
+    "c++",
+    "stdc++"
+  ],
   "default_subspecs": "CloudInfinite",
   "subspecs": [
     {
@@ -29,9 +37,11 @@
       "dependencies": {
         "QCloudCore": [
 
+        ],
+        "CloudInfinite/CloudInfinite": [
+
         ]
-      },
-      "vendored_frameworks": "CloudInfinite"
+      }
     },
     {
       "name": "TPG",
@@ -45,8 +55,10 @@
     {
       "name": "SDWebImage-TPG",
       "source_files": "Pod/Classes/SDWebImage-TPG/*",
-      "vendored_frameworks": "TPG",
       "dependencies": {
+        "CloudInfinite/TPG": [
+
+        ],
         "SDWebImage": [
 
         ]

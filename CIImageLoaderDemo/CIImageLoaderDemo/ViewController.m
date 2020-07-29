@@ -31,18 +31,25 @@
 
 @end
 
+
+
+
+
+
+
+
 @implementation ViewController
 
 - (NSArray *)urlArray{
     return @[
-        @"https://cidemo-1251668577.cos.ap-guangzhou.myqcloud.com/images/01.jpg",
-        @"https://cidemo-1251668577.cos.ap-guangzhou.myqcloud.com/images/02.jpg",
-        @"https://cidemo-1251668577.cos.ap-guangzhou.myqcloud.com/images/03.jpg",
-        @"https://cidemo-1251668577.cos.ap-guangzhou.myqcloud.com/images/04.jpg",
-        @"https://cidemo-1251668577.cos.ap-guangzhou.myqcloud.com/images/05.png",
-        @"https://cidemo-1251668577.cos.ap-guangzhou.myqcloud.com/images/06.png",
-        @"https://cidemo-1251668577.cos.ap-guangzhou.myqcloud.com/images/07.png",
-        @"https://cidemo-1251668577.cos.ap-guangzhou.myqcloud.com/images/08.png",
+        @"https://tpg-1253653367.file.myqcloud.com/01.jpg",
+        @"https://tpg-1253653367.file.myqcloud.com/02.jpg",
+        @"https://tpg-1253653367.file.myqcloud.com/03.jpg",
+        @"https://tpg-1253653367.file.myqcloud.com/04.jpg",
+        @"https://tpg-1253653367.file.myqcloud.com/05.png",
+        @"https://tpg-1253653367.file.myqcloud.com/06.png",
+        @"https://tpg-1253653367.file.myqcloud.com/07.png",
+        @"https://tpg-1253653367.file.myqcloud.com/08.png",
     ];
 }
 

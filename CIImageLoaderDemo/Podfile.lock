@@ -3,8 +3,10 @@ PODS:
     - CloudInfinite/CloudInfinite (= 1.0.0)
   - CloudInfinite/CloudInfinite (1.0.0)
   - CloudInfinite/Loader (1.0.0):
+    - CloudInfinite/CloudInfinite
     - QCloudCore
   - CloudInfinite/SDWebImage-TPG (1.0.0):
+    - CloudInfinite/TPG
     - SDWebImage
   - CloudInfinite/TPG (1.0.0)
   - QCloudCore (5.7.3):
@@ -30,7 +32,7 @@ EXTERNAL SOURCES:
     :path: "../CloudInfinite"
 
 SPEC CHECKSUMS:
-  CloudInfinite: 8ef298ffa88f6ca5adf734441830c3c051db8148
+  CloudInfinite: 54fc44210dd456c26e9ee16924ce2ca587326caf
   QCloudCore: 62e4857fc8d435de9be71002021c0d97f1f1b43a
   SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
 

@@ -2,6 +2,8 @@
 #define IMAGEUTIL_H
 #include <vector>
 
+
+
 // APNG decode
 struct APNGFrame { unsigned char * p, ** rows; unsigned int w, h, delay_num, delay_den; };
 typedef struct { unsigned char r, g, b; } rgb;

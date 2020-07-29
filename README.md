@@ -6,11 +6,13 @@
 SDK以及demo 的下载地址：[下载](https://github.com/tencentyun/cloud-Infinite-sdk-ios.git)
 
 ### SDK 介绍
-* 数据万象 是腾讯云为客户提供的专业一体化的图片解决方案，涵盖图片上传、下载、存储、处理、识别等功能，目前数据万象提供图片缩放、裁剪、水印、转码、内容审核等多种功能，提供高效准确的图像识别及处理服务，减少人力投入，真正地实现人工智能；[了解更多](https://cloud.tencent.com/document/product/460/36540)。
+**数据万象** 是腾讯云为客户提供的专业一体化的图片解决方案，涵盖图片上传、下载、存储、处理、识别等功能，目前数据万象提供图片缩放、裁剪、水印、转码、内容审核等多种功能，提供高效准确的图像识别及处理服务，减少人力投入，真正地实现人工智能；[了解更多](https://cloud.tencent.com/document/product/460/36540)。
 
-* TPG 是腾讯推出的自研图片格式，可将 JPG、PNG、GIF、WEBP 等格式图片转换为 TPG 格式，大幅减小图片大小。从而减小图片体积，快速加载图片，节省流量；[了解更多](https://cloud.tencent.com/document/product/460/43680)。
+**云闪图片分发** 是传统CDN集成数据万象丰富的图片压缩方式，在保证视觉效果的基础上，大幅降低图片流量/带宽。在海量图片业务场景下，提升页面加载速率，实现极致节流 [了解更多](https://cloud.tencent.com/solution/image-delivery)。
 
-* CloudInfinite SDK 为开发者更加快速方便的使用数据万象功能，该sdk共包含4个子模块，分别是：
+**TPG** 是腾讯推出的自研图片格式，可将 JPG、PNG、GIF、WEBP 等格式图片转换为 TPG 格式，大幅减小图片大小。从而减小图片体积，快速加载图片，节省流量；[了解更多](https://cloud.tencent.com/document/product/460/43680)。
+
+为了使开发者更方便快速是使用数据万象和云闪图片分发功能，我们提供了4个SDK，开发者可根据具体需求进行选择。
 
 序号|模块|功能
 --:|:--:|:--
@@ -34,14 +36,18 @@ SDK以及demo 的下载地址：[下载](https://github.com/tencentyun/cloud-Inf
  pod install 
 ~~~
 
-## 使用
+## 使用场景
 CloudInfinite iOS SDK提供两种加载TPG图片的方式,下面将逐个介绍每一种加载方式的用法以及所需要集成的模块；
 
 ### 方式一 使用SDWebimage-TPG加载TPG格式图片（推荐）
-* 依赖的三方库：SDWebImage；CloudInfinite SDK 内部已经设置依赖，无需在podfile中重复添加；
-* 集成 CloudInfinite，SDWebImage-TPG，TPG；
 
-* 在CloudInfinite模块中构建出请求TPG格式图片的链接，并且自定义下载器，使用SDWebImage自带的加载方法加载图片，示例代码：
+1. 安装SDWebImage-TPG
+    ```
+    pod 'CloudInfinite/SDWebImage-TPG' 
+    ```
+
+
+2. 在CloudInfinite模块中构建出请求TPG格式图片的链接，并且自定义下载器，使用SDWebImage自带的加载方法加载图片，示例代码：
 
         // 实例化CloudImage，用来构建请求图片请求连接；
         CloudImage * cloudImage = [CloudImage new];
@@ -61,10 +67,15 @@ CloudInfinite iOS SDK提供两种加载TPG图片的方式,下面将逐个介绍�
         }];
 
 
-### 方式二 使用自定义Loader模块TPG格式图片（无缓存机制，推荐使用方式二）
-* 依赖的三方库：QCloudCore（腾讯云基础类库）；CloudInfinite SDK内部已经设置依赖，无需在podfile中重复添加；
-* 集成 CloudInfinite，Loader，TPG；
-* 在CloudInfinite模块中构建出请求TPG格式图片的链接，使用Loader模块中CIImageLoader进行请求TPG二进制数据，请求成功后使用TPG模块TPGImageView尽心解码以及显示TPG图片，示例代码：
+### 方式二 使用自定义Loader模块加载TPG格式图片（无缓存机制，推荐使用方式一）
+
+1. 集成 CloudInfinite，Loader，TPG；
+    ```
+    pod 'CloudInfinite/Loader' 
+    pod 'CloudInfinite/TPG'
+    ```
+
+2. 在CloudInfinite模块中构建出请求TPG格式图片的链接，使用Loader模块中CIImageLoader进行请求TPG二进制数据，请求成功后使用TPG模块TPGImageView尽心解码以及显示TPG图片，示例代码：
 
 
         // 实例化CloudImage，用来构建请求图片请求连接；
@@ -84,6 +95,18 @@ CloudInfinite iOS SDK提供两种加载TPG图片的方式,下面将逐个介绍�
             }];        
 
         }];
+
+### 方式三 使用TPG模块加载TPG图片Data数据
+1. 集成 TPG；
+    ```
+    pod 'CloudInfinite/TPG'
+    ```
+2. 如果已经获取到TPG图片data数据，则直接使用TPG模块TPGImageView类进行解码并显示；
+
+        [self.tpgImageView setTpgImageWithData:data loadComplete:^(NSData * _Nullable data，UIImage * _Nullable image, NSError * _Nullable error) {
+            
+        }];     
+
 
 ### 变更记录
 * Version 1.0.0
