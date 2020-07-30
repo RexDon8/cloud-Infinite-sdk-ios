@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
   s.subspec 'Loader' do |loader|
     loader.source_files = 'Pod/Classes/Loader/*';
     loader.dependency 'QCloudCore';
-    loader.dependency 'CloudInfinite/CloudInfinite';
+    loader.vendored_frameworks = 'CloudInfinite/CloudInfinite';
   end
     
 # TPG解码模块
@@ -53,7 +53,7 @@ Pod::Spec.new do |s|
 # SDWebImage 支持TPG图片加载模块
   s.subspec 'SDWebImage-TPG' do |sdtpg|
     sdtpg.source_files = 'Pod/Classes/SDWebImage-TPG/*';
-    sdtpg.dependency 'CloudInfinite/TPG';
+    sdtpg.vendored_frameworks = 'CloudInfinite/TPG';
     sdtpg.dependency 'SDWebImage';
   end
   
