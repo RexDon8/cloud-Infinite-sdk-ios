@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "summary": "CloudInfinite 腾讯云iOS-SDK组件",
   "description": "数据万象sdk",
-  "platforms": {
-    "ios": "10.0"
-  },
   "homepage": "https://cloud.tencent.com/",
   "license": "MIT",
   "authors": {
@@ -15,15 +12,22 @@
     "git": "https://github.com/tencentyun/cloud-Infinite-sdk-ios.git",
     "branch": "master"
   },
+  "platforms": {
+    "ios": "10.0"
+  },
   "static_framework": true,
   "frameworks": [
     "UIKit",
-    "Foundation"
+    "Foundation",
+    "ImageIO"
   ],
   "libraries": [
     "z",
     "c++"
   ],
+  "xcconfig": {
+    "OTHER_LDFLAGS": "$(inherited) -ObjC -all_load -force_load"
+  },
   "default_subspecs": "CloudInfinite",
   "subspecs": [
     {

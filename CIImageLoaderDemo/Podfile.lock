@@ -32,10 +32,10 @@ EXTERNAL SOURCES:
     :path: "../CloudInfinite"
 
 SPEC CHECKSUMS:
-  CloudInfinite: 24b89d4c538fbeb3241a9fff6b04fc89f2c3e2cf
+  CloudInfinite: 30e13d600f8145cff278085a2e2b18c0aa2ea82c
   QCloudCore: 62e4857fc8d435de9be71002021c0d97f1f1b43a
   SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
 
 PODFILE CHECKSUM: 7c57dc93b7485fe0a14c2a1353eef7e5e5b0e4e1
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.0.beta.1
