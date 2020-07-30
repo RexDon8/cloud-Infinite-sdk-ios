@@ -22,8 +22,7 @@
   ],
   "libraries": [
     "z",
-    "c++",
-    "stdc++"
+    "c++"
   ],
   "default_subspecs": "CloudInfinite",
   "subspecs": [

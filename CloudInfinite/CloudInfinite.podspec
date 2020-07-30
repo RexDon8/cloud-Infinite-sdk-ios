@@ -14,16 +14,20 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
   数据万象sdk
                        DESC
-  s.platform = :ios
+  
   s.homepage         = "https://cloud.tencent.com/"
   s.license          = 'MIT'
   s.author           = { 'garenwang' => 'garenwang@tencent.com' }
   s.source           = { :git => 'https://github.com/tencentyun/cloud-Infinite-sdk-ios.git',:branch => 'master'}
+  
+  s.platform = :ios
   s.ios.deployment_target = '10.0'
   s.static_framework = true
-  s.frameworks = 'UIKit','Foundation'
-  
-
+  s.frameworks = 'UIKit','Foundation','ImageIO'
+  s.libraries = 'z','c++'
+  s.xcconfig = {
+     "OTHER_LDFLAGS" => "$(inherited) -ObjC -all_load -force_load",
+   }
 #  图片链接组装模块
   s.default_subspec  = 'CloudInfinite'
   s.subspec 'CloudInfinite' do |default|
@@ -39,7 +43,7 @@ Pod::Spec.new do |s|
     
 # TPG解码模块
   s.subspec 'TPG' do |tpg|
-    tpg.libraries = "z","c++","stdc++";
+    
     tpg.source_files = 'Pod/Classes/TPG/*',
                        'Pod/Classes/TPG/TPGDecoder/*',
                        'Pod/Classes/TPG/TPGDecoder/include/*';

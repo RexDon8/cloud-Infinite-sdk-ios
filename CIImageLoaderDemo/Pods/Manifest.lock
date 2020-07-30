@@ -32,7 +32,7 @@ EXTERNAL SOURCES:
     :path: "../CloudInfinite"
 
 SPEC CHECKSUMS:
-  CloudInfinite: 54fc44210dd456c26e9ee16924ce2ca587326caf
+  CloudInfinite: 24b89d4c538fbeb3241a9fff6b04fc89f2c3e2cf
   QCloudCore: 62e4857fc8d435de9be71002021c0d97f1f1b43a
   SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
 
