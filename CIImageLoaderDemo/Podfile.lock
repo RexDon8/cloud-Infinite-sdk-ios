@@ -3,22 +3,24 @@ PODS:
     - CloudInfinite/CloudInfinite (= 1.0.0)
   - CloudInfinite/CloudInfinite (1.0.0)
   - CloudInfinite/Loader (1.0.0):
+    - CloudInfinite/CloudInfinite
     - QCloudCore
   - CloudInfinite/SDWebImage-TPG (1.0.0):
+    - CloudInfinite/TPG
     - SDWebImage
   - CloudInfinite/TPG (1.0.0)
-  - QCloudCore (5.7.3):
-    - QCloudCore/Default (= 5.7.3)
-  - QCloudCore/Default (5.7.3)
-  - SDWebImage (5.8.1):
-    - SDWebImage/Core (= 5.8.1)
-  - SDWebImage/Core (5.8.1)
+  - QCloudCore (5.7.4):
+    - QCloudCore/Default (= 5.7.4)
+  - QCloudCore/Default (5.7.4)
+  - SDWebImage (5.8.4):
+    - SDWebImage/Core (= 5.8.4)
+  - SDWebImage/Core (5.8.4)
 
 DEPENDENCIES:
-  - CloudInfinite (from `../CloudInfinite`)
-  - CloudInfinite/Loader (from `../CloudInfinite`)
-  - CloudInfinite/SDWebImage-TPG (from `../CloudInfinite`)
-  - CloudInfinite/TPG (from `../CloudInfinite`)
+  - CloudInfinite (from `../`)
+  - CloudInfinite/Loader (from `../`)
+  - CloudInfinite/SDWebImage-TPG (from `../`)
+  - CloudInfinite/TPG (from `../`)
 
 SPEC REPOS:
   trunk:
@@ -27,13 +29,13 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   CloudInfinite:
-    :path: "../CloudInfinite"
+    :path: "../"
 
 SPEC CHECKSUMS:
-  CloudInfinite: e69ee2bfa058254e626bf2f389d75e7ab2016768
-  QCloudCore: 62e4857fc8d435de9be71002021c0d97f1f1b43a
-  SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
+  CloudInfinite: 30e13d600f8145cff278085a2e2b18c0aa2ea82c
+  QCloudCore: e1b0238bb2708c673e6051f18a4a059623f8c3fb
+  SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
 
-PODFILE CHECKSUM: 7c57dc93b7485fe0a14c2a1353eef7e5e5b0e4e1
+PODFILE CHECKSUM: e33178cb98ba3153780c0635fa102b2e5ffa7517
 
 COCOAPODS: 1.10.0.beta.1

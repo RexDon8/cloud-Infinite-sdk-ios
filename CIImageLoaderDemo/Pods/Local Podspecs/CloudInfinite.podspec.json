@@ -40,9 +40,11 @@
       "dependencies": {
         "QCloudCore": [
 
+        ],
+        "CloudInfinite/CloudInfinite": [
+
         ]
-      },
-      "vendored_frameworks": "CloudInfinite/CloudInfinite"
+      }
     },
     {
       "name": "TPG",
@@ -56,8 +58,10 @@
     {
       "name": "SDWebImage-TPG",
       "source_files": "Pod/Classes/SDWebImage-TPG/*",
-      "vendored_frameworks": "CloudInfinite/TPG",
       "dependencies": {
+        "CloudInfinite/TPG": [
+
+        ],
         "SDWebImage": [
 
         ]

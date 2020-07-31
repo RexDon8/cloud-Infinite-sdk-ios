@@ -3,7 +3,7 @@ FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CloudInfi
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CloudInfinite/CloudInfinite.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/QCloudCore/QCloudCore.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../CloudInfinite/Pod/Classes/TPG/TPGDecoder" "${PODS_ROOT}/QCloudCore/QCloudCore/Classes/QualityAssurance"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../Pod/Classes/TPG/TPGDecoder" "${PODS_ROOT}/QCloudCore/QCloudCore/Classes/QualityAssurance"
 OTHER_LDFLAGS = $(inherited) -ObjC -all_load -l"TPGDec" -l"c++" -l"libYUV" -l"mtasdk" -l"z" -framework "Accelerate" -framework "CloudInfinite" -framework "CoreMedia" -framework "Foundation" -framework "ImageIO" -framework "QCloudCore" -framework "SDWebImage" -framework "SystemConfiguration" -framework "UIKit"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
