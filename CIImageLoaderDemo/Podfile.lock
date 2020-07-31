@@ -1,14 +1,14 @@
 PODS:
-  - CloudInfinite (1.0.0):
-    - CloudInfinite/CloudInfinite (= 1.0.0)
-  - CloudInfinite/CloudInfinite (1.0.0)
-  - CloudInfinite/Loader (1.0.0):
+  - CloudInfinite (1.0.1):
+    - CloudInfinite/CloudInfinite (= 1.0.1)
+  - CloudInfinite/CloudInfinite (1.0.1)
+  - CloudInfinite/Loader (1.0.1):
     - CloudInfinite/CloudInfinite
     - QCloudCore
-  - CloudInfinite/SDWebImage-TPG (1.0.0):
+  - CloudInfinite/SDWebImage-TPG (1.0.1):
     - CloudInfinite/TPG
     - SDWebImage
-  - CloudInfinite/TPG (1.0.0)
+  - CloudInfinite/TPG (1.0.1)
   - QCloudCore (5.7.4):
     - QCloudCore/Default (= 5.7.4)
   - QCloudCore/Default (5.7.4)
@@ -32,10 +32,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CloudInfinite: 30e13d600f8145cff278085a2e2b18c0aa2ea82c
+  CloudInfinite: a95b38cea1da713a24d101325bd1a7bb85e5ddeb
   QCloudCore: e1b0238bb2708c673e6051f18a4a059623f8c3fb
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
 
 PODFILE CHECKSUM: e33178cb98ba3153780c0635fa102b2e5ffa7517
 
-COCOAPODS: 1.10.0.beta.1
+COCOAPODS: 1.9.3

@@ -1,6 +1,6 @@
 {
   "name": "CloudInfinite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "summary": "CloudInfinite 腾讯云iOS-SDK组件",
   "description": "数据万象sdk",
   "homepage": "https://cloud.tencent.com/",
@@ -32,11 +32,11 @@
   "subspecs": [
     {
       "name": "CloudInfinite",
-      "source_files": "Pod/Classes/CloudInfinite/*"
+      "source_files": "CloudInfinite/Classes/CloudInfinite/*"
     },
     {
       "name": "Loader",
-      "source_files": "Pod/Classes/Loader/*",
+      "source_files": "CloudInfinite/Classes/Loader/*",
       "dependencies": {
         "QCloudCore": [
 
@@ -49,15 +49,15 @@
     {
       "name": "TPG",
       "source_files": [
-        "Pod/Classes/TPG/*",
-        "Pod/Classes/TPG/TPGDecoder/*",
-        "Pod/Classes/TPG/TPGDecoder/include/*"
+        "CloudInfinite/Classes/TPG/*",
+        "CloudInfinite/Classes/TPG/TPGDecoder/*",
+        "CloudInfinite/Classes/TPG/TPGDecoder/include/*"
       ],
-      "vendored_libraries": "Pod/Classes/TPG/TPGDecoder/*.a"
+      "vendored_libraries": "CloudInfinite/Classes/TPG/TPGDecoder/*.a"
     },
     {
       "name": "SDWebImage-TPG",
-      "source_files": "Pod/Classes/SDWebImage-TPG/*",
+      "source_files": "CloudInfinite/Classes/SDWebImage-TPG/*",
       "dependencies": {
         "CloudInfinite/TPG": [
 

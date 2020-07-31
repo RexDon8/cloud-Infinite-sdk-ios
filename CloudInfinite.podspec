@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "CloudInfinite"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.summary          = "CloudInfinite 腾讯云iOS-SDK组件"
 
   s.description      = <<-DESC
@@ -31,12 +31,12 @@ Pod::Spec.new do |s|
 #  图片链接组装模块
   s.default_subspec  = 'CloudInfinite'
   s.subspec 'CloudInfinite' do |default|
-    default.source_files = 'Pod/Classes/CloudInfinite/*';
+    default.source_files = 'CloudInfinite/Classes/CloudInfinite/*';
   end
   
 # 图片下载模块
   s.subspec 'Loader' do |loader|
-    loader.source_files = 'Pod/Classes/Loader/*';
+    loader.source_files = 'CloudInfinite/Classes/Loader/*';
     loader.dependency 'QCloudCore';
     loader.dependency 'CloudInfinite/CloudInfinite';
   end
@@ -44,15 +44,15 @@ Pod::Spec.new do |s|
 # TPG解码模块
   s.subspec 'TPG' do |tpg|
     
-    tpg.source_files = 'Pod/Classes/TPG/*',
-                       'Pod/Classes/TPG/TPGDecoder/*',
-                       'Pod/Classes/TPG/TPGDecoder/include/*';
-     tpg.vendored_libraries='Pod/Classes/TPG/TPGDecoder/*.a';
+    tpg.source_files = 'CloudInfinite/Classes/TPG/*',
+                       'CloudInfinite/Classes/TPG/TPGDecoder/*',
+                       'CloudInfinite/Classes/TPG/TPGDecoder/include/*';
+     tpg.vendored_libraries='CloudInfinite/Classes/TPG/TPGDecoder/*.a';
   end
   
 # SDWebImage 支持TPG图片加载模块
   s.subspec 'SDWebImage-TPG' do |sdtpg|
-    sdtpg.source_files = 'Pod/Classes/SDWebImage-TPG/*';
+    sdtpg.source_files = 'CloudInfinite/Classes/SDWebImage-TPG/*';
     sdtpg.dependency 'CloudInfinite/TPG';
     sdtpg.dependency 'SDWebImage';
   end
