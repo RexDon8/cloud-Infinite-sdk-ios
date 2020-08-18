@@ -428,7 +428,7 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
     }];
     ```
 
-### 方式二 使用TPG模块加载TPG图片Data数据
+### 方式二 使用TPG模块加载TPG图片Data数据（支持TPG动图加载，无需额外处理）
 1. 集成 TPG 模块；
     ```
     pod 'CloudInfinite/TPG'
@@ -472,7 +472,7 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
     [self.imageView sd_CI_setImageWithURL:[NSURL URLWithString:@"图片链接"] transformation:transform];
     ```
 
-* ### 与SDWebImage 配合使用数据万象TPG功能；
+* ### 与SDWebImage 配合使用数据万象TPG功能（支持TPG动图加载，无需额外处理）；
 
 
     在使用TPG功能时 SDWebImage-CloudInfinite 需要依赖CloudInfinite/TPG 模块
@@ -511,6 +511,12 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
     ```
 
 ## 变更记录
+
+* Version 1.2.0
+2020-08-18
+支持TPG动图加载
+支持数据万象图片基础操作
+###
 
 * Version 1.0.0
 2020-07-29
