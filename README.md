@@ -510,19 +510,27 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
     [[CIDownloaderConfig sharedConfig] addExcloudeTPGRegularExpress:@"http(s)?:.*imageAve"];
     ```
 
+<div id="changelog"></div>
 ## 变更记录
 
-* Version 1.2.0
-2020-08-18
-支持TPG动图加载
-支持数据万象图片基础操作
+* #### Version 1.2.0
+    2020-08-18
+
+    支持TPG动图加载
+
+    支持数据万象图片基础操作
+
 ###
 
-* Version 1.0.0
-2020-07-29
-首次发布
-图片格式转换功能
-TPG图片加载功能
+* #### Version 1.0.0
+
+    2020-07-29
+
+    首次发布
+
+    图片格式转换功能
+
+    TPG图片加载功能
 
 ## 示例
 完整例子请参考CIImageLoaderDemo示例工程

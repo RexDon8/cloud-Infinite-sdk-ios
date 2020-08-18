@@ -15,8 +15,6 @@
 #import <CIImageLoader.h>
 #import <UIButton+WebCache.h>
 #import <SDWebImage-CloudInfinite.h>
-#import <CISmartFaceTransformation.h>
-#import <CIResponsiveTransformation.h>
 #import <UIImageView+TPG.h>
 @interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 

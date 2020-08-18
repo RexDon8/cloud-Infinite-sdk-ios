@@ -8,6 +8,8 @@
 #import <Foundation/Foundation.h>
 #import "CITransformation.h"
 #import "CIImageLoadRequest.h"
+#import "CISmartFaceTransformation.h"
+#import "CIResponsiveTransformation.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CloudInfinite : NSObject

@@ -61,6 +61,7 @@
 		D23E530724C9A02600052190 /* TPGCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPGCollectionViewCell.m; sourceTree = "<group>"; };
 		D242831F24E674C7002CA2EB /* CIRoTateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CIRoTateVC.h; sourceTree = "<group>"; };
 		D242832024E674C7002CA2EB /* CIRoTateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CIRoTateVC.m; sourceTree = "<group>"; };
+		D242832524EBC304002CA2EB /* CIImageLoaderDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CIImageLoaderDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		D24C6C8424C1C69A00DD4F25 /* CIImageLoaderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CIImageLoaderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D24C6C8724C1C69A00DD4F25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D24C6C8824C1C69A00DD4F25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -200,6 +201,7 @@
 				D2C18C4124E3994B00747941 /* BaseViewController.h */,
 				D2C18C4224E3994B00747941 /* BaseViewController.m */,
 				D2C18C4324E3994B00747941 /* BaseViewController.xib */,
+				D242832524EBC304002CA2EB /* CIImageLoaderDemo-Bridging-Header.h */,
 			);
 			path = CIImageLoaderDemo;
 			sourceTree = "<group>";
@@ -331,6 +333,7 @@
 				TargetAttributes = {
 					D24C6C8324C1C69A00DD4F25 = {
 						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
 					};
 					D24C6C9E24C1C69C00DD4F25 = {
 						CreatedOnToolsVersion = 11.4.1;
@@ -626,6 +629,7 @@
 			baseConfigurationReference = E568E41250663B583E9CB859 /* Pods-CIImageLoaderDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6RL39LH4U4;
 				ENABLE_BITCODE = NO;
@@ -637,6 +641,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tx.CIImageLoaderDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CIImageLoaderDemo/CIImageLoaderDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -646,6 +653,7 @@
 			baseConfigurationReference = EEB4B47DDBFED6C36B6E394D /* Pods-CIImageLoaderDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6RL39LH4U4;
 				ENABLE_BITCODE = NO;
@@ -657,6 +665,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tx.CIImageLoaderDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CIImageLoaderDemo/CIImageLoaderDemo-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
