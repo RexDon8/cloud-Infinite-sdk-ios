@@ -6,6 +6,7 @@ SDK源码以及demo 请参考： [CloudInfinite iOS SDK](https://github.com/tenc
 SDK接口与参数文档请参考： [数据万象 SDK API](https://cloud.tencent.com/document/product/460/36540)
 云闪图片分发介绍请参考：[云闪图片分发](https://cloud.tencent.com/solution/image-delivery)
 TPG功能介绍：[TPG](https://cloud.tencent.com/document/product/460/43680)
+SDK更新日志请参考：[更新日志](#changelog)
 
 ## 文档概览
 
@@ -512,7 +513,7 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
 
 <div id="changelog"></div>
 
-## 变更记录
+## 更新日志
 
 * #### Version 1.2.0
     2020-08-18
