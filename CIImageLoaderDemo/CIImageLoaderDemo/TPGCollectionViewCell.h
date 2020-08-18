@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <TPGImageView.h>
+//#import <TPGImageView.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPGCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet TPGImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *labTitle;
 
 @end

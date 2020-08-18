@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A240D2FF4115E9D401670B31 /* Pods_CIImageLoaderDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA62713179EB2ACFC90192A9 /* Pods_CIImageLoaderDemo.framework */; };
 		D23E530924C9A02600052190 /* TPGCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D23E530724C9A02600052190 /* TPGCollectionViewCell.m */; };
-		D23E530A24C9A02600052190 /* TPGCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D23E530824C9A02600052190 /* TPGCollectionViewCell.xib */; };
+		D242832124E674C7002CA2EB /* CIRoTateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D242832024E674C7002CA2EB /* CIRoTateVC.m */; };
 		D24C6C8924C1C69A00DD4F25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C6C8824C1C69A00DD4F25 /* AppDelegate.m */; };
 		D24C6C8C24C1C69A00DD4F25 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C6C8B24C1C69A00DD4F25 /* SceneDelegate.m */; };
 		D24C6C8F24C1C69A00DD4F25 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C6C8E24C1C69A00DD4F25 /* ViewController.m */; };
@@ -19,6 +19,24 @@
 		D24C6C9A24C1C69C00DD4F25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C6C9924C1C69C00DD4F25 /* main.m */; };
 		D24C6CA424C1C69C00DD4F25 /* CIImageLoaderDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C6CA324C1C69C00DD4F25 /* CIImageLoaderDemoTests.m */; };
 		D24C6CAF24C1C69C00DD4F25 /* CIImageLoaderDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C6CAE24C1C69C00DD4F25 /* CIImageLoaderDemoUITests.m */; };
+		D2B8AE1A24E3D5DF00C2AE8F /* CIZoomImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B8AE1924E3D5DF00C2AE8F /* CIZoomImageVC.m */; };
+		D2B8AE1F24E3D91F00C2AE8F /* CICutImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B8AE1E24E3D91F00C2AE8F /* CICutImageVC.m */; };
+		D2B8AE2624E3E29200C2AE8F /* CIFormatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B8AE2524E3E29200C2AE8F /* CIFormatVC.m */; };
+		D2BB800F24E5215100515366 /* CISigmaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BB800E24E5215100515366 /* CISigmaVC.m */; };
+		D2BB801224E52CEA00515366 /* CIQualityChangeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BB801124E52CEA00515366 /* CIQualityChangeVC.m */; };
+		D2BB801524E5349F00515366 /* CIWaterMarkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BB801424E5349F00515366 /* CIWaterMarkVC.m */; };
+		D2BB801824E53D9E00515366 /* CIStripImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BB801724E53D9E00515366 /* CIStripImageVC.m */; };
+		D2BB801B24E559A900515366 /* CISlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BB801A24E559A900515366 /* CISlider.m */; };
+		D2BB801E24E6699100515366 /* CISharpenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BB801D24E6699100515366 /* CISharpenVC.m */; };
+		D2BB802124E66DEC00515366 /* CIGifOptimizeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BB802024E66DEC00515366 /* CIGifOptimizeVC.m */; };
+		D2C18C3D24E38F5A00747941 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C18C3B24E38F5A00747941 /* RootViewController.m */; };
+		D2C18C4024E3913E00747941 /* TPGCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C18C3F24E3913E00747941 /* TPGCollectionViewCell.xib */; };
+		D2C18C4424E3994B00747941 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C18C4224E3994B00747941 /* BaseViewController.m */; };
+		D2C18C4524E3994B00747941 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C18C4324E3994B00747941 /* BaseViewController.xib */; };
+		D2C18C4824E39AF400747941 /* GetAveColorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C18C4724E39AF400747941 /* GetAveColorVC.m */; };
+		D2FB23C424D9306B008B8CA8 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D2FB23C324D9306B008B8CA8 /* libstdc++.tbd */; };
+		D2FB23C624D93073008B8CA8 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D2FB23C524D93073008B8CA8 /* libc++.tbd */; };
+		D2FB23C824D9307A008B8CA8 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D2FB23C724D9307A008B8CA8 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +59,8 @@
 /* Begin PBXFileReference section */
 		D23E530624C9A02600052190 /* TPGCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPGCollectionViewCell.h; sourceTree = "<group>"; };
 		D23E530724C9A02600052190 /* TPGCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPGCollectionViewCell.m; sourceTree = "<group>"; };
-		D23E530824C9A02600052190 /* TPGCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPGCollectionViewCell.xib; sourceTree = "<group>"; };
+		D242831F24E674C7002CA2EB /* CIRoTateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CIRoTateVC.h; sourceTree = "<group>"; };
+		D242832024E674C7002CA2EB /* CIRoTateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CIRoTateVC.m; sourceTree = "<group>"; };
 		D24C6C8424C1C69A00DD4F25 /* CIImageLoaderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CIImageLoaderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D24C6C8724C1C69A00DD4F25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D24C6C8824C1C69A00DD4F25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -60,6 +79,37 @@
 		D24C6CAA24C1C69C00DD4F25 /* CIImageLoaderDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CIImageLoaderDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D24C6CAE24C1C69C00DD4F25 /* CIImageLoaderDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CIImageLoaderDemoUITests.m; sourceTree = "<group>"; };
 		D24C6CB024C1C69C00DD4F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2B8AE1824E3D5DF00C2AE8F /* CIZoomImageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CIZoomImageVC.h; sourceTree = "<group>"; };
+		D2B8AE1924E3D5DF00C2AE8F /* CIZoomImageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CIZoomImageVC.m; sourceTree = "<group>"; };
+		D2B8AE1D24E3D91F00C2AE8F /* CICutImageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CICutImageVC.h; sourceTree = "<group>"; };
+		D2B8AE1E24E3D91F00C2AE8F /* CICutImageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CICutImageVC.m; sourceTree = "<group>"; };
+		D2B8AE2424E3E29200C2AE8F /* CIFormatVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CIFormatVC.h; sourceTree = "<group>"; };
+		D2B8AE2524E3E29200C2AE8F /* CIFormatVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CIFormatVC.m; sourceTree = "<group>"; };
+		D2BB800D24E5215100515366 /* CISigmaVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CISigmaVC.h; sourceTree = "<group>"; };
+		D2BB800E24E5215100515366 /* CISigmaVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CISigmaVC.m; sourceTree = "<group>"; };
+		D2BB801024E52CEA00515366 /* CIQualityChangeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CIQualityChangeVC.h; sourceTree = "<group>"; };
+		D2BB801124E52CEA00515366 /* CIQualityChangeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CIQualityChangeVC.m; sourceTree = "<group>"; };
+		D2BB801324E5349F00515366 /* CIWaterMarkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CIWaterMarkVC.h; sourceTree = "<group>"; };
+		D2BB801424E5349F00515366 /* CIWaterMarkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CIWaterMarkVC.m; sourceTree = "<group>"; };
+		D2BB801624E53D9E00515366 /* CIStripImageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CIStripImageVC.h; sourceTree = "<group>"; };
+		D2BB801724E53D9E00515366 /* CIStripImageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CIStripImageVC.m; sourceTree = "<group>"; };
+		D2BB801924E559A900515366 /* CISlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CISlider.h; sourceTree = "<group>"; };
+		D2BB801A24E559A900515366 /* CISlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CISlider.m; sourceTree = "<group>"; };
+		D2BB801C24E6699100515366 /* CISharpenVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CISharpenVC.h; sourceTree = "<group>"; };
+		D2BB801D24E6699100515366 /* CISharpenVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CISharpenVC.m; sourceTree = "<group>"; };
+		D2BB801F24E66DEC00515366 /* CIGifOptimizeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CIGifOptimizeVC.h; sourceTree = "<group>"; };
+		D2BB802024E66DEC00515366 /* CIGifOptimizeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CIGifOptimizeVC.m; sourceTree = "<group>"; };
+		D2C18C3A24E38F5A00747941 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		D2C18C3B24E38F5A00747941 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		D2C18C3F24E3913E00747941 /* TPGCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPGCollectionViewCell.xib; sourceTree = "<group>"; };
+		D2C18C4124E3994B00747941 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		D2C18C4224E3994B00747941 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		D2C18C4324E3994B00747941 /* BaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseViewController.xib; sourceTree = "<group>"; };
+		D2C18C4624E39AF400747941 /* GetAveColorVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetAveColorVC.h; sourceTree = "<group>"; };
+		D2C18C4724E39AF400747941 /* GetAveColorVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetAveColorVC.m; sourceTree = "<group>"; };
+		D2FB23C324D9306B008B8CA8 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		D2FB23C524D93073008B8CA8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		D2FB23C724D9307A008B8CA8 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E568E41250663B583E9CB859 /* Pods-CIImageLoaderDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CIImageLoaderDemo.debug.xcconfig"; path = "Target Support Files/Pods-CIImageLoaderDemo/Pods-CIImageLoaderDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		EEB4B47DDBFED6C36B6E394D /* Pods-CIImageLoaderDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CIImageLoaderDemo.release.xcconfig"; path = "Target Support Files/Pods-CIImageLoaderDemo/Pods-CIImageLoaderDemo.release.xcconfig"; sourceTree = "<group>"; };
 		FA62713179EB2ACFC90192A9 /* Pods_CIImageLoaderDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CIImageLoaderDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +120,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2FB23C824D9307A008B8CA8 /* libz.tbd in Frameworks */,
+				D2FB23C624D93073008B8CA8 /* libc++.tbd in Frameworks */,
+				D2FB23C424D9306B008B8CA8 /* libstdc++.tbd in Frameworks */,
 				A240D2FF4115E9D401670B31 /* Pods_CIImageLoaderDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,6 +147,9 @@
 		879FA2F9F65A55CDA29C5885 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D2FB23C724D9307A008B8CA8 /* libz.tbd */,
+				D2FB23C524D93073008B8CA8 /* libc++.tbd */,
+				D2FB23C324D9306B008B8CA8 /* libstdc++.tbd */,
 				FA62713179EB2ACFC90192A9 /* Pods_CIImageLoaderDemo.framework */,
 			);
 			name = Frameworks;
@@ -124,6 +180,7 @@
 		D24C6C8624C1C69A00DD4F25 /* CIImageLoaderDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D2C18C4924E3BDA400747941 /* operationVC */,
 				D24C6C8724C1C69A00DD4F25 /* AppDelegate.h */,
 				D24C6C8824C1C69A00DD4F25 /* AppDelegate.m */,
 				D24C6C8A24C1C69A00DD4F25 /* SceneDelegate.h */,
@@ -137,7 +194,12 @@
 				D24C6C9924C1C69C00DD4F25 /* main.m */,
 				D23E530624C9A02600052190 /* TPGCollectionViewCell.h */,
 				D23E530724C9A02600052190 /* TPGCollectionViewCell.m */,
-				D23E530824C9A02600052190 /* TPGCollectionViewCell.xib */,
+				D2C18C3F24E3913E00747941 /* TPGCollectionViewCell.xib */,
+				D2C18C3A24E38F5A00747941 /* RootViewController.h */,
+				D2C18C3B24E38F5A00747941 /* RootViewController.m */,
+				D2C18C4124E3994B00747941 /* BaseViewController.h */,
+				D2C18C4224E3994B00747941 /* BaseViewController.m */,
+				D2C18C4324E3994B00747941 /* BaseViewController.xib */,
 			);
 			path = CIImageLoaderDemo;
 			sourceTree = "<group>";
@@ -158,6 +220,37 @@
 				D24C6CB024C1C69C00DD4F25 /* Info.plist */,
 			);
 			path = CIImageLoaderDemoUITests;
+			sourceTree = "<group>";
+		};
+		D2C18C4924E3BDA400747941 /* operationVC */ = {
+			isa = PBXGroup;
+			children = (
+				D2C18C4624E39AF400747941 /* GetAveColorVC.h */,
+				D2C18C4724E39AF400747941 /* GetAveColorVC.m */,
+				D2B8AE1824E3D5DF00C2AE8F /* CIZoomImageVC.h */,
+				D2B8AE1924E3D5DF00C2AE8F /* CIZoomImageVC.m */,
+				D2B8AE1D24E3D91F00C2AE8F /* CICutImageVC.h */,
+				D2B8AE1E24E3D91F00C2AE8F /* CICutImageVC.m */,
+				D2B8AE2424E3E29200C2AE8F /* CIFormatVC.h */,
+				D2B8AE2524E3E29200C2AE8F /* CIFormatVC.m */,
+				D2BB800D24E5215100515366 /* CISigmaVC.h */,
+				D2BB800E24E5215100515366 /* CISigmaVC.m */,
+				D2BB801024E52CEA00515366 /* CIQualityChangeVC.h */,
+				D2BB801124E52CEA00515366 /* CIQualityChangeVC.m */,
+				D2BB801324E5349F00515366 /* CIWaterMarkVC.h */,
+				D2BB801424E5349F00515366 /* CIWaterMarkVC.m */,
+				D2BB801624E53D9E00515366 /* CIStripImageVC.h */,
+				D2BB801724E53D9E00515366 /* CIStripImageVC.m */,
+				D2BB801924E559A900515366 /* CISlider.h */,
+				D2BB801A24E559A900515366 /* CISlider.m */,
+				D2BB801C24E6699100515366 /* CISharpenVC.h */,
+				D2BB801D24E6699100515366 /* CISharpenVC.m */,
+				D2BB801F24E66DEC00515366 /* CIGifOptimizeVC.h */,
+				D2BB802024E66DEC00515366 /* CIGifOptimizeVC.m */,
+				D242831F24E674C7002CA2EB /* CIRoTateVC.h */,
+				D242832024E674C7002CA2EB /* CIRoTateVC.m */,
+			);
+			path = operationVC;
 			sourceTree = "<group>";
 		};
 		FCA611E91E65A0048A1F10DA /* Pods */ = {
@@ -274,8 +367,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D23E530A24C9A02600052190 /* TPGCollectionViewCell.xib in Resources */,
 				D24C6C9724C1C69C00DD4F25 /* LaunchScreen.storyboard in Resources */,
+				D2C18C4524E3994B00747941 /* BaseViewController.xib in Resources */,
+				D2C18C4024E3913E00747941 /* TPGCollectionViewCell.xib in Resources */,
 				D24C6C9424C1C69C00DD4F25 /* Assets.xcassets in Resources */,
 				D24C6C9224C1C69A00DD4F25 /* Main.storyboard in Resources */,
 			);
@@ -345,10 +439,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				D24C6C8F24C1C69A00DD4F25 /* ViewController.m in Sources */,
+				D2BB801E24E6699100515366 /* CISharpenVC.m in Sources */,
+				D2BB802124E66DEC00515366 /* CIGifOptimizeVC.m in Sources */,
+				D2B8AE1A24E3D5DF00C2AE8F /* CIZoomImageVC.m in Sources */,
 				D24C6C8924C1C69A00DD4F25 /* AppDelegate.m in Sources */,
+				D2C18C3D24E38F5A00747941 /* RootViewController.m in Sources */,
+				D2BB801B24E559A900515366 /* CISlider.m in Sources */,
+				D242832124E674C7002CA2EB /* CIRoTateVC.m in Sources */,
+				D2BB800F24E5215100515366 /* CISigmaVC.m in Sources */,
+				D2BB801524E5349F00515366 /* CIWaterMarkVC.m in Sources */,
 				D24C6C9A24C1C69C00DD4F25 /* main.m in Sources */,
+				D2BB801824E53D9E00515366 /* CIStripImageVC.m in Sources */,
 				D24C6C8C24C1C69A00DD4F25 /* SceneDelegate.m in Sources */,
+				D2C18C4424E3994B00747941 /* BaseViewController.m in Sources */,
+				D2C18C4824E39AF400747941 /* GetAveColorVC.m in Sources */,
+				D2BB801224E52CEA00515366 /* CIQualityChangeVC.m in Sources */,
 				D23E530924C9A02600052190 /* TPGCollectionViewCell.m in Sources */,
+				D2B8AE2624E3E29200C2AE8F /* CIFormatVC.m in Sources */,
+				D2B8AE1F24E3D91F00C2AE8F /* CICutImageVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

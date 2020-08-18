@@ -1,6 +1,6 @@
 //
 //  CITPGImageLoader.m
-//  CIImageLoader
+//  CloudInfinite
 //
 //  Created by garenwang on 2020/7/20.
 //
@@ -8,6 +8,7 @@
 #import "CIImageLoader.h"
 #import <QCloudCore/QCloudCore.h>
 #import "CIImageRequest.h"
+#import "CIMemoryCache.h"
 
 @implementation CIImageLoader
 
@@ -111,4 +112,52 @@
     }];
 }
 
+-(void)preloadWithAveColor:(UIView *)view objectUrl:(NSString *)objectUrl complete:(nullable void(^)(UIColor * color)) aveColorBlock{
+    
+    if (objectUrl == nil) {
+        aveColorBlock(nil);
+        return;
+    }
+    if ([objectUrl containsString:@"?"]) {
+        objectUrl = [[objectUrl componentsSeparatedByString:@"?"] firstObject];
+    }
+    
+    objectUrl = [objectUrl stringByAppendingString:@"?imageAve"];
+    __block UIColor * aveColor;
+    aveColor = (UIColor *)[[CIMemoryCache sharedMemoryCache] objectForKey:objectUrl];
+    view.backgroundColor = aveColor;
+    if (aveColorBlock) {
+        aveColorBlock(aveColor);
+        return;
+    }
+    
+    CIImageRequest * request = [[CIImageRequest alloc]initWithImageUrl:[NSURL URLWithString:objectUrl] andHeader:nil];
+    
+    // 执行CIImageRequest 示例开始请求图片
+    [[QCloudHTTPSessionManager shareClient] performRequest:request withFinishBlock:^(id outputObject, NSError *error) {
+        
+        NSDictionary * colorDic = [NSJSONSerialization JSONObjectWithData:outputObject[@"data"] options:NSJSONReadingFragmentsAllowed error:nil];
+        if (error) {
+            NSLog(@"getImageAveColor_error:%@",error.userInfo);
+            if (aveColorBlock) {
+                aveColorBlock(nil);
+            }
+            return;
+        }
+        NSString * colorStr = colorDic[@"RGB"];
+        if (colorStr.length == 8) {
+            int red = (int)strtoul([[colorStr substringWithRange:NSMakeRange(2, 2)] UTF8String], 0, 16);
+            int green = (int)strtoul([[colorStr substringWithRange:NSMakeRange(4, 2)] UTF8String], 0, 16);
+            int blue = (int)strtoul([[colorStr substringWithRange:NSMakeRange(6, 2)] UTF8String], 0, 16);
+            aveColor = [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:1.0];
+        }
+        [[CIMemoryCache sharedMemoryCache] setObject:aveColor forKey:objectUrl];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            view.backgroundColor = aveColor;
+        });
+        if (aveColorBlock) {
+            aveColorBlock(aveColor);
+        }
+    }];
+}
 @end

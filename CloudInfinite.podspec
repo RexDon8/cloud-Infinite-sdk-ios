@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/tencentyun/cloud-Infinite-sdk-ios.git',:branch => 'master'}
   
   s.platform = :ios
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '8.0'
   s.static_framework = true
   s.frameworks = 'UIKit','Foundation','ImageIO'
   s.libraries = 'z','c++'
@@ -31,7 +31,8 @@ Pod::Spec.new do |s|
 #  图片链接组装模块
   s.default_subspec  = 'CloudInfinite'
   s.subspec 'CloudInfinite' do |default|
-    default.source_files = 'CloudInfinite/Classes/CloudInfinite/*';
+    default.source_files = 'CloudInfinite/Classes/CloudInfinite/*' ,'CloudInfinite/Classes/CloudInfinite/CITransformItem/*';
+    
   end
   
 # 图片下载模块
@@ -48,13 +49,17 @@ Pod::Spec.new do |s|
                        'CloudInfinite/Classes/TPG/TPGDecoder/*',
                        'CloudInfinite/Classes/TPG/TPGDecoder/include/*';
      tpg.vendored_libraries='CloudInfinite/Classes/TPG/TPGDecoder/*.a';
+     tpg.vendored_frameworks = 'CloudInfinite/Classes/TPG/TPGDecoder/libpng.framework'
   end
   
 # SDWebImage 支持TPG图片加载模块
-  s.subspec 'SDWebImage-TPG' do |sdtpg|
-    sdtpg.source_files = 'CloudInfinite/Classes/SDWebImage-TPG/*';
-    sdtpg.dependency 'CloudInfinite/TPG';
+  s.subspec 'SDWebImage-CloudInfinite' do |sdtpg|
+    sdtpg.source_files = 'CloudInfinite/Classes/SDWebImage-CloudInfinite/*';
+    sdtpg.public_header_files = 'CloudInfinite/Classes/SDWebImage-CloudInfinite/*.h';
+#    sdtpg.dependency 'CloudInfinite/TPG';
+    sdtpg.dependency 'CloudInfinite/CloudInfinite';
     sdtpg.dependency 'SDWebImage';
+    
   end
   
 end

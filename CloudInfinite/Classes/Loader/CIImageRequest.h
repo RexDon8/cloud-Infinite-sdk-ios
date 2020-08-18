@@ -1,6 +1,6 @@
 //
 //  CITPGImageRequest.h
-//  CIImageLoader
+//  CloudInfinite
 //
 //  Created by garenwang on 2020/7/14.
 //  Copyright © 2020 garenwang. All rights reserved.
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 请求图片request
 /// @param url 图片链接
 /// @param customHeader 请求头
--(instancetype)initWithImageUrl:(NSURL *)url andHeader:(NSDictionary *)customHeader;
+-(instancetype)initWithImageUrl:(NSURL *)url andHeader:(nullable NSString *)customHeader;
 
 @end
 

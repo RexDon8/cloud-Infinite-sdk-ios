@@ -1,6 +1,6 @@
 //
 //  UIImage+TPGDecode.h
-//  CIImageLoader
+//  CloudInfinite
 //
 //  Created by garenwang on 2020/7/15.
 //  Copyright © 2020 garenwang. All rights reserved.

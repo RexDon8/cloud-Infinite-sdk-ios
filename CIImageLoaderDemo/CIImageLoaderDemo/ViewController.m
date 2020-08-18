@@ -7,50 +7,65 @@
 //https://lns.hywly.com/a/1/8523/1.jpg
 
 #import "ViewController.h"
-#import "CIImageLoader.h"
-#import <TPGImageView.h>
-#import <CloudImage.h>
+#import <CloudInfinite.h>
 #import "TPGCollectionViewCell.h"
 #import <SDWebImage/SDWebImage.h>
-#import <TPGWebImageDownloader.h>
-
+#import <UIImageView+CI.h>
+#import <SDWebImage.h>
+#import <CIImageLoader.h>
+#import <UIButton+WebCache.h>
+#import <SDWebImage-CloudInfinite.h>
+#import <CISmartFaceTransformation.h>
+#import <CIResponsiveTransformation.h>
+#import <UIImageView+TPG.h>
 @interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic,strong)NSArray * urlArray;
 @property (weak, nonatomic) IBOutlet UICollectionView *tpgHeader;
-@property (weak, nonatomic) IBOutlet TPGImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *labTitle;
-@property (weak, nonatomic) IBOutlet TPGImageView *tpgImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *tpgImageView;
 @property (weak, nonatomic) IBOutlet UILabel *labTpgTitle;
 @property (weak, nonatomic) IBOutlet UILabel *labTime;
 @property (weak, nonatomic) IBOutlet UILabel *labTPGTime;
 @property (weak, nonatomic) IBOutlet UILabel *labType;
 @property (weak, nonatomic) IBOutlet UILabel *labTPGType;
 
-@property (nonatomic,strong)TPGWebImageDownloader * downLoader;
-
 @end
-
-
-
-
-
-
 
 
 @implementation ViewController
 
 - (NSArray *)urlArray{
-    return @[
-        @"https://tpg-1253653367.file.myqcloud.com/01.jpg",
-        @"https://tpg-1253653367.file.myqcloud.com/02.jpg",
-        @"https://tpg-1253653367.file.myqcloud.com/03.jpg",
-        @"https://tpg-1253653367.file.myqcloud.com/04.jpg",
-        @"https://tpg-1253653367.file.myqcloud.com/05.png",
-        @"https://tpg-1253653367.file.myqcloud.com/06.png",
-        @"https://tpg-1253653367.file.myqcloud.com/07.png",
-        @"https://tpg-1253653367.file.myqcloud.com/08.png",
-    ];
+    
+    if (self.isTPG) {
+        return @[
+            @"https://tpg-1253653367.file.myqcloud.com/dingdang.gif",
+            @"https://tpg-1253653367.file.myqcloud.com/gif4.gif",
+            @"https://tpg-1253653367.file.myqcloud.com/01.jpg",
+            @"https://tpg-1253653367.file.myqcloud.com/02.jpg",
+            @"https://tpg-1253653367.file.myqcloud.com/03.jpg",
+            @"https://tpg-1253653367.file.myqcloud.com/04.jpg",
+            @"https://tpg-1253653367.file.myqcloud.com/05.png",
+            @"https://tpg-1253653367.file.myqcloud.com/06.png",
+            @"https://tpg-1253653367.file.myqcloud.com/07.png",
+            @"https://tpg-1253653367.file.myqcloud.com/08.png",
+        ];
+    }else{
+        return @[
+            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/dingdang.gif",
+            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/IMG_0005.JPG",
+            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/01.jpg",
+            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/02.jpg",
+            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/03.jpg",
+            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/04.jpg",
+            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/05.png",
+            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/06.png",
+            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/07.png",
+            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/08.png",
+        ];
+    }
+    
 }
 
 - (void)viewDidLoad {
@@ -74,7 +89,7 @@
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
     
-    TPGImageView * imageView = [[TPGImageView alloc]initWithFrame: CGRectMake(0, 0, 200, 200)];
+    UIImageView * imageView = [[UIImageView alloc]initWithFrame: CGRectMake(0, 0, 200, 200)];
     [self.view addSubview:imageView];
     
     [self loadData:0];
@@ -93,18 +108,8 @@
 -(__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     TPGCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TPGCollectionViewCell" forIndexPath:indexPath];
     
-    CloudImage * cloudImage = [CloudImage new];
-    
-    CITransformation * transform = [[CITransformation alloc] initWithFormat:CIImageTypeJPG options:CILoadTypeUrlFooter];
-    
-    [cloudImage requestWithBaseUrl:self.urlArray[indexPath.row] transform:transform request:^(CIImageLoadRequest * _Nonnull request) {
-        
-        [cell.imageView sd_setImageWithURL:request.url placeholderImage:[UIImage imageNamed:@"placeholder"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-            [self showDataSizeUrl:imageURL typeLable:nil sizeLable:cell.labTitle];
-        }];
-//        [[CIImageLoader shareLoader] display:cell.imageView loadRequest:request placeHolder:[UIImage imageNamed:@"placeholder"] loadComplete:^(NSData * _Nullable data, NSError * _Nullable error) {
-//            cell.labTitle.text = [NSString stringWithFormat:@"大小:%.2lu KB", [data length] / 1000];
-//        }];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.urlArray[indexPath.row]] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        [self showDataSizeUrl:imageURL typeLable:nil sizeLable:cell.labTitle];
     }];
     
     return cell;
@@ -137,80 +142,93 @@
     self.labTime.text = @"耗时：";
     self.labTPGTime.text = @"耗时：";
     
-    CloudImage * cloudImage = [CloudImage new];
-    
-    CITransformation * transform = [[CITransformation alloc] initWithFormat:CIImageTypeJPG options:CILoadTypeUrlFooter];
-    
     CFAbsoluteTime startTime =CFAbsoluteTimeGetCurrent();
-    [cloudImage requestWithBaseUrl:imageUrl transform:transform request:^(CIImageLoadRequest * _Nonnull request) {
-        [self.imageView sd_setImageWithURL:request.url placeholderImage:[UIImage imageNamed:@"placeholder"] options:SDWebImageRefreshCached completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-            CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
-            self.labTime.text = [NSString stringWithFormat:@"耗时：%.2f s",linkTime];
-            
-            [self showDataSizeUrl:imageURL typeLable:self.labType sizeLable:self.labTitle];
-        }];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+        self.labTime.text = [NSString stringWithFormat:@"耗时：%.2f s",linkTime];
+        
+        [self showDataSizeUrl:imageURL typeLable:self.labType sizeLable:self.labTitle];
     }];
-
-    CITransformation * tpgtransform = [[CITransformation alloc] initWithFormat:CIImageTypeTPG options:CILoadTypeUrlFooter];
-    self.tpgImageView.image = [UIImage imageNamed:@"placeholder"];
-    [cloudImage requestWithBaseUrl:imageUrl transform:tpgtransform request:^(CIImageLoadRequest * _Nonnull request) {
-        
-        //        **************************************************************************
-        
-        //        CloudImage 主要功能：构建 CIImageLoadRequest 实例，CIImageLoadRequest主要包含url和header；
-        //        CIImageLoadRequest 实例，可用于CImageLoader；也可以用于SDWebImage
-        
-        //        CIImageLoader 主要功能：使用CIImageLoadRequest实例，请求网络图并返回Data形式数据；
-        
-        //        TPGImage:主要功能：解码TPG并显示图片，即可用于显示普通图片，也可用于TPG图
-        
-        //        TPGImageSDWebImage 主要功能：SDWebImage能够显示TPG图 ：自定义imageloader和 TPGImageDecoder ，
-        
-        //        **************************************************************************
-        
-        //        加载方式1 构建出url，用三方加载 （CouldImage + SDWebimage）
-        //        [self.tpgImageView sd_setImageWithURL:request.url placeholderImage:[UIImage imageNamed:@"placeholder"]];
-        
-        
-        //         加载方式2 直接加载普通图片 （CouldImage + CIImageLoader）
-        //        [[CIImageLoader shareLoader] display:self.imageView loadRequest:request placeHolder:[UIImage imageNamed:@"placeholder"] loadComplete:^(NSData * _Nullable data, NSError * _Nullable error) {
-        //
-        //        }];
-        
-        
-        //        加载方式3 直接加载TPG (CouldImage + CIImageLoader + TPGImage)
-        //        [[CIImageLoader shareLoader] loadData:request loadComplete:^(NSData * _Nullable data, NSError * _Nullable error) {
-        //            [self.tpgImageView setTpgImageWithData:data loadComplete:^(NSData * _Nullable data, UIImage * _Nullable image, NSError * _Nullable error) {
-        //                NSLog(@"%@",error);
-        //            }];
-        //            self.labTpgTitle.text = [NSString stringWithFormat:@"格式：%@   大小:%.2lu KB",[self getImageType:data], [data length] / 1000];
-        //        }];
-        
-        //        加载方式4 SDWebImage加载TPG (SDWebImage + TPGImage)
-        //    completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        //        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        //            // sdwebimage 没有返回image data数据，用这个方式单独获取data，显示文件格式以及大小，正常使用时无需此步骤
-        //            NSData * data = [NSData dataWithContentsOfURL:imageURL];
-        //            dispatch_async(dispatch_get_main_queue(), ^{
-        //                self.labTpgTitle.text = [NSString stringWithFormat:@"格式：%@   大小:%.2lu KB",[self getImageType:data], [data length] / 1000];
-        //            });
-        //        });
-        //    }
-        
-        // 如果header使用相同 则使用单例的方式
-        // self.downLoader = [TPGWebImageDownloader shareLoader];
-        // [self.downLoader setHttpHeaderField:request.header];
-        
-        // 如果每次header 不同则使用该构造方式；
-        self.downLoader = [[TPGWebImageDownloader alloc] initWithHeader:request.header];
-        
-        // SDWebImageRefreshCached demo中为了准备计算请求耗时，不使用缓存，正式项目中还是使用缓存比较好
-        [self.tpgImageView sd_setImageWithURL:request.url placeholderImage:[UIImage imageNamed:@"placeholder"] options:SDWebImageRefreshCached context:@{SDWebImageContextImageLoader:self.downLoader} progress:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-            CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
-            self.labTPGTime.text = [NSString stringWithFormat:@"耗时：%.2f s",linkTime];
-            [self showDataSizeUrl:imageURL typeLable:self.labTPGType sizeLable:self.labTpgTitle];
-        }];
+    
+    CITransformation * tran;
+    if (_isTPG) {
+        tran = [CITransformation new];
+        [tran setFormatWith:CIImageTypeTPG options:CILoadTypeUrlFooter];
+    }else{
+        tran = [[CIResponsiveTransformation alloc]initWithView:self.imageView scaleType:ScaleTypeAUTOFit];
+    }
+    
+    //    ***************缩放*************
+    //    [tran setZoomWithPercent:50 scaleType:ScalePercentTypeOnlyWidth];
+    //    [tran setZoomWithPercent:50 scaleType:ScalePercentTypeOnlyHeight];
+    //    [tran setZoomWithPercent:50 scaleType:ScalePercentTypeALL];
+    //    [tran setZoomWithWidth:self.tpgImageView.frame.size.width height:self.tpgImageView.frame.size.height scaleType:ScaleTypeAUTOFit];
+    //    [tran setZoomResponsiveWith:self.tpgImageView scaleType:ScaleTypeAUTOFIT];
+    //    [tran setZoomWithArea:1000];
+    
+    //    ***************水印*************
+    //    [tran setWaterMarkText:@"腾讯云·万象优图" font:nil textColor:nil dissolve:0 gravity:CIGravitySouth dx:100 dy:100 batch:YES degree:45];
+    //    [tran setWaterMarkWithImageUrl:@"http://tpg-1253653367.cos.ap-guangzhou.myqcloud.com/google.jpg" gravity:0 dx:0 dy:0 blogo:0];
+    //    ***************格式转换*************
+    //    [tran setFormatWith:CIImageTypeTPG options:CILoadTypeUrlFooter];
+    //    [tran setFormatWith:CIImageTypeTPG];
+    //    [tran setCgif:199];
+    //    [tran setInterlace:YES];
+    
+    //    ***************裁剪*************
+    //    [tran setCutWithWidth:100 height:100 dx:30 dy:30];
+    //    [tran setCutWithRRadius:100];
+    //    [tran setCutWithIRadius:100];
+    //    [tran setCutWithCrop:100 height:100];
+    //    [tran setCutWithScrop:10 height:10]; //没试出来
+    
+    //    ***************旋转*************
+    //    [tran setRotateWith:45];
+    //    [tran setRotateAutoOrient];
+    
+    
+    //    ***************高斯模糊*************
+    //    [tran setBlurRadius:20 sigma:20];
+    
+    //    ***************锐化*************
+    //    [tran setSharpenWith:10];
+    
+    //    ***************质量变换*************
+    //    [tran setQualityWithQuality:60 type:CIQualityChangeAbsoluteFix];
+    //    [tran setQualityWithQuality:60 type:CIQualityChangeAbsolute];
+    //    [tran setQualityWithQuality:60 type:CIQualityChangeLowest];
+    //    [tran setQualityWithQuality:60 type:CIQualityChangeRelative];
+    
+    //    ***************获取图片主题色*************
+    //    [tran setViewBackgroudColorWithImageAveColor:YES];
+    
+    //    ***************去除元信息*************
+    //    [tran setImageStrip];
+    
+    //    SmartFaceTransformation * tran = [[SmartFaceTransformation alloc]initWithView:self.tpgImageView];
+    //    [tran setWaterMarkText:@"腾讯云·万象优图" font:nil textColor:nil dissolve:0 gravity:CIGravitySouth dx:100 dy:100 batch:YES degree:45];
+    //    //    ResponsiveTransformation * tran = [[ResponsiveTransformation alloc]initWithView:self.tpgImageView scaleType:ScaleTypeAUTOFIT];
+    //
+    //
+    [self.tpgImageView sd_CI_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil options:0 transformation:tran progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+        });
+    } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+        self.labTPGTime.text = [NSString stringWithFormat:@"耗时：%.2f s",linkTime];
+        [self showDataSizeUrl:imageURL typeLable:self.labTPGType sizeLable:self.labTpgTitle];
     }];
+    
+//    使用 CIImageLoader 加载TPG 图
+    
+//    CloudInfinite * cloudInfinite = [CloudInfinite new];
+//    [cloudInfinite requestWithBaseUrl:imageUrl transform:tran request:^(CIImageLoadRequest * _Nonnull request) {
+//        [[CIImageLoader shareLoader] loadData:request loadComplete:^(NSData * _Nullable data, NSError * _Nullable error) {
+//            [self.tpgImageView setTpgImageWithData:data loadComplete:nil];
+//        }];
+//    }];
+//
+   
 }
 
 
@@ -235,6 +253,9 @@
     
     [data getBytes:&char3 range:NSMakeRange(2, 1)];
     
+    if (char1 == '\0' && char2 == '\0') {
+        return @"HEIC";
+    }
     
     NSString *numStr = [NSString stringWithFormat:@"%c%c%c",char1,char2,char3];
     return numStr;

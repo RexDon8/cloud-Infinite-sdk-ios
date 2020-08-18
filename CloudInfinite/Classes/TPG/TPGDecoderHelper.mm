@@ -1,6 +1,6 @@
 //
 //  TPGDecoderHelper.m
-//  CIImageLoader
+//  CloudInfinite
 //
 //  Created by garenwang on 2020/7/24.
 //

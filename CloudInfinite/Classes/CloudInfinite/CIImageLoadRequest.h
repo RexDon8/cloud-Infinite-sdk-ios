@@ -1,6 +1,6 @@
 //
 //  CIImageLoadRequest.h
-//  CIImageLoader
+//  CloudInfinite
 //
 //  Created by garenwang on 2020/7/23.
 //
@@ -15,7 +15,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)NSURL * url;
 
 /// 构建完后的header
-@property (nonatomic,strong)NSDictionary * header;
+@property (nonatomic,strong)NSString * header;
+
+
+-(instancetype)initWithBaseURL:(NSString *)baseUrl;
+
+
+/// 在图片链接后添加万象图片操作参数
+/// @param partUrl 参数
+-(void)addURLPart:(NSString *)partUrl;
 
 @end
 

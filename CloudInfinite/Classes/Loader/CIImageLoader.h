@@ -1,12 +1,14 @@
 //
-//  CITPGImageLoader.h
-//  CIImageLoader
+//  CIImageLoader.h
+//  CloudInfinite
 //
 //  Created by garenwang on 2020/7/20.
 //
 
 #import <Foundation/Foundation.h>
 #import "CIImageLoadRequest.h"
+
+typedef void (^GetImageAveColorBlock)(UIColor * _Nullable color);
 
 /**
  图片请求类，主要用于加载网络图并返回图片data数据；
@@ -45,6 +47,13 @@ typedef void(^LoadImageComplete)(NSData * _Nullable data,
    loadRequest:(CIImageLoadRequest*)loadRequest
    placeHolder:(UIImage *)placeHolder
   loadComplete:(nullable LoadImageComplete)complete;
+
+
+/// 获取图片主题色
+/// @param view 控件
+/// @param objectUrl 图片链接
+/// @param aveColorBlock 成功回调
+-(void)preloadWithAveColor:(UIView *)view objectUrl:(NSString *)objectUrl complete:(nullable void(^)(UIColor * color)) aveColorBlock;
 
 @end
 

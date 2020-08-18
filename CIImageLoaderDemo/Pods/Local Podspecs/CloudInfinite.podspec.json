@@ -13,7 +13,7 @@
     "branch": "master"
   },
   "platforms": {
-    "ios": "10.0"
+    "ios": "8.0"
   },
   "static_framework": true,
   "frameworks": [
@@ -32,7 +32,10 @@
   "subspecs": [
     {
       "name": "CloudInfinite",
-      "source_files": "CloudInfinite/Classes/CloudInfinite/*"
+      "source_files": [
+        "CloudInfinite/Classes/CloudInfinite/*",
+        "CloudInfinite/Classes/CloudInfinite/CITransformItem/*"
+      ]
     },
     {
       "name": "Loader",
@@ -53,13 +56,15 @@
         "CloudInfinite/Classes/TPG/TPGDecoder/*",
         "CloudInfinite/Classes/TPG/TPGDecoder/include/*"
       ],
-      "vendored_libraries": "CloudInfinite/Classes/TPG/TPGDecoder/*.a"
+      "vendored_libraries": "CloudInfinite/Classes/TPG/TPGDecoder/*.a",
+      "vendored_frameworks": "CloudInfinite/Classes/TPG/TPGDecoder/libpng.framework"
     },
     {
-      "name": "SDWebImage-TPG",
-      "source_files": "CloudInfinite/Classes/SDWebImage-TPG/*",
+      "name": "SDWebImage-CloudInfinite",
+      "source_files": "CloudInfinite/Classes/SDWebImage-CloudInfinite/*",
+      "public_header_files": "CloudInfinite/Classes/SDWebImage-CloudInfinite/*.h",
       "dependencies": {
-        "CloudInfinite/TPG": [
+        "CloudInfinite/CloudInfinite": [
 
         ],
         "SDWebImage": [

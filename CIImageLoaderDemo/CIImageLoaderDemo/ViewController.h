@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 
+@property(nonatomic,assign)BOOL isTPG;
 
 @end
 

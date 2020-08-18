@@ -3,11 +3,11 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'CIImageLoaderDemo' do
-
+  pod 'Masonry'
 #  pod 'CloudInfinite/CloudInfinite',      path:'../'
   pod 'CloudInfinite',                    path:'../'
   pod 'CloudInfinite/TPG',                path:'../'
-  pod 'CloudInfinite/SDWebImage-TPG',     path:'../'
+  pod 'CloudInfinite/SDWebImage-CloudInfinite',     path:'../'
   pod 'CloudInfinite/Loader',             path:'../'
 
 end

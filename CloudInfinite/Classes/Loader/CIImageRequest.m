@@ -1,6 +1,6 @@
 //
 //  CITPGImageRequest.m
-//  CIImageLoader
+//  CloudInfinite
 //
 //  Created by garenwang on 2020/7/14.
 //  Copyright © 2020 garenwang. All rights reserved.
@@ -30,10 +30,12 @@ QCloudResponseSerializerBlock QCloudResponseDataAppendHeadersSerializerBlock1 = 
     return (id)allDatas;
 };
 
--(instancetype)initWithImageUrl:(NSURL *)url andHeader:(NSDictionary *)customHeader{
+-(instancetype)initWithImageUrl:(NSURL *)url andHeader:(NSString *)customHeader{
     if (self = [super init]) {
         self.imageUrl = url;
-        self.customHeader = customHeader;
+        if (customHeader) {
+            self.customHeader = @{@"accept":[NSString stringWithFormat:@"image/%@",customHeader]};
+        }
     }
     return self;
 }

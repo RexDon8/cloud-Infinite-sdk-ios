@@ -1,6 +1,6 @@
 //
 //  UIImage+TPGDecode.m
-//  CIImageLoader
+//  CloudInfinite
 //
 //  Created by garenwang on 2020/7/15.
 //  Copyright © 2020 garenwang. All rights reserved.
@@ -203,172 +203,173 @@ UIImage* decodeTPG2PNG(char * InputFile, char* OutputFile)
 }
 
 
-//UIImage* decodeTPGGIF(char *InputFile, char* OutputFile)
-//{
-//    unsigned char* pOutBuf, *pOutBuf32 = NULL;
-//    int nOutWidth;
-//    int nOutHeight;
-//    int nPixelSize;
-//
-//    //decode TPG
-//    UIImage* result = nil;
-//
-//    int stream_len = 0;
-//    FILE* fp = fopen(InputFile, "rb");
-//    struct stat fileInfo;
-//    if(stat(InputFile,&fileInfo))
-//    {
-//        printf("can't find the %s file.\n",InputFile);
-//        exit(1);
-//    }
-//    stream_len = fileInfo.st_size;
-//    unsigned char* pStreamBuf = (unsigned char*)malloc(stream_len);
-//    if(fread(pStreamBuf,1,stream_len,fp) !=stream_len)
-//    {
-//        printf("read the %s fail ");
-//        exit(1);
-//    }
-//    fclose(fp);
-//
-//    enRawDataFormat fmt = enRawDataFormat::FORMAT_RGB;
-//    nPixelSize = 3;
-//
-//    TPGFeatures features = {0};
-//    TPGStatusCode stats = TPGParseHeader(pStreamBuf, stream_len, &features);
-//
-//    if (TPG_STATUS_OK != stats)
-//    {
-//        printf("parse TPG header info error!\n");
-//        exit(1);
-//    }
-//
-//    if(features.image_mode == emMode_AnimationWithAlpha)
-//    {
-//        fmt = enRawDataFormat::FORMAT_RGBA;
-//        nPixelSize = 4;
-//    }
-//
-//
-//    void *TPGDec = TPGDecCreate(pStreamBuf, stream_len);
-//
-//    nOutWidth = features.width;
-//    nOutHeight = features.height;
-//    pOutBuf = new unsigned char[(nOutWidth + 1) * (nOutHeight + 1) * nPixelSize];
-//
-//    if(features.image_mode == emMode_Animation)
-//    {
-//        pOutBuf32 = new unsigned char[(nOutWidth + 1) * (nOutHeight + 1) * 4];
-//    }
-//
-//    TPGOutFrame outFrame = {0};
-//    outFrame.dstWidth = nOutWidth;
-//    outFrame.dstHeight = nOutHeight;
-//    outFrame.pOutBuf = pOutBuf;
-//    outFrame.bufsize = (nOutWidth + 1) * (nOutHeight + 1) * nPixelSize;
-//    outFrame.fmt = fmt;
-//
-//    mach_timebase_info_data_t info;
-//    volatile uint64_t starttime_c,sumtime_c=0;
-//    if (mach_timebase_info(&info) != KERN_SUCCESS)
-//    {
-//        printf("time unsuccess!\n");
-//    }
-//
-//    NSMutableArray<UIImage *> *AnimatedImages = @[].mutableCopy;
-//    NSTimeInterval duration = 0;
-//
-//    if (features.image_mode == emMode_Animation || features.image_mode == emMode_AnimationWithAlpha)
-//    {
-//        void* hGif = GifEncoderOpen(OutputFile, nOutWidth, nOutHeight, features.image_mode==emMode_AnimationWithAlpha, NULL,0);
-//
-//        //FILE *fRGB = fopen(OutputFile,"wb");
-//        int i = 0;
-//        for (i = 0; i < features.frame_count; i++)
-//        {
-//            //starttime_c = mach_absolute_time();
-//            stats = TPGDecodeImage(TPGDec, pStreamBuf, stream_len, i, &outFrame);
-//            int time = -1;
-//            stats = TPGGetDelayTime(TPGDec, pStreamBuf, stream_len, i, &time);
-//            printf("time = %d\n", time);
-//            if (TPG_STATUS_OK != stats)
-//            {
-//                break;
-//            }
-//
-//            UIImage* oneFrame = nil;
-//
-//            if(features.image_mode == emMode_Animation)
-//            {
-//                int i = 0;
-//                int j = 0;
-//
-//                for(; i<nOutWidth*nOutHeight*4; i=i+4, j=j+3)
-//                {
-//                    pOutBuf32[i] = pOutBuf[j];
-//                    pOutBuf32[i+1] = pOutBuf[j+1];
-//                    pOutBuf32[i+2] = pOutBuf[j+2];
-//                    pOutBuf32[i+3] = 255;
-//                }
-//                oneFrame = [UIImage convertBitmapRGBA8ToUIImage:pOutBuf32 withWidth:nOutWidth withHeight:nOutHeight];
-//            }
-//            else{
-//                oneFrame = [UIImage convertBitmapRGBA8ToUIImage:pOutBuf withWidth:nOutWidth withHeight:nOutHeight];
-//            }
-//
-//            if(oneFrame)
-//            {
-//                [AnimatedImages addObject:oneFrame];
-//                if(outFrame.delayTime >=2)
-//                {
-//                    duration += outFrame.delayTime *10;
-//                }
-//                else{
-//
-//                    duration +=100;
-//                }
-//            }
-//
-//            starttime_c = mach_absolute_time();
-//            if (hGif)
-//            {
-//                stGifFrame stFrame = {0};
-//                stFrame.width = outFrame.dstWidth;
-//                stFrame.height = outFrame.dstHeight;
-//                stFrame.pRGB = outFrame.pOutBuf;
-//                stFrame.delayTime = outFrame.delayTime;
-//                GifEncoderEncodeFrame(hGif, &stFrame);
-//            }
-//            sumtime_c += mach_absolute_time() - starttime_c;
-//
-//            //fwrite(outFrame.pOutBuf, outFrame.dstWidth*outFrame.dstHeight*nPixelSize, 1, fRGB);
-//        }
-//
-//        printf("decode time:  %lf ms\n",  (double)(sumtime_c*info.numer / info.denom)/NSEC_PER_MSEC);
-//       // fclose(fRGB);
-//       GifEncoderClose(hGif);
-//    }
-//
-//    if(AnimatedImages.count > 0)
-//    {
-//        result = [UIImage animatedImageWithImages: [AnimatedImages copy] duration:(duration/1000)];
-//    }
-//
-//
-//    free(pStreamBuf);
-//    pStreamBuf = NULL;
-//    delete [] pOutBuf;
-//    pOutBuf = NULL;
-//    if(pOutBuf32)
-//    {
-//        delete [] pOutBuf32;
-//        pOutBuf32 = NULL;
-//    }
-//
-//    TPGDecDestroy(TPGDec);
-//    TPGDec = NULL;
-//
-//    return result;
-//}
+UIImage* decodeTPGGIF(char *InputFile, char* OutputFile)
+{
+    unsigned char* pOutBuf, *pOutBuf32 = NULL;
+    int nOutWidth;
+    int nOutHeight;
+    int nPixelSize;
+    
+    //decode TPG
+    UIImage* result = nil;
+    
+    int stream_len = 0;
+    FILE* fp = fopen(InputFile, "rb");
+    struct stat fileInfo;
+    if(stat(InputFile,&fileInfo))
+    {
+        printf("can't find the %s file.\n",InputFile);
+        exit(1);
+    }
+    stream_len = fileInfo.st_size;
+    unsigned char* pStreamBuf = (unsigned char*)malloc(stream_len);
+    if(fread(pStreamBuf,1,stream_len,fp) !=stream_len)
+    {
+        printf("read the %s fail ");
+        exit(1);
+    }
+    fclose(fp);
+    
+    enRawDataFormat fmt = enRawDataFormat::FORMAT_RGB;
+    nPixelSize = 3;
+    
+    TPGFeatures features = {0};
+    TPGStatusCode stats = TPGParseHeader(pStreamBuf, stream_len, &features);
+    
+    if (TPG_STATUS_OK != stats)
+    {
+        printf("parse TPG header info error!\n");
+        exit(1);
+    }
+    
+    if(features.image_mode == emMode_AnimationWithAlpha)
+    {
+        fmt = enRawDataFormat::FORMAT_RGBA;
+        nPixelSize = 4;
+    }
+    
+    
+    void *TPGDec = TPGDecCreate(pStreamBuf, stream_len);
+    
+    nOutWidth = features.width;
+    nOutHeight = features.height;
+    pOutBuf = new unsigned char[(nOutWidth + 1) * (nOutHeight + 1) * nPixelSize];
+    
+    if(features.image_mode == emMode_Animation)
+    {
+        pOutBuf32 = new unsigned char[(nOutWidth + 1) * (nOutHeight + 1) * 4];
+    }
+    
+    TPGOutFrame outFrame = {0};
+    outFrame.dstWidth = nOutWidth;
+    outFrame.dstHeight = nOutHeight;
+    outFrame.pOutBuf = pOutBuf;
+    outFrame.bufsize = (nOutWidth + 1) * (nOutHeight + 1) * nPixelSize;
+    outFrame.fmt = fmt;
+    
+    mach_timebase_info_data_t info;
+    volatile uint64_t starttime_c,sumtime_c=0;
+    if (mach_timebase_info(&info) != KERN_SUCCESS)
+    {
+        printf("time unsuccess!\n");
+    }
+    
+    NSMutableArray<UIImage *> *AnimatedImages = @[].mutableCopy;
+    NSTimeInterval duration = 0;
+    
+    if (features.image_mode == emMode_Animation || features.image_mode == emMode_AnimationWithAlpha)
+    {
+        void* hGif = GifEncoderOpen(OutputFile, nOutWidth, nOutHeight, features.image_mode==emMode_AnimationWithAlpha, NULL,0);
+        
+        //FILE *fRGB = fopen(OutputFile,"wb");
+        int i = 0;
+        for (i = 0; i < features.frame_count; i++)
+        {
+            //starttime_c = mach_absolute_time();
+            stats = TPGDecodeImage(TPGDec, pStreamBuf, stream_len, i, &outFrame);
+            int time = -1;
+            stats = TPGGetDelayTime(TPGDec, pStreamBuf, stream_len, i, &time);
+            printf("time = %d\n", time);
+            if (TPG_STATUS_OK != stats)
+            {
+                break;
+            }
+            
+            UIImage* oneFrame = nil;
+            
+            if(features.image_mode == emMode_Animation)
+            {
+                int i = 0;
+                int j = 0;
+                
+                for(; i<nOutWidth*nOutHeight*4; i=i+4, j=j+3)
+                {
+                    pOutBuf32[i] = pOutBuf[j];
+                    pOutBuf32[i+1] = pOutBuf[j+1];
+                    pOutBuf32[i+2] = pOutBuf[j+2];
+                    pOutBuf32[i+3] = 255;
+                }
+                oneFrame = [UIImage convertBitmapRGBA8ToUIImage:pOutBuf32 withWidth:nOutWidth withHeight:nOutHeight];
+            }
+            else{
+                oneFrame = [UIImage convertBitmapRGBA8ToUIImage:pOutBuf withWidth:nOutWidth withHeight:nOutHeight];
+            }
+
+            if(oneFrame)
+            {
+                [AnimatedImages addObject:oneFrame];
+                if(outFrame.delayTime >=2)
+                {
+                    duration += outFrame.delayTime *10;
+                }
+                else{
+                
+                    duration +=100;
+                }
+            }
+            
+            starttime_c = mach_absolute_time();
+            if (hGif)
+            {
+                stGifFrame stFrame = {0};
+                stFrame.width = outFrame.dstWidth;
+                stFrame.height = outFrame.dstHeight;
+                stFrame.pRGB = outFrame.pOutBuf;
+                stFrame.delayTime = outFrame.delayTime/10;
+                GifEncoderEncodeFrame(hGif, &stFrame);
+            }
+            sumtime_c += mach_absolute_time() - starttime_c;
+
+            //fwrite(outFrame.pOutBuf, outFrame.dstWidth*outFrame.dstHeight*nPixelSize, 1, fRGB);
+        }
+        
+        printf("decode time: %s, %lf ms\n", InputFile, (double)(sumtime_c*info.numer / info.denom)/NSEC_PER_MSEC);
+       // fclose(fRGB);
+       GifEncoderClose(hGif);
+    }
+    
+    if(AnimatedImages.count > 0)
+    {
+        result = [UIImage animatedImageWithImages: [AnimatedImages copy] duration:(duration/1000)];
+    }
+    
+    
+    free(pStreamBuf);
+    pStreamBuf = NULL;
+    delete [] pOutBuf;
+    pOutBuf = NULL;
+    if(pOutBuf32)
+    {
+        delete [] pOutBuf32;
+        pOutBuf32 = NULL;
+    }
+    
+    TPGDecDestroy(TPGDec);
+    TPGDec = NULL;
+    
+    return result;
+}
+
 
 + (UIImage*) onTPGDecode
 {
@@ -445,7 +446,7 @@ UIImage* decodeTPG2PNG(char * InputFile, char* OutputFile)
         else if (features.image_mode == emMode_Animation || features.image_mode == emMode_AnimationWithAlpha)
         {
             strcat(OutputFile, ".gif");
-//            img = decodeTPGGIF(InputFile, OutputFile);
+            img = decodeTPGGIF(InputFile, OutputFile);
         }
         else
         {
@@ -513,7 +514,7 @@ UIImage* decodeTPG2PNG(char * InputFile, char* OutputFile)
         else if (features.image_mode == emMode_Animation || features.image_mode == emMode_AnimationWithAlpha)
         {
             strcat(OutputFile, ".gif");
-//            img = decodeTPGGIF(InputFile, OutputFile);
+            img = decodeTPGGIF(InputFile, OutputFile);
         }
         else
         {

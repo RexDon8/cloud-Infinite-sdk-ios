@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import <SDWebImage/SDWebImage.h>
+#import <SDWebImage-CloudInfinite.h>
 @interface AppDelegate ()
 
 @end
@@ -16,6 +17,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+//    方式一全局使用TPG
+//    [[TPGDownloaderConfig sharedConfig] addTPGRegularExpress:@"http(s)?:.*" paramsType:CILoadTypeUrlFooter];
+//    
+//    // 排除主题色的请求
+//    [[TPGDownloaderConfig sharedConfig] addExcloudeTPGRegularExpress:@"http(s)?:.*imageAve"];
     
     return YES;
 }
