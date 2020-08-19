@@ -5,7 +5,7 @@
 
 #ifndef CloudInfiniteModuleVersion_h
 #define CloudInfiniteModuleVersion_h
-#define CloudInfiniteModuleVersionNumber 100000
+#define CloudInfiniteModuleVersionNumber 103000
 
 //dependency
 

@@ -1,5 +1,5 @@
 #import "CloudInfiniteVersion.h"
-NSString * const CloudInfiniteModuleVersion = @"1.0.0";
+NSString * const CloudInfiniteModuleVersion = @"1.3.0";
 NSString * const CloudInfiniteModuleName = @"CloudInfinite";
 @interface QCloudCloudInfiniteLoad : NSObject
 @end
