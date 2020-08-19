@@ -1,21 +1,33 @@
 PODS:
-  - CloudInfinite (1.0.1):
-    - CloudInfinite/CloudInfinite (= 1.0.1)
-  - CloudInfinite/CloudInfinite (1.0.1)
-  - CloudInfinite/Loader (1.0.1):
+  - CloudInfinite (1.2.0):
+    - CloudInfinite/CloudInfinite (= 1.2.0)
+  - CloudInfinite/CloudInfinite (1.2.0)
+  - CloudInfinite/Loader (1.2.0):
     - CloudInfinite/CloudInfinite
     - QCloudCore
-  - CloudInfinite/SDWebImage-CloudInfinite (1.0.1):
+  - CloudInfinite/SDWebImage-CloudInfinite (1.2.0):
     - CloudInfinite/CloudInfinite
     - SDWebImage
-  - CloudInfinite/TPG (1.0.1)
+  - CloudInfinite/TPG (1.2.0)
+  - libwebp (1.1.0):
+    - libwebp/demux (= 1.1.0)
+    - libwebp/mux (= 1.1.0)
+    - libwebp/webp (= 1.1.0)
+  - libwebp/demux (1.1.0):
+    - libwebp/webp
+  - libwebp/mux (1.1.0):
+    - libwebp/demux
+  - libwebp/webp (1.1.0)
   - Masonry (1.1.0)
-  - QCloudCore (5.7.4):
-    - QCloudCore/Default (= 5.7.4)
-  - QCloudCore/Default (5.7.4)
+  - QCloudCore (5.7.5):
+    - QCloudCore/Default (= 5.7.5)
+  - QCloudCore/Default (5.7.5)
   - SDWebImage (5.8.4):
     - SDWebImage/Core (= 5.8.4)
   - SDWebImage/Core (5.8.4)
+  - SDWebImageWebPCoder (0.6.1):
+    - libwebp (~> 1.0)
+    - SDWebImage/Core (~> 5.7)
 
 DEPENDENCIES:
   - CloudInfinite (from `../`)
@@ -23,23 +35,28 @@ DEPENDENCIES:
   - CloudInfinite/SDWebImage-CloudInfinite (from `../`)
   - CloudInfinite/TPG (from `../`)
   - Masonry
+  - SDWebImageWebPCoder
 
 SPEC REPOS:
   trunk:
+    - libwebp
     - Masonry
     - QCloudCore
     - SDWebImage
+    - SDWebImageWebPCoder
 
 EXTERNAL SOURCES:
   CloudInfinite:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CloudInfinite: 531abe6747e61e9f0b61b57ed13900083d864a39
+  CloudInfinite: a2a64aa561c9b74e371d58329c51136da8f7e262
+  libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  QCloudCore: e1b0238bb2708c673e6051f18a4a059623f8c3fb
+  QCloudCore: a1907d5ed9ac09ecaf0e6ce9ff9c3a5a283159bf
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
+  SDWebImageWebPCoder: d0dac55073088d24b2ac1b191a71a8f8d0adac21
 
-PODFILE CHECKSUM: fd788e6d593f3a30fcb06ada5b6bcbe639bd9855
+PODFILE CHECKSUM: 5c6e479de499ad7e350da99c992d8059f2d500b4
 
 COCOAPODS: 1.9.3

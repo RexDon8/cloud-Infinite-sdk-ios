@@ -35,6 +35,9 @@
         case CIImageTypeHEIC:
             formatString = @"heif";
             break;
+        case CIImageTypeWEBP:
+            formatString = @"webp";
+            break;
         case CIImageTypeYJPEG:
             formatString = @"yjpeg";
             break;

@@ -253,6 +253,17 @@ CloudInfinite 模块主要功能：
 ### 四 格式转换
 相关链接：[格式转换接口](https://cloud.tencent.com/document/product/460/36543)
 * 格式转换：目标缩略图的图片格式可为：tpg，jpg，bmp，gif，png，heic，yjpeg 等，其中 yjpeg 为数据万象针对 jpeg 格式进行的优化，本质为 jpg 格式；缺省为原图格式。
+   
+1. 使用图片格式转换，如果需要转为TPG格式，则需要依赖 'CloudInfinite/TPG' 模块；
+
+    ```
+    pod 'CloudInfinite/TPG'
+    ```
+
+2. 使用图片格式转换，如果需要转为WEBP格式，则需要依赖 'SDWebImageWebPCoder' 库；
+    ```
+    pod 'SDWebImageWebPCoder'
+    ```
 
 > 注意
 > 使用heic格式，需要在iOS11及以上。
@@ -275,12 +286,10 @@ CILoadTypeEnum:
 ```
 
 > 注意
-> * 当指定为CILoadTypeAcceptHeader 方式传参时，并且组合了其他的转换则header失效，并且在sdk内部自动转换为footer的方式
-> * 在使用图片格式转换时，如果需要转为TPG格式，则需要依赖 'CloudInfinite/TPG' 模块；
+> 当指定为CILoadTypeAcceptHeader 方式传参时，并且组合了其他的转换则header失效，并且在sdk内部自动转换为footer的方式
+
     
-```
-pod 'CloudInfinite/TPG'
-```
+
 
 * gif 格式优化： 只针对原图为 gif 格式，对 gif 图片格式进行的优化，降帧降颜色。
     FrameNumber=1，则按照默认帧数30处理，如果图片帧数大于该帧数则截取。
@@ -447,7 +456,7 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
 
 ## 与SDWebImage配合使用
 
-* #### 与SDWebImage 配合使用数据万象图片基础操作（除TPG相关功能外）；
+* #### 与SDWebImage 配合使用数据万象图片基础操作（除TPG、WEBP相关功能外）；
 
 1. 在使用数据万象图片基础操作时需要集成 CloudInfinite/SDWebImage-CloudInfinite 模块；
     ```
@@ -475,12 +484,13 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
 
 * ### 与SDWebImage 配合使用数据万象TPG功能（支持TPG动图加载，无需额外处理）；
 
-
+    #### 准备工作
     在使用TPG功能时 SDWebImage-CloudInfinite 需要依赖CloudInfinite/TPG 模块
     ```
     pod 'CloudInfinite/TPG'
     ```
 
+    #### 加载TPG图片
     SDWebImage-CloudInfinite提供了两种加载TPG图片的方式；
 
     ##### 方式一 调用 ```UIImageView+CI``` 加载TPG
@@ -510,10 +520,34 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
     // 请求图片主题色排除
     [[CIDownloaderConfig sharedConfig] addExcloudeTPGRegularExpress:@"http(s)?:.*imageAve"];
     ```
+* ### 与SDWebImage 配合使用数据万象WEBP功能（支持WEBP动图加载，无需额外处理）；
+    #### 准备工作
+    在使用WEBP功能时 SDWebImage-CloudInfinite 需要依赖 SDWebImageWebPCoder 库；
+    ```
+    pod 'SDWebImageWebPCoder'
+    ```
+
+    #### 加载WEBP图片
+    ```
+    // 实例化 CITransformation 类
+    CITransformation * tran = [CITransformation new];
+    // 设置转换为webp格式
+    [tran setFormatWith:CIImageTypeWEBP options:CILoadTypeUrlFooter];
+    // 加载图片
+    [self.imageView sd_CI_setImageWithURL:[NSURL URLWithString:@"图片链接"] transformation:tran];
+    ```
+
 
 <div id="changelog"></div>
 
 ## 更新日志
+
+* #### Version 1.2.1
+    2020-08-19
+
+    支持WEBP记载显示
+
+###
 
 * #### Version 1.2.0
     2020-08-18

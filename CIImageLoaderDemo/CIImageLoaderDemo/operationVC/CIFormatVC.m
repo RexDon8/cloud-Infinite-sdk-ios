@@ -49,12 +49,15 @@
     }];
     
     title.text = @"1:格式转换";
+//    webp 格式集成好了，跟TPG 类似；默认不依赖SDWebImageWebPCoder;
+//    如果有使用到webp ,提示需要依赖；
+//    使用时，不需要做在配其他的，
     
-    UISegmentedControl * segment = [[UISegmentedControl alloc] initWithItems:@[@"TPG",@"PNG",@"JPG",@"BMP",@"GIF",@"HEIC",@"YJPEG"]];;
+    UISegmentedControl * segment = [[UISegmentedControl alloc] initWithItems:@[@"TPG",@"PNG",@"JPG",@"BMP",@"GIF",@"HEIC",@"WEBP",@"YJPEG"]];;
     [self.operationView addSubview:segment];
     [segment mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(16);
-        make.right.equalTo(-16);
+        make.left.equalTo(4);
+        make.right.equalTo(-4);
         make.top.equalTo(title.bottom).offset(10);
         make.height.equalTo(35);
     }];

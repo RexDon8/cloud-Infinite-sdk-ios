@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <CloudInfiniteEnum.h>
 @interface ViewController : UIViewController
 
-@property(nonatomic,assign)BOOL isTPG;
+@property(nonatomic,assign)CIImageFormat format;
 
 @end
 

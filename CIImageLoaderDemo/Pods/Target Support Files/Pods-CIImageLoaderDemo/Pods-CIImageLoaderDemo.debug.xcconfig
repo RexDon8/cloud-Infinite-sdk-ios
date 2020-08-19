@@ -1,11 +1,12 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CloudInfinite" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry" "${PODS_CONFIGURATION_BUILD_DIR}/QCloudCore" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage" "${PODS_ROOT}/../../CloudInfinite/Classes/TPG/TPGDecoder"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CloudInfinite/CloudInfinite.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/QCloudCore/QCloudCore.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CloudInfinite" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry" "${PODS_CONFIGURATION_BUILD_DIR}/QCloudCore" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImageWebPCoder" "${PODS_CONFIGURATION_BUILD_DIR}/libwebp" "${PODS_ROOT}/../../CloudInfinite/Classes/TPG/TPGDecoder"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1 $(inherited) SD_WEBP=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CloudInfinite/CloudInfinite.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/QCloudCore/QCloudCore.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImageWebPCoder/SDWebImageWebPCoder.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/libwebp/libwebp.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
 LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../CloudInfinite/Classes/TPG/TPGDecoder" "${PODS_ROOT}/QCloudCore/QCloudCore/Classes/QualityAssurance"
-OTHER_LDFLAGS = $(inherited) -ObjC -all_load -l"GIF" -l"TPGDec" -l"c++" -l"imageUtil" -l"jpeg" -l"libYUV" -l"mtasdk" -l"z" -framework "Accelerate" -framework "CloudInfinite" -framework "CoreMedia" -framework "Foundation" -framework "ImageIO" -framework "Masonry" -framework "QCloudCore" -framework "SDWebImage" -framework "SystemConfiguration" -framework "UIKit" -framework "libpng"
+OTHER_LDFLAGS = $(inherited) -ObjC -all_load -l"GIF" -l"TPGDec" -l"c++" -l"imageUtil" -l"jpeg" -l"libYUV" -l"mtasdk" -l"z" -framework "Accelerate" -framework "CloudInfinite" -framework "CoreMedia" -framework "Foundation" -framework "ImageIO" -framework "Masonry" -framework "QCloudCore" -framework "SDWebImage" -framework "SDWebImageWebPCoder" -framework "SystemConfiguration" -framework "UIKit" -framework "libpng" -framework "libwebp"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
+USER_HEADER_SEARCH_PATHS = $(inherited) $(SRCROOT)/libwebp/src
 USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES

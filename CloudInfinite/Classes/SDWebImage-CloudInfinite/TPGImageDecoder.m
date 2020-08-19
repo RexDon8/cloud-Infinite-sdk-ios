@@ -21,15 +21,7 @@
     if (data == nil) {
         return NO;
     }
-    Class clazz = NSClassFromString(@"TPGDecoderHelper");
-    if (clazz != nil) {
-        if ([clazz respondsToSelector:@selector(isTPGImage:)]) {
-            return [clazz performSelector:@selector(isTPGImage:) withObject:data];
-        }
-    }else{
-        @throw [[NSException alloc]initWithName:NSObjectNotAvailableException reason:@"如需TPG解码功能，请在podfile文件中依赖：CloudInfinite/TPG 模块" userInfo:nil];
-    }
-    return NO;
+    return [self isTPGImage:data];
 }
 
 - (nullable UIImage *)decodedImageWithData:(nullable NSData *)data
@@ -40,17 +32,50 @@
     }
     
     Class clazz = NSClassFromString(@"TPGDecoderHelper");
+    
+
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wundeclared-selector"
+        SEL sel = @selector(imageDataDecode:error:);
+    #pragma clang diagnostic pop
+    
     if (clazz != nil) {
-        if ([clazz respondsToSelector:@selector(imageDataDecode:error:)]) {
-            UIImage * image = [clazz performSelector:@selector(imageDataDecode:error:) withObject:data withObject:nil];
+        if ([clazz respondsToSelector:sel]) {
+            UIImage * image = [clazz performSelector:sel withObject:data withObject:nil];
             return image;
         }
     }else{
-         @throw [[NSException alloc]initWithName:NSObjectNotAvailableException reason:@"如需TPG解码功能，请在podfile文件中依赖：CloudInfinite/TPG 模块" userInfo:nil];
+        NSLog(@"ERROR TPGImageDecoder 如需TPG解码功能，请在podfile文件中依赖：CloudInfinite/TPG 模块");
     }
     
     return nil;
 }
 
+- (BOOL)canEncodeToFormat:(SDImageFormat)format {
+    return NO;
+}
+
+
+- (nullable NSData *)encodedDataWithImage:(nullable UIImage *)image format:(SDImageFormat)format options:(nullable SDImageCoderOptions *)options {
+    return nil;
+}
+
+
+- (BOOL)isTPGImage:(NSData *)data{
+    
+    char char1 = 0 ;char char2 =0 ;char char3 = 0;
+    
+    [data getBytes:&char1 range:NSMakeRange(0, 1)];
+    
+    [data getBytes:&char2 range:NSMakeRange(1, 1)];
+    
+    [data getBytes:&char3 range:NSMakeRange(2, 1)];
+    
+    NSString *numStr = [NSString stringWithFormat:@"%c%c%c",char1,char2,char3];
+    if ([numStr isEqualToString:@"TPG"]) {
+        return YES;
+    }
+    return NO;
+}
 
 @end

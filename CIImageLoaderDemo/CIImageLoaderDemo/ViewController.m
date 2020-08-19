@@ -36,7 +36,7 @@
 
 - (NSArray *)urlArray{
     
-    if (self.isTPG) {
+    if (self.format == CIImageTypeTPG) {
         return @[
             @"https://tpg-1253653367.file.myqcloud.com/dingdang.gif",
             @"https://tpg-1253653367.file.myqcloud.com/gif4.gif",
@@ -149,11 +149,15 @@
     }];
     
     CITransformation * tran;
-    if (_isTPG) {
+    
+    if (self.format == CIImageTypeTPG) {
         tran = [CITransformation new];
         [tran setFormatWith:CIImageTypeTPG options:CILoadTypeUrlFooter];
-    }else{
+    }else if(self.format == CIImageTypeAUTO){
         tran = [[CIResponsiveTransformation alloc]initWithView:self.imageView scaleType:ScaleTypeAUTOFit];
+    }else if(self.format == CIImageTypeWEBP){
+        tran = [CITransformation new];
+        [tran setFormatWith:CIImageTypeWEBP options:CILoadTypeUrlFooter];
     }
     
     //    ***************缩放*************
@@ -217,16 +221,16 @@
         [self showDataSizeUrl:imageURL typeLable:self.labTPGType sizeLable:self.labTpgTitle];
     }];
     
-//    使用 CIImageLoader 加载TPG 图
+    //    使用 CIImageLoader 加载TPG 图
     
-//    CloudInfinite * cloudInfinite = [CloudInfinite new];
-//    [cloudInfinite requestWithBaseUrl:imageUrl transform:tran request:^(CIImageLoadRequest * _Nonnull request) {
-//        [[CIImageLoader shareLoader] loadData:request loadComplete:^(NSData * _Nullable data, NSError * _Nullable error) {
-//            [self.tpgImageView setTpgImageWithData:data loadComplete:nil];
-//        }];
-//    }];
-//
-   
+    //    CloudInfinite * cloudInfinite = [CloudInfinite new];
+    //    [cloudInfinite requestWithBaseUrl:imageUrl transform:tran request:^(CIImageLoadRequest * _Nonnull request) {
+    //        [[CIImageLoader shareLoader] loadData:request loadComplete:^(NSData * _Nullable data, NSError * _Nullable error) {
+    //            [self.tpgImageView setTpgImageWithData:data loadComplete:nil];
+    //        }];
+    //    }];
+    //
+    
 }
 
 

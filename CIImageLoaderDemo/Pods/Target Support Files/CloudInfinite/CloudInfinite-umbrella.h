@@ -35,6 +35,7 @@
 #import "CIDownloaderManager.h"
 #import "CIImageAveDecoder.h"
 #import "CIWebImageDownloader.h"
+#import "CIWebpImageDecoder.h"
 #import "SDWebImage-CloudInfinite.h"
 #import "TPGImageDecoder.h"
 #import "UIButton+CI.h"

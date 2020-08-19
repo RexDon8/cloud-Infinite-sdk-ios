@@ -102,6 +102,7 @@ typedef NS_ENUM(NSUInteger,CIImageFormat) {
     CIImageTypeBMP,
     CIImageTypeGIF,
     CIImageTypeHEIC,
+    CIImageTypeWEBP,
     CIImageTypeYJPEG,
 } ;
 
