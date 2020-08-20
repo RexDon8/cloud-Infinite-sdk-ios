@@ -37,7 +37,17 @@
     
     if (decoder != nil) {
         if ([decoder respondsToSelector:@selector(decodedImageWithData:options:)]) {
-            UIImage * image = [decoder decodedImageWithData:data options:options];
+            __block UIImage * image;
+            
+            dispatch_semaphore_t semap = dispatch_semaphore_create(0);
+            
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                image = [decoder decodedImageWithData:data options:options];
+                dispatch_semaphore_signal(semap);
+            });
+            
+            dispatch_semaphore_wait(semap, DISPATCH_TIME_FOREVER);
+            
             return image;
         }
     }else{
