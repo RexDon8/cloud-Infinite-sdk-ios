@@ -1,14 +1,14 @@
 PODS:
-  - CloudInfinite (1.2.0):
-    - CloudInfinite/CloudInfinite (= 1.2.0)
-  - CloudInfinite/CloudInfinite (1.2.0)
-  - CloudInfinite/Loader (1.2.0):
+  - CloudInfinite (1.3.1):
+    - CloudInfinite/CloudInfinite (= 1.3.1)
+  - CloudInfinite/CloudInfinite (1.3.1)
+  - CloudInfinite/Loader (1.3.1):
     - CloudInfinite/CloudInfinite
     - QCloudCore
-  - CloudInfinite/SDWebImage-CloudInfinite (1.2.0):
+  - CloudInfinite/SDWebImage-CloudInfinite (1.3.1):
     - CloudInfinite/CloudInfinite
     - SDWebImage
-  - CloudInfinite/TPG (1.2.0)
+  - CloudInfinite/TPG (1.3.1)
   - libwebp (1.1.0):
     - libwebp/demux (= 1.1.0)
     - libwebp/mux (= 1.1.0)
@@ -50,7 +50,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CloudInfinite: a2a64aa561c9b74e371d58329c51136da8f7e262
+  CloudInfinite: 3ae4e5f9f75347c05488ef2b04fb25749941a18a
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   QCloudCore: a1907d5ed9ac09ecaf0e6ce9ff9c3a5a283159bf
