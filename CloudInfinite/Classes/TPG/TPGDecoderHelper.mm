@@ -11,7 +11,7 @@
 @implementation TPGDecoderHelper
 
 + (UIImage *)imageDataDecode:(NSData *)imageData error:(NSError * __autoreleasing*)error{
-    UIImage *image;
+    __block UIImage *image;
     if (imageData == nil) {
         *error = [NSError errorWithDomain:NSCocoaErrorDomain code:40000 userInfo:@{NSLocalizedDescriptionKey:@"TPGDecoderHelper:imageDataDecode 图片二进制数据异常"}];
         return nil;
@@ -21,7 +21,14 @@
         NSString* tempFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSUUID UUID].UUIDString];
         tempFilePath = [tempFilePath stringByAppendingString:@".tpg"];
         [imageData writeToFile:tempFilePath atomically:YES];
-        image = [UIImage TPGImageWithContentsOfFile:tempFilePath];
+        dispatch_semaphore_t semap = dispatch_semaphore_create(0);
+        
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            image = [UIImage TPGImageWithContentsOfFile:tempFilePath];
+            dispatch_semaphore_signal(semap);
+        });
+        
+        dispatch_semaphore_wait(semap, DISPATCH_TIME_FOREVER);
         if (image == nil) {
             *error = [NSError errorWithDomain:NSCocoaErrorDomain code:40001 userInfo:@{NSLocalizedDescriptionKey:@"TPGDecoderHelper:imageDataDecode TPG图片解码失败"}];
             return nil;

@@ -252,7 +252,7 @@ CloudInfinite 模块主要功能：
 
 ### 四 格式转换
 相关链接：[格式转换接口](https://cloud.tencent.com/document/product/460/36543)
-* 格式转换：目标缩略图的图片格式可为：tpg，jpg，bmp，gif，png，heic，yjpeg 等，其中 yjpeg 为数据万象针对 jpeg 格式进行的优化，本质为 jpg 格式；缺省为原图格式。
+* 格式转换：目标缩略图的图片格式可为：tpg、jpg、bmp、gif、png、heic、webp、yjpeg 等，其中 yjpeg 为数据万象针对 jpeg 格式进行的优化，本质为 jpg 格式；缺省为原图格式。
    
 1. 使用图片格式转换，如果需要转为TPG格式，则需要依赖 'CloudInfinite/TPG' 模块；
 

@@ -60,6 +60,9 @@
     
     NSString * urlStr;
     if (self.urlPart.length > 0) {
+        if ([self.urlPart containsString:@"|"]) {
+            self.urlPart = [self.urlPart  stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        }
         if (self.query.length > 0) {
             urlStr = [NSString stringWithFormat:@"%@%@&%@",self.baseUrl,self.urlPart,self.query];
         }else{
@@ -74,9 +77,6 @@
             urlStr = self.baseUrl;
         }
         
-    }
-    if ([urlStr containsString:@"|"]) {
-        urlStr = [urlStr  stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     }
     
     return [NSURL URLWithString:urlStr];
