@@ -19,6 +19,7 @@
 #import "CISharpenVC.h"
 #import "CIGifOptimizeVC.h"
 #import "CIRoTateVC.h"
+#import "CIImageListTestVC.h"
 
 @interface RootViewController ()
 
@@ -31,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.titleArray = @[@"自适应加载",@"TPG解码",@"WEBP解码",@"缩放",@"裁剪",@"GIF优化",@"格式转换",@"旋转",@"质量变换",@"高斯模糊",@"锐化",@"图片水印、文字水印",@"图片主题色",@"去除元信息"];
+    self.titleArray = @[@"自适应加载",@"TPG解码",@"WEBP解码",@"缩放",@"裁剪",@"GIF优化",@"格式转换",@"旋转",@"质量变换",@"高斯模糊",@"锐化",@"图片水印、文字水印",@"图片主题色",@"去除元信息",@"图片列表展示"];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -117,6 +118,10 @@
     
     if (indexPath.row == 13) {
         vc = [[CIStripImageVC alloc]initWithNibName:@"BaseViewController" bundle:nil];
+    }
+    
+    if (indexPath.row == 14) {
+        vc = [CIImageListTestVC new];
     }
     
     vc.title = self.titleArray[indexPath.row];

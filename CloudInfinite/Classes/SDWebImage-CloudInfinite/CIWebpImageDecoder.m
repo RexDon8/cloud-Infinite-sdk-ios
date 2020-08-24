@@ -38,7 +38,6 @@
     if (decoder != nil) {
         if ([decoder respondsToSelector:@selector(decodedImageWithData:options:)]) {
             __block UIImage * image;
-            
             dispatch_semaphore_t semap = dispatch_semaphore_create(0);
             
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -47,7 +46,6 @@
             });
             
             dispatch_semaphore_wait(semap, DISPATCH_TIME_FOREVER);
-            
             return image;
         }
     }else{

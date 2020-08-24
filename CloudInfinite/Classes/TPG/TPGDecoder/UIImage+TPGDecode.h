@@ -13,16 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIImage (TPGDecode)
 
 
-+ (UIImage*) onTPGDecode;
++(UIImage*)TPGImageWithContentsOfData:(NSData*)data;
 
-+ (UIImage*) onTPGDecode2: (char *)InputFile
-           saveoutputFIle: (char *)outputFile;
++ (UIImage *)imageFromRGBABytes:(unsigned char *)imageBytes imageSize:(CGSize)imageSize;
 
-+(UIImage*)TPGImageWithContentsOfFile:(NSString*)path;
-
-+(UIImage *) convertBitmapRGBA8ToUIImage:(unsigned char *) buffer
- withWidth:(int) width
-withHeight:(int) height;
 
 @end
 

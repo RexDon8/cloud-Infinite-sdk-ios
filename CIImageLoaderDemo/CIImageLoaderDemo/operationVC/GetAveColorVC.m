@@ -8,7 +8,6 @@
 
 #import "GetAveColorVC.h"
 
-
 @interface GetAveColorVC (){
     UIView * colorView;
 }

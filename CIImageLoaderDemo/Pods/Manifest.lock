@@ -19,9 +19,9 @@ PODS:
     - libwebp/demux
   - libwebp/webp (1.1.0)
   - Masonry (1.1.0)
-  - QCloudCore (5.7.5):
-    - QCloudCore/Default (= 5.7.5)
-  - QCloudCore/Default (5.7.5)
+  - QCloudCore (5.7.6):
+    - QCloudCore/Default (= 5.7.6)
+  - QCloudCore/Default (5.7.6)
   - SDWebImage (5.8.4):
     - SDWebImage/Core (= 5.8.4)
   - SDWebImage/Core (5.8.4)
@@ -53,7 +53,7 @@ SPEC CHECKSUMS:
   CloudInfinite: 3ae4e5f9f75347c05488ef2b04fb25749941a18a
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  QCloudCore: a1907d5ed9ac09ecaf0e6ce9ff9c3a5a283159bf
+  QCloudCore: f3297ccb7e431d36d82189a14cf560eeea01c8ce
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   SDWebImageWebPCoder: d0dac55073088d24b2ac1b191a71a8f8d0adac21
 

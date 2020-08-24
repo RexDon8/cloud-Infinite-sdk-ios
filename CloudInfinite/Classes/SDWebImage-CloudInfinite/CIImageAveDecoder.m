@@ -40,7 +40,9 @@
     int green = (int)strtoul([[colorStr substringWithRange:NSMakeRange(4, 2)] UTF8String], 0, 16);
     int blue = (int)strtoul([[colorStr substringWithRange:NSMakeRange(6, 2)] UTF8String], 0, 16);
     UIColor * aveColor = [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:1.0];
-    return [self imageWithColor:aveColor];
+    UIImage * image = [self imageWithColor:aveColor];;
+    return image;
+    
     
 }
 

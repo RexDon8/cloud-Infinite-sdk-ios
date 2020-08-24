@@ -18,22 +18,20 @@
     }
     
     if ([self isTPGImage:imageData]) {
-        NSString* tempFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSUUID UUID].UUIDString];
-        tempFilePath = [tempFilePath stringByAppendingString:@".tpg"];
-        [imageData writeToFile:tempFilePath atomically:YES];
+    
         dispatch_semaphore_t semap = dispatch_semaphore_create(0);
         
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            image = [UIImage TPGImageWithContentsOfFile:tempFilePath];
+            image = [UIImage TPGImageWithContentsOfData:imageData];
             dispatch_semaphore_signal(semap);
         });
         
         dispatch_semaphore_wait(semap, DISPATCH_TIME_FOREVER);
+        
         if (image == nil) {
             *error = [NSError errorWithDomain:NSCocoaErrorDomain code:40001 userInfo:@{NSLocalizedDescriptionKey:@"TPGDecoderHelper:imageDataDecode TPG图片解码失败"}];
             return nil;
         }
-        [self cleanTemporaryDirectory:tempFilePath];
     }else{
         image = [UIImage imageWithData:imageData];
         if (image == nil) {
@@ -62,7 +60,4 @@
     return NO;
 }
 
-+ (void)cleanTemporaryDirectory:(NSString *)filePath{
-    [[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:filePath] error:nil];
-}
 @end

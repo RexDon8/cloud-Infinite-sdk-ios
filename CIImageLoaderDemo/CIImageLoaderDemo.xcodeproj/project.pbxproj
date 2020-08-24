@@ -10,6 +10,7 @@
 		A240D2FF4115E9D401670B31 /* Pods_CIImageLoaderDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA62713179EB2ACFC90192A9 /* Pods_CIImageLoaderDemo.framework */; };
 		D23E530924C9A02600052190 /* TPGCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D23E530724C9A02600052190 /* TPGCollectionViewCell.m */; };
 		D242832124E674C7002CA2EB /* CIRoTateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D242832024E674C7002CA2EB /* CIRoTateVC.m */; };
+		D242834924EFCD72002CA2EB /* CIImageListTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D242834724EFCD72002CA2EB /* CIImageListTestVC.m */; };
 		D24C6C8924C1C69A00DD4F25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C6C8824C1C69A00DD4F25 /* AppDelegate.m */; };
 		D24C6C8C24C1C69A00DD4F25 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C6C8B24C1C69A00DD4F25 /* SceneDelegate.m */; };
 		D24C6C8F24C1C69A00DD4F25 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C6C8E24C1C69A00DD4F25 /* ViewController.m */; };
@@ -61,6 +62,8 @@
 		D23E530724C9A02600052190 /* TPGCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPGCollectionViewCell.m; sourceTree = "<group>"; };
 		D242831F24E674C7002CA2EB /* CIRoTateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CIRoTateVC.h; sourceTree = "<group>"; };
 		D242832024E674C7002CA2EB /* CIRoTateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CIRoTateVC.m; sourceTree = "<group>"; };
+		D242834724EFCD72002CA2EB /* CIImageListTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIImageListTestVC.m; sourceTree = "<group>"; };
+		D242834824EFCD72002CA2EB /* CIImageListTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIImageListTestVC.h; sourceTree = "<group>"; };
 		D24C6C8424C1C69A00DD4F25 /* CIImageLoaderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CIImageLoaderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D24C6C8724C1C69A00DD4F25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D24C6C8824C1C69A00DD4F25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 			children = (
 				D2C18C4624E39AF400747941 /* GetAveColorVC.h */,
 				D2C18C4724E39AF400747941 /* GetAveColorVC.m */,
+				D242834824EFCD72002CA2EB /* CIImageListTestVC.h */,
+				D242834724EFCD72002CA2EB /* CIImageListTestVC.m */,
 				D2B8AE1824E3D5DF00C2AE8F /* CIZoomImageVC.h */,
 				D2B8AE1924E3D5DF00C2AE8F /* CIZoomImageVC.m */,
 				D2B8AE1D24E3D91F00C2AE8F /* CICutImageVC.h */,
@@ -440,6 +445,7 @@
 			files = (
 				D24C6C8F24C1C69A00DD4F25 /* ViewController.m in Sources */,
 				D2BB801E24E6699100515366 /* CISharpenVC.m in Sources */,
+				D242834924EFCD72002CA2EB /* CIImageListTestVC.m in Sources */,
 				D2BB802124E66DEC00515366 /* CIGifOptimizeVC.m in Sources */,
 				D2B8AE1A24E3D5DF00C2AE8F /* CIZoomImageVC.m in Sources */,
 				D24C6C8924C1C69A00DD4F25 /* AppDelegate.m in Sources */,
