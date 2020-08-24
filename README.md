@@ -252,7 +252,7 @@ CloudInfinite 模块主要功能：
 
 ### 四 格式转换
 相关链接：[格式转换接口](https://cloud.tencent.com/document/product/460/36543)
-* 格式转换：目标缩略图的图片格式可为：tpg、jpg、bmp、gif、png、heic、webp、yjpeg 等，其中 yjpeg 为数据万象针对 jpeg 格式进行的优化，本质为 jpg 格式；缺省为原图格式。
+* 格式转换：目标缩略图的图片格式可为：tpg、jpg、bmp、gif、png、heif、webp、yjpeg 等，其中 yjpeg 为数据万象针对 jpeg 格式进行的优化，本质为 jpg 格式；缺省为原图格式。
    
 1. 使用图片格式转换，如果需要转为TPG格式，则需要依赖 'CloudInfinite/TPG' 模块；
 
@@ -266,7 +266,7 @@ CloudInfinite 模块主要功能：
     ```
 
 > 注意
-> 使用heic格式，需要在iOS11及以上。
+> 使用heic格式，需要在iOS11及以上，并且不支持gif格式图片转为heif。
 ```
     // 以转为JPG为例
     [transform setFormatWith:CIImageTypeJPG];
@@ -314,6 +314,9 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
     // type 为变换类型，下面具体介绍
     [transform setQualityWithQuality:60 type:CIQualityChangeAbsolute];
 ```
+
+> 注意
+> 质量变换仅针对JPG和WEBP格式图片。
 
 数据万象提供三种变换类型：绝对变换、相对变换、最低质量变换，其中绝对变换分为强制制定制定和不指定两种，如下：
 ```
