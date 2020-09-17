@@ -60,4 +60,13 @@
     return image;
 }
 
+- (BOOL)canEncodeToFormat:(SDImageFormat)format {
+    return NO;
+}
+
+
+- (nullable NSData *)encodedDataWithImage:(nullable UIImage *)image format:(SDImageFormat)format options:(nullable SDImageCoderOptions *)options {
+    return nil;
+}
+
 @end
