@@ -264,11 +264,12 @@ UIImage* decodeTPGGIF(NSData * data)
                     pOutBuf32[i+2] = pOutBuf[j+2];
                     pOutBuf32[i+3] = 255;
                 }
-                oneFrame = [UIImage imageFromRGBABytes:pOutBuf32 imageSize:CGSizeMake(nOutWidth, nOutHeight)];
+            
+                oneFrame = [UIImage convertBitmapRGBA8ToUIImage:pOutBuf32 withWidth:nOutWidth withHeight:nOutHeight];
             }
             else{
-                
-                oneFrame = [UIImage imageFromRGBABytes:pOutBuf imageSize:CGSizeMake(nOutWidth, nOutHeight)];
+    
+                oneFrame = [UIImage convertBitmapRGBA8ToUIImage:pOutBuf withWidth:nOutWidth withHeight:nOutHeight];
             }
             
             if(oneFrame)
@@ -309,6 +310,45 @@ UIImage* decodeTPGGIF(NSData * data)
     }
     
     return result;
+}
+
+
++ (UIImage *) convertBitmapRGBA8ToUIImage:(unsigned char *) buffer
+                                withWidth:(int) width
+                               withHeight:(int) height {
+    
+    
+    size_t bytesPerRow = 4 * width;
+    size_t componentsPerPix = 4;
+    size_t bitsPerPixel         = 8;
+    
+    CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault | kCGImageAlphaLast;
+    CFDataRef data = CFDataCreate(kCFAllocatorDefault, buffer, width * height * componentsPerPix);
+    CGDataProviderRef provider = CGDataProviderCreateWithCFData(data);
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGImageRef cgImage = CGImageCreate(width,
+                                       height,
+                                       bitsPerPixel,
+                                       bitsPerPixel * componentsPerPix,
+                                       bytesPerRow,
+                                       colorSpace,
+                                       bitmapInfo,
+                                       provider,
+                                       NULL,
+                                       NO,
+                                       kCGRenderingIntentDefault);
+    CGColorSpaceRelease(colorSpace);
+    UIImage *image = nil;
+    if (nil != cgImage) {
+        image = [UIImage imageWithCGImage:cgImage];
+    }
+    else {
+        //QLog_Event(MODULE_IMPB_RICHMEDIA, "Error!! CGImageCreate failed!!!");
+    }
+    CGImageRelease(cgImage);
+    CGDataProviderRelease(provider);
+    CFRelease(data);
+    return image;
 }
 
 
