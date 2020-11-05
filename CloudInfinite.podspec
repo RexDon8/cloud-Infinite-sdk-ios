@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "CloudInfinite"
-  s.version          = "1.3.4"
+  s.version          = "1.3.5"
   s.summary          = "CloudInfinite 腾讯云iOS-SDK组件"
 
   s.description      = <<-DESC
@@ -25,9 +25,9 @@ Pod::Spec.new do |s|
   s.static_framework = true
   s.frameworks = 'UIKit','Foundation','ImageIO'
   s.libraries = 'z','c++'
-  s.xcconfig = {
-     "OTHER_LDFLAGS" => "$(inherited) -ObjC -all_load -force_load",
-   }
+#  s.xcconfig = {
+#     "OTHER_LDFLAGS" => "$(inherited) -ObjC -all_load -force_load",
+#   }
 #  图片链接组装模块
   s.default_subspec  = 'CloudInfinite'
   s.subspec 'CloudInfinite' do |default|
