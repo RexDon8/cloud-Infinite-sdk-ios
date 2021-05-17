@@ -13,7 +13,7 @@
 }
 
 - (BOOL)canDecodeFromData:(nullable NSData *)data{
-    if (data == nil) {
+    if (data == nil || data.length == 0) {
         return NO;
     }
     

@@ -30,6 +30,7 @@
 #import "QCloudUniversalPath.h"
 #import "QCloudUniversalPathConstants.h"
 #import "QCloudUniversalPathFactory.h"
+#import "QualityDataUploader.h"
 #import "QCloudBundle.h"
 #import "QCloudMainBundle.h"
 #import "UIImage+QCloudBundle.h"
@@ -85,7 +86,7 @@
 #import "QCloudHosts.h"
 #import "QCloudHttpDNS.h"
 #import "QCloudPingTester.h"
-#import "SimplePing.h"
+#import "QCloudSimplePing.h"
 #import "NSError+QCloudNetworking.h"
 #import "QCloudFakeRequestOperation.h"
 #import "QCloudHTTPRequestOperation.h"
@@ -112,10 +113,6 @@
 #import "QCloudSupervisory.h"
 #import "QCloudSupervisoryRecord.h"
 #import "QCloudSupervisorySession.h"
-#import "MTA+Account.h"
-#import "MTA.h"
-#import "MTAConfig.h"
-#import "MTACrashReporter.h"
 
 FOUNDATION_EXPORT double QCloudCoreVersionNumber;
 FOUNDATION_EXPORT const unsigned char QCloudCoreVersionString[];

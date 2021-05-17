@@ -1,33 +1,33 @@
 PODS:
-  - CloudInfinite (1.3.1):
-    - CloudInfinite/CloudInfinite (= 1.3.1)
-  - CloudInfinite/CloudInfinite (1.3.1)
-  - CloudInfinite/Loader (1.3.1):
+  - CloudInfinite (1.3.5):
+    - CloudInfinite/CloudInfinite (= 1.3.5)
+  - CloudInfinite/CloudInfinite (1.3.5)
+  - CloudInfinite/Loader (1.3.5):
     - CloudInfinite/CloudInfinite
     - QCloudCore
-  - CloudInfinite/SDWebImage-CloudInfinite (1.3.1):
+  - CloudInfinite/SDWebImage-CloudInfinite (1.3.5):
     - CloudInfinite/CloudInfinite
     - SDWebImage
-  - CloudInfinite/TPG (1.3.1)
-  - libwebp (1.1.0):
-    - libwebp/demux (= 1.1.0)
-    - libwebp/mux (= 1.1.0)
-    - libwebp/webp (= 1.1.0)
-  - libwebp/demux (1.1.0):
+  - CloudInfinite/TPG (1.3.5)
+  - libwebp (1.2.0):
+    - libwebp/demux (= 1.2.0)
+    - libwebp/mux (= 1.2.0)
+    - libwebp/webp (= 1.2.0)
+  - libwebp/demux (1.2.0):
     - libwebp/webp
-  - libwebp/mux (1.1.0):
+  - libwebp/mux (1.2.0):
     - libwebp/demux
-  - libwebp/webp (1.1.0)
+  - libwebp/webp (1.2.0)
   - Masonry (1.1.0)
-  - QCloudCore (5.7.6):
-    - QCloudCore/Default (= 5.7.6)
-  - QCloudCore/Default (5.7.6)
-  - SDWebImage (5.8.4):
-    - SDWebImage/Core (= 5.8.4)
-  - SDWebImage/Core (5.8.4)
-  - SDWebImageWebPCoder (0.6.1):
+  - QCloudCore (5.8.7):
+    - QCloudCore/Default (= 5.8.7)
+  - QCloudCore/Default (5.8.7)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
+  - SDWebImageWebPCoder (0.8.3):
     - libwebp (~> 1.0)
-    - SDWebImage/Core (~> 5.7)
+    - SDWebImage/Core (~> 5.10)
 
 DEPENDENCIES:
   - CloudInfinite (from `../`)
@@ -50,12 +50,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CloudInfinite: 3ae4e5f9f75347c05488ef2b04fb25749941a18a
-  libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
+  CloudInfinite: 452d7798b4cb370fa7452690f8a2dfd884e692e5
+  libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  QCloudCore: f3297ccb7e431d36d82189a14cf560eeea01c8ce
-  SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
-  SDWebImageWebPCoder: d0dac55073088d24b2ac1b191a71a8f8d0adac21
+  QCloudCore: e735060f178e4d4974f8458361af3b18e8628902
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SDWebImageWebPCoder: bbf46e29fb8d1980a78ad3d5e9b4123c77f10ebc
 
 PODFILE CHECKSUM: 5c6e479de499ad7e350da99c992d8059f2d500b4
 
