@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "CloudInfinite"
-  s.version          = "1.3.6"
+  s.version          = "1.3.7"
   s.summary          = "CloudInfinite 腾讯云iOS-SDK组件"
 
   s.description      = <<-DESC
