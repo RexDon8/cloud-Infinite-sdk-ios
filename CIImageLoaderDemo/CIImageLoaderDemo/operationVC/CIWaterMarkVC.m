@@ -19,7 +19,7 @@
 
 }
 - (NSArray *)urlArray{
-    return @[@"https://tpg-1253653367.file.myqcloud.com/01.jpg"];
+    return @[@"http://example-1258125638.cos.ap-shanghai.myqcloud.com/sample.png"];
 }
 
 - (void)reset{

@@ -55,16 +55,6 @@
     return nil;
 }}
 
-- (BOOL)canEncodeToFormat:(SDImageFormat)format {
-    return NO;
-}
-
-
-- (nullable NSData *)encodedDataWithImage:(nullable UIImage *)image format:(SDImageFormat)format options:(nullable SDImageCoderOptions *)options {
-    return nil;
-}
-
-
 - (BOOL)isWebpImage:(NSData *)data{
     
     if (data.length >= 12) {
@@ -75,4 +65,14 @@
     }
     return NO;
 }
+
+- (BOOL)canEncodeToFormat:(SDImageFormat)format {
+    return NO;
+}
+
+
+- (nullable NSData *)encodedDataWithImage:(nullable UIImage *)image format:(SDImageFormat)format options:(nullable SDImageCoderOptions *)options {
+    return nil;
+}
+
 @end

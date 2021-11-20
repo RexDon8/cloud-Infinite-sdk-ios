@@ -15,6 +15,7 @@
 #import <CIImageLoader.h>
 #import <UIButton+WebCache.h>
 #import <SDWebImage-CloudInfinite.h>
+#import <UIImageView+AVIF.h>
 #import <UIImageView+TPG.h>
 @interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -38,29 +39,29 @@
     
     if (self.format == CIImageTypeTPG) {
         return @[
-            @"https://tpg-1253653367.file.myqcloud.com/dingdang.gif",
-            @"https://tpg-1253653367.file.myqcloud.com/gif4.gif",
-            @"https://tpg-1253653367.file.myqcloud.com/01.jpg",
-            @"https://tpg-1253653367.file.myqcloud.com/02.jpg",
-            @"https://tpg-1253653367.file.myqcloud.com/03.jpg",
-            @"https://tpg-1253653367.file.myqcloud.com/04.jpg",
-            @"https://tpg-1253653367.file.myqcloud.com/05.png",
-            @"https://tpg-1253653367.file.myqcloud.com/06.png",
-            @"https://tpg-1253653367.file.myqcloud.com/07.png",
-            @"https://tpg-1253653367.file.myqcloud.com/08.png",
+            @"http://example-1258125638.cos.ap-shanghai.myqcloud.com/sample.png",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/01.gif",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default01.jpg",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default02.jpg",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default03.jpg",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default04.jpg",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default05.png",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default06.png",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default07.png",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default08.png"
         ];
     }else{
         return @[
-            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/dingdang.gif",
-            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/IMG_0005.JPG",
-            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/01.jpg",
-            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/02.jpg",
-            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/03.jpg",
-            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/04.jpg",
-            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/05.png",
-            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/06.png",
-            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/07.png",
-            @"https://tpgdemo-1253653367.cos.ap-chengdu.myqcloud.com/08.png",
+            @"http://example-1258125638.cos.ap-shanghai.myqcloud.com/sample.png",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/01.gif",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default01.jpg",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default02.jpg",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default03.jpg",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default04.jpg",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default05.png",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default06.png",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default07.png",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default08.png"
         ];
     }
     
@@ -158,6 +159,9 @@
     }else if(self.format == CIImageTypeWEBP){
         tran = [CITransformation new];
         [tran setFormatWith:CIImageTypeWEBP options:CILoadTypeUrlFooter];
+    }else if(self.format == CIImageTypeAVIF){
+        tran = [CITransformation new];
+        [tran setFormatWith:CIImageTypeAVIF options:CILoadTypeUrlFooter];
     }
     
     //    ***************缩放*************
@@ -212,23 +216,23 @@
     //    //    ResponsiveTransformation * tran = [[ResponsiveTransformation alloc]initWithView:self.tpgImageView scaleType:ScaleTypeAUTOFIT];
     //
     //
-    [self.tpgImageView sd_CI_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil options:0 transformation:tran progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-        });
-    } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
-        self.labTPGTime.text = [NSString stringWithFormat:@"耗时：%.2f s",linkTime];
-        [self showDataSizeUrl:imageURL typeLable:self.labTPGType sizeLable:self.labTpgTitle];
-    }];
+//    [self.tpgImageView sd_CI_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil options:0 transformation:tran progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//        });
+//    } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+//        CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+//        self.labTPGTime.text = [NSString stringWithFormat:@"耗时：%.2f s",linkTime];
+//        [self showDataSizeUrl:imageURL typeLable:self.labTPGType sizeLable:self.labTpgTitle];
+//    }];
     
     //    使用 CIImageLoader 加载TPG 图
     
-    //    CloudInfinite * cloudInfinite = [CloudInfinite new];
-    //    [cloudInfinite requestWithBaseUrl:imageUrl transform:tran request:^(CIImageLoadRequest * _Nonnull request) {
-    //        [[CIImageLoader shareLoader] loadData:request loadComplete:^(NSData * _Nullable data, NSError * _Nullable error) {
-    //            [self.tpgImageView setTpgImageWithData:data loadComplete:nil];
-    //        }];
-    //    }];
+        CloudInfinite * cloudInfinite = [CloudInfinite new];
+        [cloudInfinite requestWithBaseUrl:imageUrl transform:tran request:^(CIImageLoadRequest * _Nonnull request) {
+            [[CIImageLoader shareLoader] loadData:request loadComplete:^(NSData * _Nullable data, NSError * _Nullable error) {
+                [self.tpgImageView setTpgImageWithData:data loadComplete:nil];
+            }];
+        }];
     //
     
 }
@@ -236,6 +240,19 @@
 
 
 -(NSString *)getImageType:(NSData *)data{
+    
+    NSString * avifStr = @"";
+    if (data.length > 15) {
+        for (int i = 4; i <= 13; i ++) {
+            char char1 = 0;
+            [data getBytes:&char1 range:NSMakeRange(i, 1)];
+            avifStr = [avifStr stringByAppendingString:[NSString stringWithFormat:@"%c",char1]];
+        }
+        if ([avifStr isEqualToString:@"ftypavif"] || [avifStr isEqualToString:@"ftypavis"]) {
+            return avifStr;
+        }
+    }
+    
     uint8_t ch;
     [data getBytes:&ch length:1];
     
@@ -258,6 +275,8 @@
     if (char1 == '\0' && char2 == '\0') {
         return @"HEIC";
     }
+
+    
     
     NSString *numStr = [NSString stringWithFormat:@"%c%c%c",char1,char2,char3];
     return numStr;

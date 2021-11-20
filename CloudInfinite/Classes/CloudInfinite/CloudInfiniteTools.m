@@ -41,6 +41,9 @@
         case CIImageTypeYJPEG:
             formatString = @"yjpeg";
             break;
+        case CIImageTypeAVIF:
+            formatString = @"avif";
+            break;
         default:
             formatString = @"*";
             break;

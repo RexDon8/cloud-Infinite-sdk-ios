@@ -12,7 +12,7 @@
 #import <SDWebImage/SDWebImage.h>
 #import <UIImageView+CI.h>
 #import <SDWebImage.h>
-#import <CIImageLoader.h>
+//#import <CIImageLoader.h>
 #import <UIView+CI.h>
 #import <UIButton+WebCache.h>
 #import <SDWebImage-CloudInfinite.h>

@@ -24,12 +24,12 @@
 - (NSDictionary *)filteHeaders;
 {
     NSMutableDictionary *signedHeaders = [[NSMutableDictionary alloc] init];
-    __block const NSArray *shouldSignedHeaderList =
-        @[ @"Content-Length", @"Content-MD5", @"Content-Type", @"Content-Disposition", @"Content-Encoding", @"Transfer-Encoding", @"Range", @"Host" ];
+    __block const NSMutableArray *shouldSignedHeaderList =
+        @[@"Cache-Control", @"Content-Disposition", @"Content-Encoding", @"Content-Length", @"Content-MD5", @"Content-Type", @"Expect", @"Expires", @"If-Match" , @"If-Modified-Since" , @"If-None-Match" , @"If-Unmodified-Since" , @"Origin" , @"Range" , @"response-cache-control" , @"response-content-disposition" , @"response-content-encoding" , @"response-content-language" , @"response-content-type" , @"response-expires" , @"transfer-encoding" , @"versionId",@"Host"];
     [self enumerateKeysAndObjectsUsingBlock:^(id _Nonnull key, id _Nonnull obj, BOOL *_Nonnull stop) {
         //签名的Headers列表：x开头的(x-cos-之类的),content-length,content-MD5
         BOOL shouldSigned = NO;
-        for (NSString *header in shouldSignedHeaderList) {
+        for (NSString *header in [shouldSignedHeaderList copy]) {
             if ([header isEqualToString:((NSString *)key)]) {
                 shouldSigned = YES;
             }
@@ -91,12 +91,20 @@
 @implementation QCloudAuthentationV5Creator
 
 - (QCloudSignature *)signatureForData:(NSMutableURLRequest *)urlrequest {
-    if (!self.credential.secretID) {
+    if (!self.credential.secretID.length) {
         @throw [NSException exceptionWithName:QCloudErrorDomain reason:@"请检查 secretID 是否为空" userInfo:nil];
     }
-    if (!self.credential.secretKey) {
+    if (!self.credential.secretKey.length) {
         @throw [NSException exceptionWithName:QCloudErrorDomain reason:@"请检查 secretKey 是否为空" userInfo:nil];
     }
+
+    if ([self.credential.secretID hasPrefix:@" "] || [self.credential.secretID hasPrefix:@" "] ) {
+        @throw [NSException exceptionWithName:QCloudErrorDomain reason:@"请检查 secretID 是否合法" userInfo:nil];
+    }
+    if ([self.credential.secretKey hasPrefix:@" "] || [self.credential.secretKey hasPrefix:@" "] ) {
+        @throw [NSException exceptionWithName:QCloudErrorDomain reason:@"请检查 secretID 是否合法" userInfo:nil];
+    }
+  
     if (self.credential.token) {
         NSString *tokenHeaderName = self.tokenHeaderName != nil ? self.tokenHeaderName : DEFAULT_TOKEN_HEADER_NAME;
         [urlrequest setValue:self.credential.token forHTTPHeaderField:tokenHeaderName];
@@ -109,8 +117,8 @@
     }
     //  默认一个签名为10分钟有效，防止签名时间过长，导致泄露
     NSTimeInterval experationInterVal = nowInterval + 10 * 60;
-    if (self.credential.experationDate) {
-        experationInterVal = [self.credential.experationDate timeIntervalSince1970];
+    if (self.credential.expirationDate) {
+        experationInterVal = [self.credential.expirationDate timeIntervalSince1970];
     }
     NSString *signTime = [NSString stringWithFormat:@"%lld;%lld", (int64_t)nowInterval, (int64_t)experationInterVal];
     NSDictionary *headers = [[urlrequest allHTTPHeaderFields] filteHeaders];
@@ -147,7 +155,7 @@
     NSString *signKey = [NSString qcloudHMACHexsha1:signTime secret:self.credential.secretKey];
     // Step2 构成FormatString
     NSString *headerFormat = QCloudURLEncodeParamters(LowcaseDictionary(headers), YES, NSUTF8StringEncoding);
-    NSString *urlFormat = QCloudURLEncodeParamters(LowcaseDictionary(urlParamters), YES, NSUTF8StringEncoding);
+    NSString *urlFormat = [ QCloudURLEncodeParamters(LowcaseDictionary(urlParamters), YES, NSUTF8StringEncoding) lowercaseString];
 
     NSMutableString *formatString = [NSMutableString new];
 

@@ -53,7 +53,7 @@
 //    如果有使用到webp ,提示需要依赖；
 //    使用时，不需要做在配其他的，
     
-    UISegmentedControl * segment = [[UISegmentedControl alloc] initWithItems:@[@"TPG",@"PNG",@"JPG",@"BMP",@"GIF",@"HEIC",@"WEBP",@"YJPEG"]];;
+    UISegmentedControl * segment = [[UISegmentedControl alloc] initWithItems:@[@"TPG",@"PNG",@"JPG",@"BMP",@"GIF",@"HEIC",@"WEBP",@"YJPEG",@"AVIF"]];;
     [self.operationView addSubview:segment];
     [segment mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(4);

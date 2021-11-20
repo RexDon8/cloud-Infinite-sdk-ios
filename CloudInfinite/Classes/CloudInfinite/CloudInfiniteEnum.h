@@ -104,6 +104,7 @@ typedef NS_ENUM(NSUInteger,CIImageFormat) {
     CIImageTypeHEIC,
     CIImageTypeWEBP,
     CIImageTypeYJPEG,
+    CIImageTypeAVIF,
 } ;
 
 

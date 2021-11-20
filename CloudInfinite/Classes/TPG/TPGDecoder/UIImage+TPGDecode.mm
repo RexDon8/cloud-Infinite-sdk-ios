@@ -341,9 +341,8 @@ UIImage* decodeTPGGIF(NSData * data)
     UIImage *image = nil;
     if (nil != cgImage) {
         image = [UIImage imageWithCGImage:cgImage];
-    }
-    else {
-        //QLog_Event(MODULE_IMPB_RICHMEDIA, "Error!! CGImageCreate failed!!!");
+    }else {
+        return nil;
     }
     CGImageRelease(cgImage);
     CGDataProviderRelease(provider);

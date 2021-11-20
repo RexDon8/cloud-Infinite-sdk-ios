@@ -10,6 +10,11 @@
 #endif
 #endif
 
+#import "AVIFDecoderHelper.h"
+#import "AVIFImageDecoder.h"
+#import "UIImageView+AVIF.h"
+#import "UIImage+AVIFDecode.h"
+#import "avif.h"
 #import "CIImageLoadRequest.h"
 #import "CIMemoryCache.h"
 #import "CIResponsiveTransformation.h"

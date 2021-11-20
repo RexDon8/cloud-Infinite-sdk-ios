@@ -52,27 +52,28 @@
 - (NSArray *)urlArray{
     if (self.notSupportGif) {
         return @[
-            @"https://tpg-1253653367.file.myqcloud.com/01.jpg",
-            @"https://tpg-1253653367.file.myqcloud.com/02.jpg",
-            @"https://tpg-1253653367.file.myqcloud.com/03.jpg",
-            @"https://tpg-1253653367.file.myqcloud.com/04.jpg",
-            @"https://tpg-1253653367.file.myqcloud.com/05.png",
-            @"https://tpg-1253653367.file.myqcloud.com/06.png",
-            @"https://tpg-1253653367.file.myqcloud.com/07.png",
-            @"https://tpg-1253653367.file.myqcloud.com/08.png",
+            @"http://example-1258125638.cos.ap-shanghai.myqcloud.com/sample.png",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default01.jpg",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default02.jpg",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default03.jpg",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default04.jpg",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default05.png",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default06.png",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default07.png",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default08.png"
         ];
     }else{
         return @[
-            @"https://tpg-1253653367.file.myqcloud.com/01.jpg",
-            @"https://tpg-1253653367.file.myqcloud.com/dingdang.gif",
-            @"https://tpg-1253653367.file.myqcloud.com/gif4.gif",
-            @"https://tpg-1253653367.file.myqcloud.com/02.jpg",
-            @"https://tpg-1253653367.file.myqcloud.com/03.jpg",
-            @"https://tpg-1253653367.file.myqcloud.com/04.jpg",
-            @"https://tpg-1253653367.file.myqcloud.com/05.png",
-            @"https://tpg-1253653367.file.myqcloud.com/06.png",
-            @"https://tpg-1253653367.file.myqcloud.com/07.png",
-            @"https://tpg-1253653367.file.myqcloud.com/08.png",
+            @"http://example-1258125638.cos.ap-shanghai.myqcloud.com/sample.png",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/01.gif",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default01.jpg",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default02.jpg",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default03.jpg",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default04.jpg",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default05.png",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default06.png",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default07.png",
+            @"https://tpgdemo-1253960454.cos.ap-guangzhou.myqcloud.com/default08.png"
         ];
     }
 
@@ -126,6 +127,7 @@
     CFAbsoluteTime startTime =CFAbsoluteTimeGetCurrent();
 
     
+    
     [self.imageView sd_CI_setImageWithURL:[NSURL URLWithString:imageUrl] transformation:tran completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (self.currentImage== nil) {
             self.currentImage = image;
@@ -139,6 +141,19 @@
 
 
 -(NSString *)getImageType:(NSData *)data{
+    
+    NSString * avifStr = @"";
+    if (data.length > 15) {
+        for (int i = 4; i <= 13; i ++) {
+            char char1 = 0;
+            [data getBytes:&char1 range:NSMakeRange(i, 1)];
+            avifStr = [avifStr stringByAppendingString:[NSString stringWithFormat:@"%c",char1]];
+        }
+        if ([avifStr isEqualToString:@"ftypavif"] || [avifStr isEqualToString:@"ftypavis"]) {
+            return avifStr;
+        }
+    }
+    
     uint8_t ch;
     [data getBytes:&ch length:1];
     

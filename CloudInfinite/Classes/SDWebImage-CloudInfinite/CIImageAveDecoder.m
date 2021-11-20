@@ -46,6 +46,16 @@
     
 }
 
+- (BOOL)canEncodeToFormat:(SDImageFormat)format {
+    return NO;
+}
+
+
+- (nullable NSData *)encodedDataWithImage:(nullable UIImage *)image format:(SDImageFormat)format options:(nullable SDImageCoderOptions *)options {
+    return nil;
+}
+
+
 - (UIImage *)imageWithColor:(UIColor *)color {
     CGRect rect = CGRectMake(0.0f, 0.0f, 2.0f, 2.0f);
     UIGraphicsBeginImageContext(rect.size);
@@ -58,15 +68,6 @@
     UIGraphicsEndImageContext();
     
     return image;
-}
-
-- (BOOL)canEncodeToFormat:(SDImageFormat)format {
-    return NO;
-}
-
-
-- (nullable NSData *)encodedDataWithImage:(nullable UIImage *)image format:(SDImageFormat)format options:(nullable SDImageCoderOptions *)options {
-    return nil;
 }
 
 @end

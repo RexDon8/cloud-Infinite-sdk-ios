@@ -641,6 +641,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CIImageLoaderDemo",
+					"$(PROJECT_DIR)/CIImageLoaderDemo/AVIF",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tx.CIImageLoaderDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -660,6 +665,11 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CIImageLoaderDemo",
+					"$(PROJECT_DIR)/CIImageLoaderDemo/AVIF",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tx.CIImageLoaderDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

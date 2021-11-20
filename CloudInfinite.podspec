@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "CloudInfinite"
-  s.version          = "1.3.7"
+  s.version          = "1.3.8"
   s.summary          = "CloudInfinite 腾讯云iOS-SDK组件"
 
   s.description      = <<-DESC
@@ -25,9 +25,9 @@ Pod::Spec.new do |s|
   s.static_framework = true
   s.frameworks = 'UIKit','Foundation','ImageIO'
   s.libraries = 'z','c++'
-#  s.xcconfig = {
-#     "OTHER_LDFLAGS" => "$(inherited) -ObjC -all_load -force_load",
-#   }
+  s.xcconfig = {
+     "OTHER_LDFLAGS" => "$(inherited) -ObjC -all_load -force_load",
+   }
 #  图片链接组装模块
   s.default_subspec  = 'CloudInfinite'
   s.subspec 'CloudInfinite' do |default|
@@ -38,18 +38,28 @@ Pod::Spec.new do |s|
 # 图片下载模块
   s.subspec 'Loader' do |loader|
     loader.source_files = 'CloudInfinite/Classes/Loader/*';
-    loader.dependency 'QCloudCore';
+    loader.dependency 'QCloudCore/WithoutMTA';
     loader.dependency 'CloudInfinite/CloudInfinite';
   end
     
 # TPG解码模块
   s.subspec 'TPG' do |tpg|
     
+    
     tpg.source_files = 'CloudInfinite/Classes/TPG/*',
                        'CloudInfinite/Classes/TPG/TPGDecoder/*',
                        'CloudInfinite/Classes/TPG/TPGDecoder/include/*';
-     tpg.vendored_libraries='CloudInfinite/Classes/TPG/TPGDecoder/*.a';
-     tpg.vendored_frameworks = 'CloudInfinite/Classes/TPG/TPGDecoder/libpng.framework'
+     tpg.vendored_libraries='CloudInfinite/Classes/TPG/TPGDecoder/*.a','CloudInfinite/Classes/Lib/*.a';
+     tpg.vendored_frameworks = 'CloudInfinite/Classes/TPG/TPGDecoder/libpng.framework';
+  end
+  
+# AVIF解码模块
+  s.subspec 'AVIF' do |avif|
+    
+    avif.source_files = 'CloudInfinite/Classes/AVIF/*',
+                       'CloudInfinite/Classes/AVIF/AVIFDecoder/*',
+                       'CloudInfinite/Classes/AVIF/AVIFDecoder/include/*';
+    avif.vendored_libraries='CloudInfinite/Classes/AVIF/AVIFDecoder/*.a','CloudInfinite/Classes/Lib/*.a';
   end
   
 # SDWebImage 支持TPG图片加载模块
@@ -61,5 +71,6 @@ Pod::Spec.new do |s|
     sdtpg.dependency 'SDWebImage';
     
   end
+  
   
 end
