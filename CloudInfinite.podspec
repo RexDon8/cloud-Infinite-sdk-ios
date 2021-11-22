@@ -66,7 +66,6 @@ Pod::Spec.new do |s|
   s.subspec 'SDWebImage-CloudInfinite' do |sdtpg|
     sdtpg.source_files = 'CloudInfinite/Classes/SDWebImage-CloudInfinite/*';
     sdtpg.public_header_files = 'CloudInfinite/Classes/SDWebImage-CloudInfinite/*.h';
-#    sdtpg.dependency 'CloudInfinite/TPG';
     sdtpg.dependency 'CloudInfinite/CloudInfinite';
     sdtpg.dependency 'SDWebImage';
     

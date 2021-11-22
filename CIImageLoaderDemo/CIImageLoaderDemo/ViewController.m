@@ -15,7 +15,7 @@
 #import <CIImageLoader.h>
 #import <UIButton+WebCache.h>
 #import <SDWebImage-CloudInfinite.h>
-#import <UIImageView+AVIF.h>
+//#import <UIImageView+AVIF.h>
 #import <UIImageView+TPG.h>
 @interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -230,7 +230,13 @@
         CloudInfinite * cloudInfinite = [CloudInfinite new];
         [cloudInfinite requestWithBaseUrl:imageUrl transform:tran request:^(CIImageLoadRequest * _Nonnull request) {
             [[CIImageLoader shareLoader] loadData:request loadComplete:^(NSData * _Nullable data, NSError * _Nullable error) {
-                [self.tpgImageView setTpgImageWithData:data loadComplete:nil];
+                if (self.format == CIImageTypeTPG) {
+                    [self.tpgImageView setTpgImageWithData:data loadComplete:nil];
+                }
+                if (self.format == CIImageTypeAVIF) {
+//                    [self.tpgImageView setAvifImageWithData:data loadComplete:nil];
+                }
+                
             }];
         }];
     //

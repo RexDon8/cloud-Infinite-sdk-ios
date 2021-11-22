@@ -259,19 +259,19 @@ CloudInfinite 模块主要功能：
    
 1. 使用图片格式转换，如果需要转为TPG格式，则需要依赖 'CloudInfinite/TPG' 模块；
 
-    ```
+```
     pod 'CloudInfinite/TPG'
-    ```
+```
 2. 使用图片格式转换，如果需要转为AVIF格式，则需要依赖 'CloudInfinite/AVIF' 模块；
 
-    ```
+```
     pod 'CloudInfinite/AVIF'
-    ```
+```
 
 3. 使用图片格式转换，如果需要转为WEBP格式，则需要依赖 'SDWebImageWebPCoder' 库；
-    ```
+```
     pod 'SDWebImageWebPCoder'
-    ```
+```
 
 > 注意
 > 使用heic格式，需要在iOS11及以上，并且不支持gif格式图片转为heif。
@@ -302,16 +302,16 @@ CILoadTypeEnum:
 * gif 格式优化： 只针对原图为 gif 格式，对 gif 图片格式进行的优化，降帧降颜色。
     FrameNumber=1，则按照默认帧数30处理，如果图片帧数大于该帧数则截取。
     FrameNumber 取值( 1,100 ]，则将图片压缩到指定帧数 （FrameNumber）。
-    ```
+```
     [transform setCgif:50];
-    ```
+```
 
 * 输出为渐进式 jpg 格式
 Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。该参数仅在输出图片格式为 jpg 格式时有效。如果输出非 jpg 图片格式，会忽略该参数，默认值0。
 
-    ```
+```
     [transform setInterlace:YES];
-    ```
+```
 
 <div id="ci_zhiliangbianhuan"><div>
 
@@ -428,14 +428,13 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
 ### 方式一 加载网络TPG图片
 
 1. 集成 CloudInfinite；
-    ```
+```
     pod 'CloudInfinite'
-    ```
+```
 
 2. 在CloudInfinite模块中构建出请求TPG格式图片的链接，然后[与SDWebImage配合使用](#4)加载网络TPG图片
 
-
-    ```
+```
     // 实例化CloudInfinite，用来构建请求图片请求连接；
     CloudInfinite * cloudInfinite = [CloudInfinite new];
 
@@ -447,19 +446,19 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
     [cloudInfinite requestWithBaseUrl:@"图片链接" transform:transform request:^(CIImageLoadRequest * _Nonnull request) {
         // request 构建成功的 CIImageLoadRequest 实例，
     }];
-    ```
+```
 
 ### 方式二 使用TPG模块加载TPG图片Data数据（支持TPG动图加载，无需额外处理）
 1. 集成 TPG 模块；
-    ```
+```
     pod 'CloudInfinite/TPG'
-    ```
+```
 2. 如果已经获取到TPG图片data数据，则直接使用TPG模块UIImageView+TPG类进行解码并显示；
-
-        [self.tpgImageView setTpgImageWithData:data loadComplete:^(NSData * _Nullable data，UIImage * _Nullable image, NSError * _Nullable error) {
-            
-        }]; 
-
+```
+    [self.tpgImageView setTpgImageWithData:data loadComplete:^(NSData * _Nullable data，UIImage * _Nullable image, NSError * _Nullable error) {
+        
+}]; 
+```
         
 <div id="4">
 </div>
@@ -472,62 +471,63 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
 
 1. 首先集成 CloudInfinite。
 
-   ```
-   pod 'CloudInfinite'
-   ```
+```
+    pod 'CloudInfinite'
+```
 
 2. 在 CloudInfinite 模块中构建出请求 AVIF 格式图片的链接，然后与 [SDWebImage](https://cloud.tencent.com/document/product/460/47733) 配合使用，加载网络 AVIF 图片。
-   **Objective-C**
-    ```
+
+**Objective-C**
+```
     // 实例化 CloudInfinite，用来构建请求图片请求连接；
     CloudInfinite * cloudInfinite = [CloudInfinite new];
-   
+
     // 根据用户所选万象基础功能 options 进行构建 CIImageLoadRequest；
     CITransformation * transform = [CITransformation new];
     [transform setFormatWith:CIImageTypeAVIF options:CILoadTypeUrlFooter];
-   
+
     // 构建图片 CIImageLoadRequest
     [cloudInfinite requestWithBaseUrl:@"图片链接" transform:transform request:^(CIImageLoadRequest * _Nonnull request) {
         // request 构建成功的 CIImageLoadRequest 实例，
     }];
-    ```
+```
 
-   **swift**
-    ```
+**swift**
+```
     // 实例化 CloudInfinite，用来构建请求图片请求连接；
     let cloudInfinite = CloudInfinite();
-   
+
     // 根据用户所选的数据万象基础功能 options 进行构建 CIImageLoadRequest；
     let transform = CITransformation();
     transform.setFormatWith(CIImageFormat.typeAVIF, options: CILoadTypeEnum.urlFooter);
-    
+
     // 构建图片 CIImageLoadRequest
     cloudInfinite.request(withBaseUrl: "图片链接", transform: transform) { (request) in
         // request 构建成功的 CIImageLoadRequest 实例，
     }  
-    ```
+```
 
 ### 方式二：使用 AVIF 模块加载本地 AVIF 图片
 
 使用 AVIF 模块加载 AVIF 图片 Data 数据，支持加载 AVIF 动图，无需额外处理。
 
 1. 首先集成 AVIF 模块。
-   ```
-   pod 'CloudInfinite/AVIF'
-   ```
+```
+    pod 'CloudInfinite/AVIF'
+```
 2. 如果已经获取到 AVIF 图片 data 数据，则直接使用 AVIF 模块 UIImageView+AVIF 类进行解码并显示。
    **Objective-C**
-    ```
+```
     [self.avifImageView setAvifImageWithData:data loadComplete:^(NSData * _Nullable data，UIImage * _Nullable image, NSError * _Nullable error) {
 
     }];
-    ```
+```
    **swift**
-    ```
+```
     imageView.setAvifImageWith(data) { (data, image, error) in
 
     }
-    ```
+```
 
 
 <div id="5">
@@ -540,13 +540,13 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
 * #### 与SDWebImage 配合使用数据万象图片基础操作（除TPG、AVIF、WEBP相关功能外）；
 
 1. 在使用数据万象图片基础操作时需要集成 CloudInfinite/SDWebImage-CloudInfinite 模块；
-    ```
-   pod 'CloudInfinite/SDWebImage-CloudInfinite'
-    ```
+```
+    pod 'CloudInfinite/SDWebImage-CloudInfinite'
+```
 
 2. 使用（UIImageView+CI： 模仿SDWebImage调用风格，封装了一组可以传入transform的方法）
     
-    ```
+```
     实例化CITransformation 类并添加需要使用的操作；
     CITransformation * transform = [CITransformation new];
 
@@ -561,21 +561,21 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
 
     // 使用UIImageView+CI类种方法，加载图片
     [self.imageView sd_CI_setImageWithURL:[NSURL URLWithString:@"图片链接"] transformation:transform];
-    ```
+```
 
 * ### 与SDWebImage 配合使用数据万象TPG功能（支持TPG动图加载，无需额外处理）；
 
-    #### 准备工作
+#### 准备工作
     在使用TPG功能时 SDWebImage-CloudInfinite 需要依赖CloudInfinite/TPG 模块
-    ```
+```
     pod 'CloudInfinite/TPG'
-    ```
+```
 
-    #### 加载TPG图片
-    SDWebImage-CloudInfinite提供了两种加载TPG图片的方式；
+#### 加载TPG图片
+SDWebImage-CloudInfinite提供了两种加载TPG图片的方式；
 
-    ##### 方式一 调用 ```UIImageView+CI``` 加载TPG
-    ```
+##### 方式一 调用 ```UIImageView+CI``` 加载TPG
+```
     // 构建 CITransformation实例
     CITransformation * tran = [CITransformation new];
 
@@ -584,15 +584,15 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
 
     // 调用UIImageView+CI 类种方法，加载图片
     [self.imageView sd_CI_setImageWithURL:[NSURL URLWithString:@"图片链接"] transformation:transform];
-    ```
+```
 
-    ##### 方式二 全局配置加载TPG 
-    ###### 使用场景
-    1. 如果整个项目都需要使用TPG，或为已有项目接入TPG；
-    2. 或者某些固定模式的图片链接需要使用TPG;
+##### 方式二 全局配置加载TPG 
+###### 使用场景
+1. 如果整个项目都需要使用TPG，或为已有项目接入TPG；
+2. 或者某些固定模式的图片链接需要使用TPG;
 
-    ###### 具体使用
-    ```
+###### 具体使用
+```
     // 在项目启动时给CIDownloaderConfig添加需要使用TPG图片的链接正则表达式；满足这个正则的图片链接都使用TPG格式加载；
     // 所有图片都使用TPG加载
     [[CIDownloaderConfig sharedConfig] addTPGRegularExpress:@"http(s)?:.*" paramsType:CILoadTypeUrlFooter];
@@ -600,39 +600,39 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
     // 如果有的链接不需要使用TPG，给CIDownloaderConfig 添加排除的正则；
     // 请求图片主题色排除
     [[CIDownloaderConfig sharedConfig] addExcloudeTPGRegularExpress:@"http(s)?:.*imageAve"];
-    ```
+```
 * ### 与SDWebImage 配合使用数据万象WEBP功能（支持WEBP动图加载，无需额外处理）；
-    #### 准备工作
-    在使用WEBP功能时 SDWebImage-CloudInfinite 需要依赖 SDWebImageWebPCoder 库；
-    ```
+#### 准备工作
+在使用WEBP功能时 SDWebImage-CloudInfinite 需要依赖 SDWebImageWebPCoder 库；
+```
     pod 'SDWebImageWebPCoder'
-    ```
+```
 
-    #### 加载WEBP图片
-    ```
+#### 加载WEBP图片
+```
     // 实例化 CITransformation 类
     CITransformation * tran = [CITransformation new];
     // 设置转换为webp格式
     [tran setFormatWith:CIImageTypeWEBP options:CILoadTypeUrlFooter];
     // 加载图片
     [self.imageView sd_CI_setImageWithURL:[NSURL URLWithString:@"图片链接"] transformation:tran];
-    ```
+```
 
 
 * ###    与 SDWebImage 配合使用数据万象 AVIF 功能，支持 AVIF 动图加载，无需额外处理。
 
-    #### 准备工作
+#### 准备工作
 
-    在使用 AVIF 功能时，SDWebImage-CloudInfinite 需要依赖 CloudInfinite/AVIF 模块。
-    ```
+在使用 AVIF 功能时，SDWebImage-CloudInfinite 需要依赖 CloudInfinite/AVIF 模块。
+```
     pod 'CloudInfinite/AVIF'
-    ```
+```
 
-    ### 调用 UIImageView+CI 加载 AVIF
+### 调用 UIImageView+CI 加载 AVIF
 
-    **Objective-C**
+**Objective-C**
 
-    ```
+```
     // 构建 CITransformation实例
     CITransformation * tran = [CITransformation new];
 
@@ -641,11 +641,11 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
 
     // 调用UIImageView+CI 类种方法，加载图片
     [self.imageView sd_CI_setImageWithURL:[NSURL URLWithString:@"图片链接"] transformation:transform];
-    ```
+```
 
-    **swift**
+**swift**
 
-    ```
+```
     // 构建 CITransformation 实例
     let transform = CITransformation();
 
@@ -654,7 +654,7 @@ Mode 可为0或1。0：表示不开启渐进式；1：表示开启渐进式。�
 
     // 调用 UIImageView+CI 类种方法，加载图片
     imageView.sd_CI_setImage(with: NSURL.init(string: "图片链接"), transformation: transform)
-    ```
+```
 
 
 <div id="changelog"></div>
