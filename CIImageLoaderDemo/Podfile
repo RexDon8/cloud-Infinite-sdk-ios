@@ -7,8 +7,9 @@ target 'CIImageLoaderDemo' do
 #  pod 'CloudInfinite/CloudInfinite',      path:'../'
   pod 'CloudInfinite',                    path:'../'
   pod 'CloudInfinite/TPG',                path:'../'
+  pod 'CloudInfinite/AVIF',                path:'../'
   pod 'CloudInfinite/SDWebImage-CloudInfinite',     path:'../'
   pod 'CloudInfinite/Loader',             path:'../'
-  pod 'CloudInfinite/AVIF',             path:'../'
   pod 'SDWebImageWebPCoder'
 end
+

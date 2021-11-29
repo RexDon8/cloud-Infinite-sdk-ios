@@ -53,7 +53,7 @@ Pod::Spec.new do |s|
      tpg.vendored_frameworks = 'CloudInfinite/Classes/TPG/TPGDecoder/libpng.framework';
   end
   
-# AVIF解码模块
+# TPG解码模块
   s.subspec 'AVIF' do |avif|
     
     avif.source_files = 'CloudInfinite/Classes/AVIF/*',
@@ -66,6 +66,7 @@ Pod::Spec.new do |s|
   s.subspec 'SDWebImage-CloudInfinite' do |sdtpg|
     sdtpg.source_files = 'CloudInfinite/Classes/SDWebImage-CloudInfinite/*';
     sdtpg.public_header_files = 'CloudInfinite/Classes/SDWebImage-CloudInfinite/*.h';
+#    sdtpg.dependency 'CloudInfinite/TPG';
     sdtpg.dependency 'CloudInfinite/CloudInfinite';
     sdtpg.dependency 'SDWebImage';
     

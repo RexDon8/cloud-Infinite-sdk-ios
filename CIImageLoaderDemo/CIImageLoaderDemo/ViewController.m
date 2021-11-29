@@ -16,7 +16,7 @@
 #import <UIButton+WebCache.h>
 #import <SDWebImage-CloudInfinite.h>
 //#import <UIImageView+AVIF.h>
-#import <UIImageView+TPG.h>
+//#import <UIImageView+TPG.h>
 @interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic,strong)NSArray * urlArray;
@@ -216,29 +216,23 @@
     //    //    ResponsiveTransformation * tran = [[ResponsiveTransformation alloc]initWithView:self.tpgImageView scaleType:ScaleTypeAUTOFIT];
     //
     //
-//    [self.tpgImageView sd_CI_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil options:0 transformation:tran progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//        });
-//    } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-//        CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
-//        self.labTPGTime.text = [NSString stringWithFormat:@"耗时：%.2f s",linkTime];
-//        [self showDataSizeUrl:imageURL typeLable:self.labTPGType sizeLable:self.labTpgTitle];
-//    }];
+    [self.tpgImageView sd_CI_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil options:0 transformation:tran progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+        });
+    } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+        self.labTPGTime.text = [NSString stringWithFormat:@"耗时：%.2f s",linkTime];
+        [self showDataSizeUrl:imageURL typeLable:self.labTPGType sizeLable:self.labTpgTitle];
+    }];
     
     //    使用 CIImageLoader 加载TPG 图
     
-        CloudInfinite * cloudInfinite = [CloudInfinite new];
-        [cloudInfinite requestWithBaseUrl:imageUrl transform:tran request:^(CIImageLoadRequest * _Nonnull request) {
-            [[CIImageLoader shareLoader] loadData:request loadComplete:^(NSData * _Nullable data, NSError * _Nullable error) {
-                if (self.format == CIImageTypeTPG) {
-                    [self.tpgImageView setTpgImageWithData:data loadComplete:nil];
-                }
-                if (self.format == CIImageTypeAVIF) {
-//                    [self.tpgImageView setAvifImageWithData:data loadComplete:nil];
-                }
-                
-            }];
-        }];
+//        CloudInfinite * cloudInfinite = [CloudInfinite new];
+//        [cloudInfinite requestWithBaseUrl:imageUrl transform:tran request:^(CIImageLoadRequest * _Nonnull request) {
+//            [[CIImageLoader shareLoader] loadData:request loadComplete:^(NSData * _Nullable data, NSError * _Nullable error) {
+//                [self.tpgImageView setTpgImageWithData:data loadComplete:nil];
+//            }];
+//        }];
     //
     
 }

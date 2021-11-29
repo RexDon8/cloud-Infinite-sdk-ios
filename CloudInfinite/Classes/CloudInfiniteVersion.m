@@ -1,17 +1,17 @@
-#import "QCloudCoreVersion.h"
-NSString * const QCloudCoreModuleVersion = @"6.0.0";
-NSString * const QCloudCoreModuleName = @"QCloudCore";
-@interface QCloudQCloudCoreLoad : NSObject
+#import "CloudInfiniteVersion.h"
+NSString * const CloudInfiniteModuleVersion = @"1.0.0";
+NSString * const CloudInfiniteModuleName = @"CloudInfinite";
+@interface QCloudCloudInfiniteLoad : NSObject
 @end
 
-@implementation QCloudQCloudCoreLoad
+@implementation QCloudCloudInfiniteLoad
 + (void) load
 {
     Class cla = NSClassFromString(@"QCloudSDKModuleManager");
     if (cla) {
         NSMutableDictionary* module = [@{
-                                 @"name" : QCloudCoreModuleName,
-                                 @"version" : QCloudCoreModuleVersion
+                                 @"name" : CloudInfiniteModuleName,
+                                 @"version" : CloudInfiniteModuleVersion
                                  } mutableCopy];
 
           NSString* buglyID = @"";
