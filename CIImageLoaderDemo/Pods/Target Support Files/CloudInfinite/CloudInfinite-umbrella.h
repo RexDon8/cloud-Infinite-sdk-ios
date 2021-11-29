@@ -10,13 +10,6 @@
 #endif
 #endif
 
-#import "AVIFDecoderHelper.h"
-#import "AVIFImageDecoder.h"
-#import "UIImageView+AVIF.h"
-#import "UIImage+AVIFDecode.h"
-#import "avif.h"
-#import "dav1d.h"
-#import "internal.h"
 #import "CIImageLoadRequest.h"
 #import "CIMemoryCache.h"
 #import "CIResponsiveTransformation.h"
@@ -38,6 +31,7 @@
 #import "CIWaterTextMark.h"
 #import "CIImageLoader.h"
 #import "CIImageRequest.h"
+#import "AVIFImageDecoder.h"
 #import "CIDownloaderConfig.h"
 #import "CIDownloaderManager.h"
 #import "CIImageAveDecoder.h"

@@ -15,9 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(UIImage*)TPGImageWithContentsOfData:(NSData*)data;
 
-+ (UIImage *)imageFromRGBABytes:(unsigned char *)imageBytes imageSize:(CGSize)imageSize;
-
-
 @end
 
 NS_ASSUME_NONNULL_END

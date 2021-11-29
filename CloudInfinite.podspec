@@ -44,8 +44,6 @@ Pod::Spec.new do |s|
     
 # TPG解码模块
   s.subspec 'TPG' do |tpg|
-    
-    
     tpg.source_files = 'CloudInfinite/Classes/TPG/*',
                        'CloudInfinite/Classes/TPG/TPGDecoder/*',
                        'CloudInfinite/Classes/TPG/TPGDecoder/include/*';
@@ -53,7 +51,7 @@ Pod::Spec.new do |s|
      tpg.vendored_frameworks = 'CloudInfinite/Classes/TPG/TPGDecoder/libpng.framework';
   end
   
-# TPG解码模块
+# AVIF解码模块
   s.subspec 'AVIF' do |avif|
     
     avif.source_files = 'CloudInfinite/Classes/AVIF/*',
