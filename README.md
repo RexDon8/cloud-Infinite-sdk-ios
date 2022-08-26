@@ -661,6 +661,11 @@ SDWebImage-CloudInfinite提供了两种加载TPG图片的方式；
 
 ## 更新日志
 
+* #### Version 1.3.9
+    2022-08-26
+    
+    podspec删除all_load
+
 * #### Version 1.3.8
     2021-11-21
     
