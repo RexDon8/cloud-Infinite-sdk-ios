@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "CloudInfinite"
-  s.version          = "1.3.8"
+  s.version          = "1.3.9"
   s.summary          = "CloudInfinite 腾讯云iOS-SDK组件"
 
   s.description      = <<-DESC
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/tencentyun/cloud-Infinite-sdk-ios.git',:branch => 'master'}
   
   s.platform = :ios
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.static_framework = true
   s.frameworks = 'UIKit','Foundation','ImageIO'
   s.libraries = 'z','c++'
