@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "QCloudHTTPRequestDelegate.h"
 #import "QCloudHttpMetrics.h"
-#import "QCloudSignatureProvider.h"
 typedef double QCloudAbstractRequestPriority;
 
 #define QCloudAbstractRequestPriorityHigh 3.0
@@ -19,7 +18,7 @@ typedef double QCloudAbstractRequestPriority;
 typedef void (^QCloudRequestSendProcessBlock)(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend);
 typedef void (^QCloudRequestDownProcessBlock)(int64_t bytesDownload, int64_t totalBytesDownload, int64_t totalBytesExpectedToDownload);
 typedef void (^QCloudRequestDownProcessWithDataBlock)(int64_t bytesDownload, int64_t totalBytesDownload, int64_t totalBytesExpectedToDownload,
-                                                      NSData *receivedData);
+                                                      NSData * _Nullable receivedData);
 /**
  请求的抽象基类，该类封装了用于进行request-response模式数据请求的通用属性和接口。包括发起请求，相应结果，优先级处理，性能监控能常见特性。
  */
@@ -30,7 +29,7 @@ typedef void (^QCloudRequestDownProcessWithDataBlock)(int64_t bytesDownload, int
 /**
  签名信息的回调接口，该委托必须实现。签名是腾讯云进行服务时进行用户身份校验的关键手段，同时也保障了用户访问的安全性。该委托中通过函数回调来提供签名信息。
  */
-@property (nonatomic, strong) id<QCloudSignatureProvider> signatureProvider;
+
 @property (nonatomic, assign) BOOL enableQuic;
 @property (atomic, assign) BOOL forbidCancelled;
 @property (atomic, assign, readonly) BOOL canceled;
@@ -39,6 +38,10 @@ typedef void (^QCloudRequestDownProcessWithDataBlock)(int64_t bytesDownload, int
 @property (nonatomic, strong, readonly) QCloudHttpMetrics *_Nullable benchMarkMan;
 @property (atomic, assign, readonly) BOOL finished;
 @property (nonatomic, assign) NSTimeInterval timeoutInterval;
+/**
+ 用于业务中携带与request关联的参数，不参与SDK内部逻辑与网络请求；
+ */
+@property (nonatomic, strong ,nullable) NSDictionary * payload;
 /**
   协议执行结果向外通知的委托（delegate）主要包括成功和失败两种情况。与Block方式并存，当两者都设置的时候都会通知。
  */
@@ -58,7 +61,7 @@ typedef void (^QCloudRequestDownProcessWithDataBlock)(int64_t bytesDownload, int
                                                int64_t totalBytesExpectedToDownload))downloadProcessBlock;
 - (void)setDownProcessWithDataBlock:(void (^_Nullable)(int64_t bytesDownload, int64_t totalBytesDownload,
 
-                                                       int64_t totalBytesExpectedToDownload, NSData *receiveData))downloadProcessWithDataBlock;
+                                                       int64_t totalBytesExpectedToDownload, NSData * _Nullable receiveData))downloadProcessWithDataBlock;
 
 - (void)setSendProcessBlock:(void (^_Nullable)(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend))sendProcessBlock;
 

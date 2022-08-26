@@ -43,7 +43,7 @@ NSString *TaskMapKey(NSURLSessionTask *task) {
 NSString *const kQCloudRestNetURLUsageNotification = @"kQCloudRestNetURLUsageNotification";
 
 QCloudThreadSafeMutableDictionary *cloudBackGroundSessionManagersCache;
-QCloudThreadSafeMutableDictionary *QCloudBackgroundSessionManagerCache() {
+QCloudThreadSafeMutableDictionary *QCloudBackgroundSessionManagerCache(void) {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         cloudBackGroundSessionManagersCache = [QCloudThreadSafeMutableDictionary new];
@@ -213,7 +213,7 @@ QCloudThreadSafeMutableDictionary *QCloudBackgroundSessionManagerCache() {
                        forKey:kDnsLookupTookTime];
         }
        #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_0
-        if ([UIDevice currentDevice].systemVersion.floatValue >= 13.0) {
+        if (@available(iOS 13.0, *)) {
             [taskData.httpRequest.benchMarkMan directSetValue:networkMetrics.localPort forKey:kLocalPort];
             [taskData.httpRequest.benchMarkMan directSetValue:networkMetrics.remoteAddress forKey:kRemoteAddress];
             [taskData.httpRequest.benchMarkMan directSetValue:networkMetrics.remotePort forKey:kRemotePort];
@@ -411,14 +411,21 @@ QCloudThreadSafeMutableDictionary *QCloudBackgroundSessionManagerCache() {
 }
 
 - (void)cancelAllRequest {
-    @synchronized(self) {
-        NSEnumerator *enumertor = [_taskQueue objectEnumerator];
-        NSURLSessionTask *task = nil;
-        while (task = [enumertor nextObject]) {
-            [task cancel];
-        }
-        [_taskQueue removeAllObjects];
-    }
+    [self.operationQueue cancelAllOperation];
+//    @synchronized(self) {
+//        NSEnumerator *enumertor = [_taskQueue objectEnumerator];
+//        NSURLSessionTask *task = nil;
+//        while (task = [enumertor nextObject]) {
+//            if ([task respondsToSelector:@selector(cancel)]) {
+//                [task cancel];
+//            }
+//
+//            if ([task isKindOfClass:[NSNumber class]]) {
+//                [self.operationQueue cancelByRequestID:((NSNumber *)task).integerValue];
+//            }
+//        }
+//        [_taskQueue removeAllObjects];
+//    }
 }
 
 - (void)executeRestHTTPReqeust:(QCloudHTTPRequest *)httpRequest {
@@ -548,7 +555,7 @@ QCloudThreadSafeMutableDictionary *QCloudBackgroundSessionManagerCache() {
             ipAddr = [[QCloudHttpDNS shareDNS] queryIPForHost:host];
         }
         if (!ipAddr) {
-            // 查询 可用的 ip 地址
+            // 查询 可用的 ip 地址tc
             [[QCloudHttpDNS shareDNS] prepareFetchIPListForHost:host port:@"443"];
             ipAddr = [[QCloudHttpDNS shareDNS] findHealthyIpFor:host];
         }
@@ -556,8 +563,9 @@ QCloudThreadSafeMutableDictionary *QCloudBackgroundSessionManagerCache() {
             @throw [NSException exceptionWithName:NSURLErrorDomain reason:@"No Available IP Address for QUIC." userInfo:nil];
         }
 
-        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-
+        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:transformRequest.allHTTPHeaderFields];
+  
+ 
         dic[@"quicHost"] = host;
         dic[@"quicIP"] = ipAddr;
         if (uploadFileURL) {
@@ -568,8 +576,6 @@ QCloudThreadSafeMutableDictionary *QCloudBackgroundSessionManagerCache() {
             dic[@"body"] = [NSNull null];
         }
         
-        dic[@"port"] = @(httpRequest.runOnService.configuration.port);
-        dic[@"tcp_port"] = @(httpRequest.runOnService.configuration.tcp_port);
         SEL createQuicTaskSelector = NSSelectorFromString(@"quicDataTaskWithRequst:infos:");
         if ([_quicSession respondsToSelector:createQuicTaskSelector]) {
             IMP imp = [_quicSession methodForSelector:createQuicTaskSelector];

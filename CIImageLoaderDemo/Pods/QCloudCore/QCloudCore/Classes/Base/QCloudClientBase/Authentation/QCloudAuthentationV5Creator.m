@@ -24,7 +24,7 @@
 - (NSDictionary *)filteHeaders;
 {
     NSMutableDictionary *signedHeaders = [[NSMutableDictionary alloc] init];
-    __block const NSMutableArray *shouldSignedHeaderList =
+    __block const NSArray *shouldSignedHeaderList =
         @[@"Cache-Control", @"Content-Disposition", @"Content-Encoding", @"Content-Length", @"Content-MD5", @"Content-Type", @"Expect", @"Expires", @"If-Match" , @"If-Modified-Since" , @"If-None-Match" , @"If-Unmodified-Since" , @"Origin" , @"Range" , @"response-cache-control" , @"response-content-disposition" , @"response-content-encoding" , @"response-content-language" , @"response-content-type" , @"response-expires" , @"transfer-encoding" , @"versionId",@"Host"];
     [self enumerateKeysAndObjectsUsingBlock:^(id _Nonnull key, id _Nonnull obj, BOOL *_Nonnull stop) {
         //签名的Headers列表：x开头的(x-cos-之类的),content-length,content-MD5
@@ -151,11 +151,12 @@
         return [aim copy];
     };
 
-    // 第一步生成signKey
+    // 11第一步生成signKey
     NSString *signKey = [NSString qcloudHMACHexsha1:signTime secret:self.credential.secretKey];
     // Step2 构成FormatString
     NSString *headerFormat = QCloudURLEncodeParamters(LowcaseDictionary(headers), YES, NSUTF8StringEncoding);
-    NSString *urlFormat = [ QCloudURLEncodeParamters(LowcaseDictionary(urlParamters), YES, NSUTF8StringEncoding) lowercaseString];
+//    NSString *urlFormat = QCloudURLEncodeParamters(LowcaseDictionary(urlParamters), YES, NSUTF8StringEncoding);
+    NSString *urlFormat = QCloudURLEncodeParamters(LowcaseDictionary(urlParamters), YES, NSUTF8StringEncoding);
 
     NSMutableString *formatString = [NSMutableString new];
 

@@ -25,9 +25,6 @@ Pod::Spec.new do |s|
   s.static_framework = true
   s.frameworks = 'UIKit','Foundation','ImageIO'
   s.libraries = 'z','c++'
-  s.xcconfig = {
-     "OTHER_LDFLAGS" => "$(inherited) -ObjC -all_load -force_load",
-   }
 #  图片链接组装模块
   s.default_subspec  = 'CloudInfinite'
   s.subspec 'CloudInfinite' do |default|

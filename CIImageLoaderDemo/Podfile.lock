@@ -1,6 +1,7 @@
 PODS:
   - CloudInfinite (1.3.8):
     - CloudInfinite/CloudInfinite (= 1.3.8)
+  - CloudInfinite/AVIF (1.3.8)
   - CloudInfinite/CloudInfinite (1.3.8)
   - CloudInfinite/Loader (1.3.8):
     - CloudInfinite/CloudInfinite
@@ -9,26 +10,27 @@ PODS:
     - CloudInfinite/CloudInfinite
     - SDWebImage
   - CloudInfinite/TPG (1.3.8)
-  - libwebp (1.2.1):
-    - libwebp/demux (= 1.2.1)
-    - libwebp/mux (= 1.2.1)
-    - libwebp/webp (= 1.2.1)
-  - libwebp/demux (1.2.1):
+  - libwebp (1.2.3):
+    - libwebp/demux (= 1.2.3)
+    - libwebp/mux (= 1.2.3)
+    - libwebp/webp (= 1.2.3)
+  - libwebp/demux (1.2.3):
     - libwebp/webp
-  - libwebp/mux (1.2.1):
+  - libwebp/mux (1.2.3):
     - libwebp/demux
-  - libwebp/webp (1.2.1)
+  - libwebp/webp (1.2.3)
   - Masonry (1.1.0)
-  - QCloudCore/WithoutMTA (6.0.0)
-  - SDWebImage (5.12.1):
-    - SDWebImage/Core (= 5.12.1)
-  - SDWebImage/Core (5.12.1)
-  - SDWebImageWebPCoder (0.8.4):
+  - QCloudCore/WithoutMTA (6.1.4)
+  - SDWebImage (5.13.2):
+    - SDWebImage/Core (= 5.13.2)
+  - SDWebImage/Core (5.13.2)
+  - SDWebImageWebPCoder (0.9.0):
     - libwebp (~> 1.0)
-    - SDWebImage/Core (~> 5.10)
+    - SDWebImage/Core (~> 5.13)
 
 DEPENDENCIES:
   - CloudInfinite (from `../`)
+  - CloudInfinite/AVIF (from `../`)
   - CloudInfinite/Loader (from `../`)
   - CloudInfinite/SDWebImage-CloudInfinite (from `../`)
   - CloudInfinite/TPG (from `../`)
@@ -48,13 +50,13 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CloudInfinite: 69a217304f0d292ea446c125e166529f0f5f3a01
-  libwebp: 98a37e597e40bfdb4c911fc98f2c53d0b12d05fc
+  CloudInfinite: f4f462b14a97398b3c6f5f0586d5d62c8c95f467
+  libwebp: 60305b2e989864154bd9be3d772730f08fc6a59c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  QCloudCore: 860b1b99d15f2d18da44d48295a53f300af33261
-  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
-  SDWebImageWebPCoder: f93010f3f6c031e2f8fb3081ca4ee6966c539815
+  QCloudCore: f02b07282d80787ff99572f67391f9fb6b015a31
+  SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
+  SDWebImageWebPCoder: 3dc350894112feab5375cfba9ce0986544a66a69
 
-PODFILE CHECKSUM: b935e47ee240d1cbf437ffb782b9b7db5b60fa80
+PODFILE CHECKSUM: 266c7263b30d7600eef6edc7ca3a7e1aa92fcdb7
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

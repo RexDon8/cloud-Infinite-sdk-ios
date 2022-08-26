@@ -7,7 +7,8 @@
 //
 
 #import "QCloudServiceConfiguration.h"
-#import "QCloudServiceConfiguration_Private.h"
+#import "QCloudConfiguration_Private.h"
+#import "QCloudServiceConfiguration+Quality.h"
 #if TARGET_OS_IOS
 #import <UIKit/UIKit.h>
 #endif
@@ -15,26 +16,7 @@
 static NSString *const QCloudServiceConfigurationUnknown = @"Unknown";
 
 @implementation QCloudServiceConfiguration
-- (instancetype)init
-{
-    self = [super init];
-    if (!self) {
-        return self;
-    }
-    self.port = 443;
-    self.tcp_port = 80;
-    return self;
-}
-- (NSString *)userAgent {
-    NSString * (^UserAgent)(NSString *productKey) = ^(NSString *productKey) {
-        return [NSString stringWithFormat:@"%@-%@", productKey, self.productVersion];
-    };
-    if (self.userAgentProductKey.length && self.productVersion.length) {
-        return UserAgent(self.userAgentProductKey);
-    } else {
-        return nil;
-    }
-}
+
 
 - (instancetype)copyWithZone:(NSZone *)zone {
     QCloudServiceConfiguration *config = [[QCloudServiceConfiguration allocWithZone:zone] init];
@@ -43,13 +25,10 @@ static NSString *const QCloudServiceConfigurationUnknown = @"Unknown";
     config.userAgentProductKey = self.userAgentProductKey;
     config.endpoint = [self.endpoint copy];
     config.productVersion = self.productVersion;
-    config.backgroundIdentifier = self.backgroundIdentifier;
-    config.backgroundEnable = self.backgroundEnable;
     config.isCloseShareLog = self.isCloseShareLog;
     config.timeoutInterval = self.timeoutInterval;
-    config.port = self.port;
-    config.tcp_port = self.tcp_port;
     config.enableQuic = self.enableQuic;
+    config.disableSetupBeacon = self.disableSetupBeacon;
     return config;
 }
 @end

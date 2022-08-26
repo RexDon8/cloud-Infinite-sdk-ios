@@ -17,22 +17,32 @@
 #import "QCloudService.h"
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonCrypto.h>
-
+#import "NSObject+QCloudModelTool.h"
+#import "QCloudLogger.h"
 NS_ASSUME_NONNULL_BEGIN
 
 QCloudResponseSerializerBlock QCloudResponseObjectSerilizerBlock(Class modelClass) {
     return ^(NSHTTPURLResponse *response, id inputData, NSError *__autoreleasing *error) {
-        if (![inputData isKindOfClass:[NSDictionary class]]) {
-            if (error != NULL) {
-                *error = [NSError qcloud_errorWithCode:QCloudNetworkErrorCodeResponseDataTypeInvalid
-                                               message:[NSString stringWithFormat:@"ServerError:希望获得字典类型数据,但是得到%@", [inputData class]]];
-                
-            }
-            return (id)nil;
+        if([inputData isKindOfClass:[NSDictionary class]]){
+            return [modelClass qcloud_modelWithDictionary:inputData];
         }
-        return [modelClass qcloud_modelWithDictionary:inputData];
+        if([inputData isKindOfClass:[NSArray class]]){
+            id array = [modelClass jsonsToModelsWithJsons:inputData];
+            return array;
+            
+        }
+        
+        if (error != NULL) {
+                *error = [NSError qcloud_errorWithCode:QCloudNetworkErrorCodeResponseDataTypeInvalid
+                                                       message:[NSString stringWithFormat:@"ServerError:希望获得字典类型数据,但是得到%@", [inputData class]]];
+        
+        }
+        return (id)nil;
+        
+        
     };
 }
+
 
 QCloudResponseSerializerBlock QCloudResponseCOSNormalRSPSerilizerBlock
     = ^(NSHTTPURLResponse *response, id inputData, NSError *__autoreleasing *error) {
@@ -60,6 +70,12 @@ QCloudResponseSerializerBlock QCloudResponseCOSNormalRSPSerilizerBlock
           }
           return (id)(transformData.data);
       };
+
+@interface QCloudBizHTTPRequest ()
+@property (nonatomic,assign)NSInteger semp_flag;
+@property (nonatomic,strong,nullable)dispatch_semaphore_t semaphore;
+@end
+
 
 @implementation QCloudBizHTTPRequest
 
@@ -108,7 +124,8 @@ QCloudResponseSerializerBlock QCloudResponseCOSNormalRSPSerilizerBlock
 
 - (BOOL)prepareInvokeURLRequest:(NSMutableURLRequest *)urlRequest error:(NSError *__autoreleasing *)error {
     //    NSAssert(self.runOnService, @"RUN ON SERVICE is nil%@", self.runOnService);
-    __block dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    self.semaphore = dispatch_semaphore_create(0);
+    self.semp_flag = 1;
     __block NSError *localError;
     __block BOOL isSigned;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
@@ -141,25 +158,31 @@ QCloudResponseSerializerBlock QCloudResponseCOSNormalRSPSerilizerBlock
                                   // null authorization
                               }
                           }
-                          dispatch_semaphore_signal(semaphore);
+                          dispatch_semaphore_signal(self.semaphore);
+                          self.semp_flag = 2;
                       }];
     });
 
-    dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 15 * NSEC_PER_SEC));
+    if (self.semp_flag == 1) {
+        dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 15 * NSEC_PER_SEC));
+    }
+    
+    
     if (localError) {
         if (NULL != error) {
             *error = localError;
         }
         return NO;
     } else if (!isSigned) {
-        *error = [NSError
-                  qcloud_errorWithCode:QCloudNetworkErrorCodeCredentialNotReady
-                  message:nil
-                  infos:@{
-                       @"Description" :
-                           @"InvalidCredentials：获取签名超时，请检查是否实现签名回调，签名回调是否有调用,并且在最后是否有调用 ContinueBlock 传入签名"
-                   }];
-
+        if (NULL != error) {
+            *error = [NSError
+                      qcloud_errorWithCode:QCloudNetworkErrorCodeCredentialNotReady
+                      message:nil
+                      infos:@{
+                           @"Description" :
+                               @"InvalidCredentials：获取签名超时，请检查是否实现签名回调，签名回调是否有调用,并且在最后是否有调用 ContinueBlock 传入签名"
+                       }];
+        }
         return NO;
     } else {
         return YES;
@@ -177,6 +200,13 @@ NSString *EncrytNSDataMD5Base64(NSData *data) {
     NSData *md5data = [NSData dataWithBytes:result length:CC_MD5_DIGEST_LENGTH];
     return [md5data base64EncodedStringWithOptions:0];
 }
+
+- (void)dealloc{
+    if (self.semp_flag == 1) {
+        dispatch_semaphore_signal(self.semaphore);
+    }
+}
+
 - (void)setCOSServerSideEncyption {
     self.customHeaders[@"x-cos-server-side-encryption"] = @"AES256";
 }

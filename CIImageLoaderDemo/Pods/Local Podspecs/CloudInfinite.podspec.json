@@ -25,9 +25,6 @@
     "z",
     "c++"
   ],
-  "xcconfig": {
-    "OTHER_LDFLAGS": "$(inherited) -ObjC -all_load -force_load"
-  },
   "default_subspecs": "CloudInfinite",
   "subspecs": [
     {
