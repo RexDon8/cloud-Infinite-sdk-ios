@@ -3572,6 +3572,41 @@
 			};
 			name = Release;
 		};
+		0F17ACC092D7BE79EA09F4028BE8C390 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A0DCBF77E8013D18CAAF73C7B5337A4 /* CloudInfinite.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CloudInfinite/CloudInfinite-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CloudInfinite/CloudInfinite-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/CloudInfinite/CloudInfinite.modulemap";
+				PRODUCT_MODULE_NAME = CloudInfinite;
+				PRODUCT_NAME = CloudInfinite;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		120682A808A2F48744EE271AC0F564DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4E42CF7A5856F21B7ACF9EA6E7CFFE16 /* QCloudCore.debug.xcconfig */;
@@ -3698,6 +3733,40 @@
 				MODULEMAP_FILE = "Target Support Files/SDWebImage/SDWebImage.modulemap";
 				PRODUCT_MODULE_NAME = SDWebImage;
 				PRODUCT_NAME = SDWebImage;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		52C240F69E5575E26B8ED1484C292244 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE7C0194A4F4FF419DA5216D3D0844B2 /* CloudInfinite.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CloudInfinite/CloudInfinite-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CloudInfinite/CloudInfinite-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/CloudInfinite/CloudInfinite.modulemap";
+				PRODUCT_MODULE_NAME = CloudInfinite;
+				PRODUCT_NAME = CloudInfinite;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -3908,40 +3977,6 @@
 			};
 			name = Release;
 		};
-		BD987DDB2800E8CF413B4A47766253DB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE7C0194A4F4FF419DA5216D3D0844B2 /* CloudInfinite.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CloudInfinite/CloudInfinite-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CloudInfinite/CloudInfinite-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/CloudInfinite/CloudInfinite.modulemap";
-				PRODUCT_MODULE_NAME = CloudInfinite;
-				PRODUCT_NAME = CloudInfinite;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		C071D92B7146BEADB166F53828E56F50 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 87637026FE2DA794A5F58A7429C1ECAA /* Pods-CIImageLoaderDemo.debug.xcconfig */;
@@ -4044,41 +4079,6 @@
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
-		};
-		DA9C98D49EEEF8692DF7414EB1E04DB6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A0DCBF77E8013D18CAAF73C7B5337A4 /* CloudInfinite.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CloudInfinite/CloudInfinite-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CloudInfinite/CloudInfinite-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/CloudInfinite/CloudInfinite.modulemap";
-				PRODUCT_MODULE_NAME = CloudInfinite;
-				PRODUCT_NAME = CloudInfinite;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		DB5BB0F274FC5D790016BECB2CA424A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -4189,8 +4189,8 @@
 		75327ADFB51BDE3DCEEB8B74887C15E6 /* Build configuration list for PBXNativeTarget "CloudInfinite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BD987DDB2800E8CF413B4A47766253DB /* Debug */,
-				DA9C98D49EEEF8692DF7414EB1E04DB6 /* Release */,
+				52C240F69E5575E26B8ED1484C292244 /* Debug */,
+				0F17ACC092D7BE79EA09F4028BE8C390 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
