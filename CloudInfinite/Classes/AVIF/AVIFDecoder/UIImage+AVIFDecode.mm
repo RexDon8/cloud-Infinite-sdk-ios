@@ -191,7 +191,12 @@ UIImage * convertAvifRGBImageToUIImage(avifRGBImage avifRGBImage)
     if (avifRGBImage.pixels == NULL) {
         NSLog(@"");
     }
-
+    
+    CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault ;
+    if (avifRGBImage.format == AVIF_RGB_FORMAT_RGBA) {
+        bitmapInfo = bitmapInfo | kCGImageAlphaLast;
+    }
+    
     CFDataRef data = CFDataCreate(kCFAllocatorDefault, avifRGBImage.pixels, rowBytes * height);
     CGDataProviderRef provider = CGDataProviderCreateWithCFData(data);
     CFRelease(data);
@@ -202,7 +207,7 @@ UIImage * convertAvifRGBImageToUIImage(avifRGBImage avifRGBImage)
                                        bytesPerRow,
                                        rowBytes,
                                        colorSpace,
-                                       kCGBitmapByteOrderDefault,
+                                       bitmapInfo,
                                        provider,
                                        NULL,
                                        NO,

@@ -128,7 +128,6 @@ UIImage* decodeTPG2PNG(NSData * data)
     int bufsize = width*height*4;
     unsigned char* pOutData = (unsigned char*)malloc(bufsize);
     
-    
     TPGOutFrame outFrame = {0};
     outFrame.dstWidth = width;
     outFrame.dstHeight = height;
@@ -161,11 +160,18 @@ UIImage* decodeTPG2PNG(NSData * data)
     outData.bit_depth = 8;
     
     
+    for(int i = 0; i<width*height*4; i=i+4)
+    {
+        pOutData[i] = pOutData[i] * pOutData[i+3] / 255;
+        pOutData[i+1] = pOutData[i+1] * pOutData[i+3] / 255;
+        pOutData[i+2] = pOutData[i+2] * pOutData[i+3] / 255;
+        pOutData[i+3] = pOutData[i+3] * pOutData[i+3] / 255;
+    }
+    
     UIImage* result = [UIImage imageFromRGBABytes:pOutData imageSize:CGSizeMake(width, height)];
     
     TPGDecDestroy(pDec);
     pDec = NULL;
-    
     free(pOutData);
     pOutData = NULL;
     
@@ -244,7 +250,6 @@ UIImage* decodeTPGGIF(NSData * data)
             stats = TPGDecodeImage(TPGDec, pStreamBuf, stream_len, i, &outFrame);
             int time = -1;
             stats = TPGGetDelayTime(TPGDec, pStreamBuf, stream_len, i, &time);
-            printf("time = %d\n", time);
             if (TPG_STATUS_OK != stats)
             {
                 break;
@@ -396,7 +401,6 @@ UIImage* decodeTPGGIF(NSData * data)
 }
 
 + (CGImageRef)imageRefFromRGBABytes:(unsigned char *)imageBytes imageSize:(CGSize)imageSize {
-    
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGContextRef context = CGBitmapContextCreate(imageBytes,
