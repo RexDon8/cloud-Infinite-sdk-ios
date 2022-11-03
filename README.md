@@ -661,6 +661,16 @@ SDWebImage-CloudInfinite提供了两种加载TPG图片的方式；
 
 ## 更新日志
 
+* #### Version 1.4.1
+    2022-08-26
+    
+    修复tpg 解码含有透明通道的图片
+
+* #### Version 1.4.0
+    2022-08-26
+    
+    yuv增加armv7架构
+
 * #### Version 1.3.9
     2022-08-26
     
