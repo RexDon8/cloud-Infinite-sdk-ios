@@ -165,7 +165,7 @@ UIImage* decodeTPG2PNG(NSData * data)
         pOutData[i] = pOutData[i] * pOutData[i+3] / 255;
         pOutData[i+1] = pOutData[i+1] * pOutData[i+3] / 255;
         pOutData[i+2] = pOutData[i+2] * pOutData[i+3] / 255;
-        pOutData[i+3] = pOutData[i+3] * pOutData[i+3] / 255;
+        pOutData[i+3] = pOutData[i+3];
     }
     
     UIImage* result = [UIImage imageFromRGBABytes:pOutData imageSize:CGSizeMake(width, height)];
