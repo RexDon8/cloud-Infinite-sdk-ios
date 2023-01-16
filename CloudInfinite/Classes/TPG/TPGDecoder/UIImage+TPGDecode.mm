@@ -25,7 +25,6 @@ double count = 0;
 
 UIImage* decodeTPG2JPG(NSData * data)
 {
-    
     unsigned char * pStreamBuf = (unsigned char *)[data bytes];
     int length = data.length;
     TPGFeatures features = {0};
@@ -418,7 +417,8 @@ UIImage* decodeTPGGIF(NSData * data)
 }
 
 +(UIImage*)TPGImageWithContentsOfData:(NSData*)data{
-    UIImage* resultImage =  [UIImage onTPGDecodeWithData:data];
+    NSData * tempData = [[data mutableCopy] copy];;
+    UIImage* resultImage =  [UIImage onTPGDecodeWithData:tempData];
     return resultImage;
 }
 
